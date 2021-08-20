@@ -12,19 +12,19 @@
 </head>
 <body>
     <div class="left_menu">
-        <a href="/" id="logo">유기동물 찾기 (*이름 미확정)</a>
+        <a href="/" id="logo">멈뭄미 고먐미</a>
         <ul class="main_menu">
             <li>
                 <a href="/">Overview <span>전체통계</span></a>
             </li>
             <li>
-                <a href="#">Puppy <span>강아지</span></a>
+                <a href="/dog">Puppy <span>강아지</span></a>
             </li>
             <li>
-                <a href="#">Kitty <span>고양이</span></a>
+                <a href="/cat">Kitty <span>고양이</span></a>
             </li>
             <li>
-                <a href="#">Protection Center <span>보호센터정보</span></a>
+                <a href="/center">Protection Center <span>보호센터정보</span></a>
             </li>
         </ul>
     </div>
