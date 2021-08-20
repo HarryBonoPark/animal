@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.DogInfoMapper">
+<select id="selectDogInfo" resultType="com.greenart.vo.AnimalInfoVO">
+    select
+    case when sexCd = 'F' then '암컷'
+        when sexCd = 'M' then '수컷' end as sexCd,
+    	filename, kindCd, noticeSdt, age, careNm  
+    from animal_info
+    where 
+    <![CDATA[
+	    date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+	    and 
+	    date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 10 day)
+	    order by noticeSdt desc 
+    ]]>
+</select>
+</mapper>

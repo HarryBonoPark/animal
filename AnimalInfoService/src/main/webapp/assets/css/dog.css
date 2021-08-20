@@ -1,0 +1,14 @@
+.dog_header{margin-top: 87px; width: 830px; ; 
+        box-sizing: border-box; padding-left: 20px;}
+.dog_box{
+    background-color: #fff; margin-right: 20px;
+    width: calc((100% - 60px) / 3); display: inline-block;vertical-align: top; 
+    margin-bottom: 20px; font-size: 16px; text-align: center;
+    padding-bottom: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+}
+.dog_box p{font-size: 15px; font-family:"Noto Sans KR" sans-serif;}
+.dog_box:nth-child(3n){margin-right: 0;}
+.dogfile{margin-top: 10px; width: 70%; height:130px; position: relative; overflow: hidden; margin:10px auto; border-radius: 5px;
+background-color: #f4f4f4;}
+.dogfile img {height: 120%; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+.dog_box > span {font-weight: 800;}
