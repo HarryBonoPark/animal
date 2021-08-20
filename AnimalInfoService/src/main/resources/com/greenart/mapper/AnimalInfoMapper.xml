@@ -16,4 +16,21 @@
             #{noticeEdt}, #{noticeNo}, #{orgNm}, #{processState}, #{sexCd}, #{specialMark}, #{weight}
         )
     </insert>
+    <!-- Today -->
+    <select id="selectAnimalInfoByDate" resultType="com.greenart.vo.AnimalInfoVO"> 
+        select count(*) from animal_info
+        where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
+    </select>
+    <!-- 누적 유기 -->
+    <select id="selectAccAnimalCnt" resultType="com.greenart.vo.AnimalInfoVO">
+        select count(*) as accDogCnt from animal_info
+        <![CDATA[
+        where noticeSdt <= date(#{date})
+        ]]>
+    </select>
+
+    <select id="selectAnimalStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
+        select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
+        and processState != '종료(반환)'
+    </select>
 </mapper>

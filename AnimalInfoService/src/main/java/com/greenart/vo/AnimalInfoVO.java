@@ -29,4 +29,7 @@ public class AnimalInfoVO {
     private String sexCd;
     private String specialMark;
     private String weight;
+
+    private String accDogCnt;
+    
 }

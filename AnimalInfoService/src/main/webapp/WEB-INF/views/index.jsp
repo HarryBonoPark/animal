@@ -7,11 +7,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유기동물 조회 서비스</title>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+    <script src="/assets/js/index.js"></script>
 </head>
 <body>
     <div class="container">
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
-        <div class="dashboard_area"></div>
+        <div class="dashboard_area">
+            <div class="dashboard_content">
+                <div class="content_left">
+                    <p class="ani_title">2021 유기된 강아지 수</p>
+                    <p class="ani_number">0</p>
+                </div>
+                <div class="content_right">
+                    <!-- <canvas id="regional_status" style="width: 100%; height: 100%;"></canvas> -->
+                    <!-- <p class="ani_title">TODAY 유기 수</p>
+                    <p class="ani_number" id="decideCnt">0</p> -->
+                </div>
+            </div>
+            <div class="dashboard_content">
+                <div class="content_left">
+                    <!-- <canvas id="confirmed_chart" style="width: 100%; height: 100%;"></canvas> -->
+                    <p class="ani_title">TODAY 유기 수</p>
+                    <p class="ani_number">${animalInfo.noticeSdt}</p>
+                </div>
+                <div class="content_right">
+                    <!-- <canvas id="vaccine_chart" style="width: 100%; height: 100%;"></canvas> -->
+                    <p class="ani_title">보호 중</p>
+                    <p class="ani_number">0</p>
+                </div>
+            </div>
+            <div class="dashboard_content">
+                <div class="content_left live_confirm_area">
+                    <canvas id="animal_status" style="width: 100%; height: 100%;"></canvas>
+                    <!-- <div class="live_confirm_item">
+                        <span class="time">16분 전</span>
+                        <span class="region">경남 고성군</span>
+                        <span class="num">2</span>명 추가확진
+                    </div>
+                    <div class="live_confirm_item">
+                        <span class="time">16분 전</span>
+                        <span class="region">경남 고성군</span>
+                        <span class="num">2</span>명 추가확진
+                    </div> -->
+                </div>
+                <div class="content_right">
+                    <!-- <table class="region_confirm_tbl">
+                        <thead>
+                            <tr>
+                                <td>지역</td>
+                                <td>누적확진자</td>
+                                <td>신규확진자</td>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                    <div class="region_pager_area">
+                        <button id="region_prev">&lt;</button>
+                        <span class="current">1</span> / <span class="total">6</span>
+                        <button id="region_next">&gt;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_content">
+                <div class="content_left">
+                    <canvas id="gen_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="content_right">
+                    <canvas id="age_chart" style="width: 100%; height: 100%;"></canvas>
+                </div> -->
+            </div>
+        </div>
     </div>
 </body>
 </html>

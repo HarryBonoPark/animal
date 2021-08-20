@@ -1,11 +1,8 @@
-package com.greenart.api;
+package com.greenart.component;
 
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,26 +11,29 @@ import com.greenart.service.AnimalInfoService;
 import com.greenart.vo.AnimalInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-@RestController
-public class AnimalAPIController {
-    @Autowired
-    AnimalInfoService service;
-    @GetMapping("/api/animal")
-    public Map<String, Object> getAnimalHomeInfo() throws Exception {
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+@Component
+public class HomeComponent {
+    @Autowired AnimalInfoService service;
+
+    @Scheduled(cron="* */10 * * * *")
+    public void getHomeInfo()throws Exception{
+        System.out.println("cron schedule");
+        Date todaydt = new Date();
+        SimpleDateFormat dtFormatter = new SimpleDateFormat("YYYYMMdd");
+        String today = dtFormatter.format(todaydt);
+        System.out.println(today);
 
         StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=FVm2RjOykHRLs6b5caz%2FuG2F9lBc1o2FrwfILXc3G2kEk2i8fJEMUljI95nRVGfG6WHyfA1S1rQYpCH5bDVTTw%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("bgnde","UTF-8") + "=" + URLEncoder.encode("20210101", "UTF-8")); /*유기날짜 (검색 시작일)*/
-        urlBuilder.append("&" + URLEncoder.encode("endde","UTF-8") + "=" + URLEncoder.encode("20210820", "UTF-8")); /*유기날짜 (검색 종료일)*/
+        urlBuilder.append("&" + URLEncoder.encode("bgnde","UTF-8") + "=" + URLEncoder.encode(today, "UTF-8")); /*유기날짜 (검색 시작일)*/
+        urlBuilder.append("&" + URLEncoder.encode("endde","UTF-8") + "=" + URLEncoder.encode(today, "UTF-8")); /*유기날짜 (검색 종료일)*/
         urlBuilder.append("&" + URLEncoder.encode("upkind","UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));  /*축종코드 - 개 : 417000 - 고양이 : 422400 - 기타 : 429900*/
         urlBuilder.append("&" + URLEncoder.encode("state","UTF-8") + "=" + URLEncoder.encode("null", "UTF-8")); /*상태 - 전체 : null(빈값) - 공고중 : notice - 보호중 : protect*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));  /*페이지 번호*/
@@ -140,42 +140,13 @@ public class AnimalAPIController {
 
             service.insertAnimalInfo(vo);
         }
-        
-        return resultMap;
     }
+
     public static String getTagValue(String tag, Element elem) {
         NodeList nlList = elem.getElementsByTagName(tag).item(0).getChildNodes();
         if(nlList == null) return null;
         Node node = (Node) nlList.item(0);
         if(node == null) return null;
         return node.getNodeValue();
-    }
-
-//     @GetMapping("/api/homeInfo/{date}")
-//     public Map<String, Object> getHomeInfoDate(@PathVariable String date){
-//         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-//         AnimalInfoVO data = null;
-//         if(date.equals("today")){
-//             data = service.selectTodayAnimalInfo();
-//         }
-//         resultMap.put("status", true);
-//         resultMap.put("data", data);
-
-//         return resultMap;
-//     }
-
-    @GetMapping("/api/status/{date}")
-    public Map<String, Object> getStatusDate(@PathVariable String date){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        if(date.equals("today")){
-            List<AnimalInfoVO> list = service.selectAnimalTodayStatusByDate(date);
-            resultMap.put("status", true);
-            resultMap.put("data", list);
-        } else {
-            List<AnimalInfoVO> list = service.selectAnimalStatusInfo(date);
-            resultMap.put("status", true);
-            resultMap.put("data", list);
-        }
-        return resultMap;
     }
 }
