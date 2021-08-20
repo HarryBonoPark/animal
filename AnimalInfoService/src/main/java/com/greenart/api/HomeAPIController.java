@@ -17,9 +17,10 @@ import org.w3c.dom.NodeList;
 
 @RestController
 public class HomeAPIController {
-    @GetMapping("/api/corona")
-    public Map<String, Object> getCoronaInfo(@RequestParam String startDt, @RequestParam String endDt) throws Exception{
+    @GetMapping("/api/home")
+    public Map<String, Object> getAnimalHome() throws Exception{
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
         StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=FVm2RjOykHRLs6b5caz%2FuG2F9lBc1o2FrwfILXc3G2kEk2i8fJEMUljI95nRVGfG6WHyfA1S1rQYpCH5bDVTTw%3D%3D"); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("bgnde","UTF-8") + "=" + URLEncoder.encode("20140601", "UTF-8"));
@@ -27,8 +28,8 @@ public class HomeAPIController {
         urlBuilder.append("&" + URLEncoder.encode("upkind","UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
         urlBuilder.append("&" + URLEncoder.encode("state","UTF-8") + "=" + URLEncoder.encode("notice", "UTF-8"));
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1000", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("neuter_yn","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); 
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("50000", "UTF-8")); /*한 페이지 결과 수*/
+        // urlBuilder.append("&" + URLEncoder.encode("neuter_yn","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); 
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -48,6 +49,30 @@ public class HomeAPIController {
             // 순차조회
             Node node =nList.item(i);
             Element elem = (Element) node;
+
+            System.out.println(getTagValue("age", elem));
+            System.out.println(getTagValue("careAddr", elem));
+            System.out.println(getTagValue("careNm", elem));
+            System.out.println(getTagValue("careTel", elem));
+            System.out.println(getTagValue("filename", elem));
+            System.out.println(getTagValue("chargeNm", elem));
+            System.out.println(getTagValue("colorCd", elem));
+            System.out.println(getTagValue("desertionNo", elem));
+            System.out.println(getTagValue("happenDt", elem));
+            System.out.println(getTagValue("happenPlace", elem));
+            System.out.println(getTagValue("kindCd", elem));
+            System.out.println(getTagValue("neuterYn", elem));
+            System.out.println(getTagValue("noticeEdt", elem));
+            System.out.println(getTagValue("noticeNo", elem));
+            System.out.println(getTagValue("noticeSdt", elem));
+            System.out.println(getTagValue("officetel", elem));
+            System.out.println(getTagValue("orgNm", elem));
+            System.out.println(getTagValue("popfile", elem));
+            System.out.println(getTagValue("processState", elem));
+            System.out.println(getTagValue("sexCd", elem));
+            System.out.println(getTagValue("specialMark", elem));
+            System.out.println(getTagValue("weight", elem));
+            System.out.println("==============================================");
 
             // CoronaInfoVO vo = new CoronaInfoVO();
             // vo.setAccExamCnt(Integer.parseInt(getTagValue("accExamCnt", elem))); // 누적 검사 수
