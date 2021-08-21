@@ -1,7 +1,7 @@
 $(function(){
     $.ajax({
         type:"get",
-        url:"/api/dog/{date}",
+        url:"/api/dog/2021-08-20",
         success:function(r){
             console.log(r);
             $(".dog_area").html("");

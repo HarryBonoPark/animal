@@ -19,7 +19,6 @@ public class DogInfoAPIController {
     public Map<String, Object> getDogInfo(@PathVariable String date){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         
-
         List<AnimalInfoVO> list = service.selectDogInfo(date);
 
         resultMap.put("status",true);

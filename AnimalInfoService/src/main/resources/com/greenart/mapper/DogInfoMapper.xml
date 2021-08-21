@@ -12,7 +12,7 @@
     <![CDATA[
 	    date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
 	    and 
-	    date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 10 day)
+	    date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 1 month)
 	    order by noticeSdt desc 
     ]]>
 </select>
