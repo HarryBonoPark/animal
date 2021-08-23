@@ -3,17 +3,40 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.DogInfoMapper">
 <select id="selectDogInfo" resultType="com.greenart.vo.AnimalInfoVO">
-    select
-    case when sexCd = 'F' then '암컷'
-        when sexCd = 'M' then '수컷' end as sexCd,
-    	filename, kindCd, noticeSdt, age, careNm  
-    from animal_info
+        select * ,
+            case when sexCd = 'F' then '암컷'
+            when sexCd = 'M' then '수컷' end as sexCd,
+            case when neuterYn = 'N' then '중성화 X'
+            when neuterYn = 'U' then '중성화 O' end as neuterYn
+        from animal_info
     where 
-    <![CDATA[
-	    date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
-	    and 
-	    date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 1 month)
-	    order by noticeSdt desc 
+    <![CDATA[        
+            date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+            and 
+            date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 4 day)
+            order by noticeSdt desc
     ]]>
 </select>
+<select id="selectCnt" resultType="java.lang.Integer">
+    select count(*) as allCnt 
+    from animal_info 
+	where 
+    <![CDATA[
+	date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+	and 
+	date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 4 day)
+	limit 9 
+    ]]>
+</select>
+
+<!-- <select id="selectCntAll" resultType="java.lang.Integer">
+        select count(*) as allCnt from animal_info 
+	    where 
+        <![CDATA[
+	    date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+	    and 
+	    date_format(noticeSdt, '%Y-%m-%d')>Date_sub(str_to_date(NOW(),"%Y-%m-%d"), interval 3 day)
+        limit 9 
+        ]]>
+</select> -->
 </mapper>

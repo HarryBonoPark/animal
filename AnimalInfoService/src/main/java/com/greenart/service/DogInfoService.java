@@ -14,4 +14,10 @@ public class DogInfoService {
     public List<AnimalInfoVO> selectDogInfo(String date){
         return mapper.selectDogInfo(date);
     }
+    public Integer selectCnt(){
+        return mapper.selectCnt();
+    }
+    // public Integer selectCntAll(Integer offset){
+    //     return mapper.selectCntAll(offset);
+    // }
 }

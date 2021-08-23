@@ -9,4 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface DogInfoMapper {
     public List<AnimalInfoVO> selectDogInfo(String date);
+    public Integer selectCnt();
+    // public Integer selectCntAll(Integer offset);
+
 }

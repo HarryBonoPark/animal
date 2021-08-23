@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class DogController {
-    @GetMapping("/dog")
-    public String getDog(){
-        return "/animal/dog";
-        }
+@GetMapping("/dog")
+public String getDog(){
+    return "/animal/dog";
+    }
 }
