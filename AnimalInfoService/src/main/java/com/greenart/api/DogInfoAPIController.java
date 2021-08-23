@@ -7,6 +7,7 @@ import java.util.Map;
 import com.greenart.mapper.DogInfoMapper;
 import com.greenart.service.DogInfoService;
 import com.greenart.vo.AnimalInfoVO;
+import com.greenart.vo.DogInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class DogInfoAPIController {
     public Map<String, Object> getDogInfo(@PathVariable String date){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         
-        List<AnimalInfoVO> list = service.selectDogInfo(date);
+        List<DogInfoVO> list = service.selectDogInfo(date);
 
         resultMap.put("status",true);
         resultMap.put("dogList",list);
@@ -32,6 +33,25 @@ public class DogInfoAPIController {
 
         Integer page = (int)Math.ceil(allCnt/12);
         resultMap.put("page", page);
+
+        return resultMap;
+    }
+    @GetMapping("/api/dogDetailInfo/{}")
+    public Map<String, Object> getDogDetail(@PathVariable String date){
+    Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+    List<DogInfoVO> list = service.selectDogInfo(date);
+
+    resultMap.put("status",true);
+    resultMap.put("dogList",list);
+    return resultMap;
+    }
+    @GetMapping("/api/dogDetailInfo/{seq}")
+    public Map<String, Object> getDogDetailById(@PathVariable Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        DogInfoVO vo = service.selectDogInfoById(seq);
+
+        resultMap.put("data", vo);
 
         return resultMap;
     }

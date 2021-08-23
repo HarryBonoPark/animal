@@ -6,44 +6,48 @@
     margin-bottom: 20px; font-size: 16px; text-align: center;
     padding-bottom: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2); 
 }
+
 .dog_box p{font-size: 15px; font-family:"Noto Sans KR" sans-serif;}
 .dog_box:nth-child(3n){margin-right: 0;}
 .dogfile{margin-top: 10px; width: 70%; height:130px; position: relative; overflow: hidden; margin:10px auto; border-radius: 5px;
 background-color: #f4f4f4;}
 .dogfile img {height: 120%; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
 .dog_box > span {font-weight: 800;} 
+.pager_area {text-align: center;}
+.dog-tbody {display: none;}
+.dog-tbody.active {display: block;}
 
-.dog_form{
-    position: fixed; display: none; background-color: #fff;
-    z-index: 999; padding: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); width: 300px; height:500px;
+.container > .dog_form{
+    width: 300px;  position:fixed; display: none; background-color: #fff; top:20%; left:50%;
+    z-index: 999; padding: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); font-family: "Noto Sans KR", sans-serif;
+    border-radius: 5px; display: none;
 }
-.dog_form>h1{width: 100%; position: absolute; top: 0; left: 0;
-background-color: rgb(124, 124, 124); text-align: center; font-weight: 300; color: #fff;
+.dog_form>h1{
+    width: 100%; position: absolute; top: 0; left: 0;
+    background-color: rgb(124, 124, 124); text-align: center; font-weight: 300; color: #fff; 
+    user-select: none; cursor: grab;
 }
-.popBg {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+.dog_form >.dogfile{padding: 20px;}
+
+.dog_form > h1:active {
+    cursor: grabbing; font-family: "Noto Sans KR", sans-serif;
 }
 
-.popCloseBtnCmmn {
-    width:30%;
-    margin:10px;
+.dog_form >p {padding: 2px; font-family: "Noto Sans KR", sans-serif;}
+
+.dog_form #popCloseBtnCmmn {
+    width:20%;
     padding:10px;
     font-size:16px;
-    background:#999;
-    color:#fff;
+    border: 10px;
+    background-color: rgb(143, 142, 142); 
+    color:rgb(255, 255, 255);
     transition:all 0.3s;
+    font-family: "Noto Sans KR", sans-serif;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
 }
-
-.popCloseBtnCmmn:hover {
-    background:rgb(207, 100, 100);
+.dog-box #popOpenBtnCmmn{
+    margin-top: 10px;
 }
-
-/* .dog-tbody {display: none;} */
-.dog-tbody .active {display: table-row-group;}
-
-.pager_area {text-align: center;}
-
