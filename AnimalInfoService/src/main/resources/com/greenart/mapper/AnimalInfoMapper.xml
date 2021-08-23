@@ -29,8 +29,80 @@
         ]]>
     </select>
 
-    <select id="selectAnimalStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
+    <!-- <select id="selectAnimalStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
         select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
         and processState != '종료(반환)'
+    </select> -->
+    <select id="selectCntStatusByDate" resultType="java.lang.Integer">
+        select count(*) as cnt from animal_info
+        where processState ='보호중'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(NOW(),'%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectAllCntByDate" resultType="java.lang.Integer">
+        select count(*) as noCnt from animal_info
+        where desertionNo
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectRegionInfoByDate" resultType="com.greenart.vo.AnimalInfoVO">
+        select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
+    </select>
+
+    <select id="selectanimalSex" resultType="com.greenart.vo.AnimalInfoVO">
+        select * from animal_info
+        where (sexCd = 'M' or sexCd = 'F')
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date}, '%Y-%m-%d')
+    </select>
+<!-- . -->
+    <select id="selectSexAnimalCnt" resultType="com.greenart.vo.AnimalInfoVO">
+        select count(sexCd) as sex from animal_info
+        where sexCd='M'
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date}, '%Y-%m-%d')
+        union
+        select count(sexCd) as sex from animal_info
+        where sexCd = 'F'
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date}, '%Y-%m-%d')
+    </select>
+    <select id="selectCntRegion" resultType="com.greenart.vo.AnimalInfoVO">
+        select count(processState) as careDogCnt,
+            case 
+                    when orgNm like '서%울%특%' then '서울' 
+                    when orgNm like '부%산%광%' then '부산' 
+                    when orgNm like '대%구%광%' then '대구' 
+                    when orgNm like '인%천%광%' then '인천' 
+                    when orgNm like '광%주%광%' then '광주' 
+                    when orgNm like '대%전%광%' then '대전' 
+                    when orgNm like '울%산%광%' then '울산' 
+                    when orgNm like '세%종%특%' then '세종' 
+                    when orgNm like '경%기%도%' then '경기' 
+                    when orgNm like '강%원%도%' then '강원' 
+                    when orgNm like '충%청%북%' then '충북' 
+                    when orgNm like '충%청%남%' then '충남' 
+                    when orgNm like '전%라%북%' then '전북' 
+                    when orgNm like '전%라%남%' then '전남' 
+                    when orgNm like '경%상%북%' then '경북' 
+                    when orgNm like '경%상%남%' then '경남' 
+                    when orgNm like '제%주%특%' then '제주' 
+                end as region
+            <![CDATA[
+        from animal_info where date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        group by region 
+    </select>
+    <select id="selectNeuterCnt" resultType="com.greenart.vo.AnimalInfoVO">
+        select count(neuterYn) as neuter from animal_info
+        where neuterYn = 'Y'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        union
+        select count(neuterYn) as neuter from animal_info
+        where neuterYn = 'N'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
     </select>
 </mapper>
