@@ -7,7 +7,12 @@
     background-color: #fbfbfb;
 }
 .list table {min-width: 1050px;}
-.list thead td {background-color: #A6A6A6; color: #fff; border-color: #A6A6A6;}
+.list thead td {background-color: #A6A6A6; color: #fff; font-weight: 700; border-color: #A6A6A6;}
+
+.center_page_area {
+    font-size: 15px; text-align: center; margin-top: 10px;
+}
+.center_page_area .current {font-weight: 600;}
 
 .center_tbody {display: none;}
 .center_tbody.active {display: table-row-group;}
