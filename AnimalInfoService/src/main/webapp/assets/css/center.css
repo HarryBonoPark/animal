@@ -1,0 +1,13 @@
+.title {font-size: 20px;}
+.list table td {
+    border-bottom: 1px solid #ccc; padding: 10px;
+    vertical-align: middle; text-align: center;
+}
+.list table tr:nth-child(even) {
+    background-color: #fbfbfb;
+}
+.list table {min-width: 1050px;}
+.list thead td {background-color: #A6A6A6; color: #fff; border-color: #A6A6A6;}
+
+.center_tbody {display: none;}
+.center_tbody.active {display: table-row-group;}
