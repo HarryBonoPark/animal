@@ -31,7 +31,8 @@ $(function(){
                     labels:dates,
                     datasets:[{
                         label:"notice",
-                        data:statusCnts
+                        data:statusCnts,
+                        backgoundColor:['rgb(220,20,60)']
                     }]
                 }
             })

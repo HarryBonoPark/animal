@@ -22,7 +22,7 @@ import org.w3c.dom.NodeList;
 public class HomeComponent {
     @Autowired AnimalInfoService service;
 
-    @Scheduled(cron="* */10 * * * *")
+    @Scheduled(cron="0 0 0 */1 * *")
     public void getHomeInfo()throws Exception{
         System.out.println("cron schedule");
         Date todaydt = new Date();
