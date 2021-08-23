@@ -10,7 +10,7 @@ import com.greenart.vo.CenterInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,7 +19,7 @@ public class CenterAPIController {
     CenterInfoService service;
     @GetMapping("/api/center")
     public Map<String, Object> getAnimalCenterInfo(
-        @PathVariable @Nullable String region
+        @RequestParam @Nullable String region
     ) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
@@ -27,6 +27,9 @@ public class CenterAPIController {
 
         resultMap.put("status", true);
         resultMap.put("data", list);
+
+        char[] c = region.toCharArray();
+        region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
 
         return resultMap;
     }

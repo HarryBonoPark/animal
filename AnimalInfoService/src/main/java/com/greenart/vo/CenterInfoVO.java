@@ -12,5 +12,5 @@ public class CenterInfoVO {
 
     private String careDogCnt; // 보호중인 강아지 마리수
     private String region; // 지역
-    private Integer centerCnt;
+    private Integer centerCnt; // 보호소 갯수
 }

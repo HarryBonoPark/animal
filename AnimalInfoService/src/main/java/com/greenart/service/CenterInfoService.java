@@ -15,11 +15,10 @@ public class CenterInfoService {
     public List<CenterInfoVO> selectCenterInfo(String region) {
         return mapper.selectCenterInfo(region);
     }
+
     public CenterInfoVO selectCenterInfoCnt() {
         CenterInfoVO data = mapper.selectCenterInfoCnt();
-
         Integer centerCnt = data.getCenterCnt();
-
         data.setCenterCnt(centerCnt);
 
         return data;
