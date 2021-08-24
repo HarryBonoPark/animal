@@ -12,7 +12,33 @@
 <body>
     <div class="container">
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
-        <h1 class="title">center information</h1>
+        <div class="right_area">
+            <div class="content_left">
+                <p>우리나라에서는</p>
+                <p><span id="centerCntAll">0</span></p>
+                <p>개의 보호소가 있어요</p>
+            </div>
+        </div>
+        <select id="region_select">
+            <option value="서울특">서울특별시</option>
+            <option value="부산광">부산광역시</option>
+            <option value="대구광">대구광역시</option>
+            <option value="인천광">인천광역시</option>
+            <option value="광주광">광주광역시</option>
+            <option value="대전광">대전광역시</option>
+            <option value="울산광">울산광역시</option>
+            <option value="세종특">세종특별자치시</option>
+            <option value="경기도">경기도</option>
+            <option value="강원도">강원도</option>
+            <option value="충청북">충청북도</option>
+            <option value="충청남">충청남도</option>
+            <option value="전라북">전라북도</option>
+            <option value="전라남">전라남도</option>
+            <option value="경상북">경상북도</option>
+            <option value="경상남">경상남도</option>
+            <option value="제주특">제주특별자치도</option>
+        </select>
+        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지를 관리하고 있어요</span>
         <div class="list">
             <table id="center_table">
                 <thead>
@@ -21,16 +47,14 @@
                         <td>보호소</td>
                         <td>전화번호</td>
                         <td>보호소 주소</td>
-                        <td>보호중</td>
+                        <!-- <td>보호중</td> -->
                     </tr>
                 </thead>
-                <tbody id="center_tbody">
-
-                </tbody>
+                
             </table>
             <div class="center_page_area">
                 <button id="center_prev">&lt;</button>
-                <span class="current">1</span> / <span class="total">23</span>
+                <span class="current">1</span> / <span class="total">2</span>
                 <button id="center_next">&gt;</button>
             </div>
         </div>

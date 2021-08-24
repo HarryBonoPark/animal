@@ -16,31 +16,39 @@
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="dashboard_area">
             <div class="dashboard_content">
-                <div class="content_left">
-                    <p class="ani_title">2021 유기된 강아지 수</p>
-                    <p class="ani_number">0</p>
+                <div class="content_mid">
+                    <p class="ani_title">2021-06~ 유기된 강아지 수</p>
+                    <p class="ani_number">${allCnt.strAllCnt} 마리</p>
                 </div>
-                <div class="content_right">
+                <!-- <div class="content_right"> -->
                     <!-- <canvas id="regional_status" style="width: 100%; height: 100%;"></canvas> -->
                     <!-- <p class="ani_title">TODAY 유기 수</p>
                     <p class="ani_number" id="decideCnt">0</p> -->
-                </div>
+                <!-- </div> -->
             </div>
             <div class="dashboard_content">
                 <div class="content_left">
-                    <!-- <canvas id="confirmed_chart" style="width: 100%; height: 100%;"></canvas> -->
-                    <p class="ani_title">TODAY 유기 수</p>
-                    <p class="ani_number">${animalInfo.noticeSdt}</p>
+                    <!-- <canvas id="vaccine_chart" style="width: 100%; height: 100%;"></canvas> -->
+                    <p class="ani_title">TODAY 보호중</p>
+                    <p class="ani_number">${cnt.strCnt} 마리</p>
+                    
                 </div>
                 <div class="content_right">
-                    <!-- <canvas id="vaccine_chart" style="width: 100%; height: 100%;"></canvas> -->
-                    <p class="ani_title">보호 중</p>
-                    <p class="ani_number">0</p>
+                    <canvas id="sex_chart" style="width: 100%; height: 100%;"></canvas>
+                    <!-- 성별 pie -->
+                    <!-- <p class="ani_title">TODAY 유기 수</p>
+                    <p class="ani_number">${animalInfo.noticeSdt}</p> -->
+                </div>
+                <div class="content_right">
+                    <canvas id="neuter_chart" style="width: 100%; height: 100%;"></canvas>
+                    <!-- 성별 pie -->
+                    <!-- <p class="ani_title">TODAY 유기 수</p>
+                    <p class="ani_number">${animalInfo.noticeSdt}</p> -->
                 </div>
             </div>
             <div class="dashboard_content">
-                <div class="content_left live_confirm_area">
-                    <canvas id="animal_status" style="width: 100%; height: 100%;"></canvas>
+                <div class="content_mid live_confirm_area">
+                    <canvas id="region_status" style="width: 100%; height: 100%;"></canvas>
                     <!-- <div class="live_confirm_item">
                         <span class="time">16분 전</span>
                         <span class="region">경남 고성군</span>
@@ -52,7 +60,7 @@
                         <span class="num">2</span>명 추가확진
                     </div> -->
                 </div>
-                <div class="content_right">
+                <!-- <div class="content_right"> -->
                     <!-- <table class="region_confirm_tbl">
                         <thead>
                             <tr>

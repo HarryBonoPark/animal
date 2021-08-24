@@ -12,5 +12,16 @@ public interface AnimalInfoMapper {
     public AnimalInfoVO selectAnimalInfoByDate(String date); // Today
     public AnimalInfoVO selectAccAnimalCnt(String date); // 누적
 
-    public List<AnimalInfoVO> selectAnimalStatusByDate(String date);
+    // public List<AnimalInfoVO> selectAnimalStatusByDate(String date);
+    // public AnimalInfoVO selectAnimalStatusByDate();
+    public AnimalInfoVO selectCntStatusByDate(String date);
+    public AnimalInfoVO selectAllCntByDate(String date);
+
+    public List<AnimalInfoVO> selectRegionInfoByDate(String date);
+
+    public List<AnimalInfoVO> selectanimalSex(String date);
+
+    public List<AnimalInfoVO> selectSexAnimalCnt(String date);
+    public List<AnimalInfoVO> selectCntRegion(String date);
+    public List<AnimalInfoVO> selectNeuterCnt(String date);
 }

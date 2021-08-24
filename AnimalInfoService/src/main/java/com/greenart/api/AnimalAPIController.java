@@ -152,6 +152,78 @@ public class AnimalAPIController {
         return node.getNodeValue();
     }
 
+    @GetMapping("/api/region/{date}")
+    public Map<String ,Object> getRegionDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<AnimalInfoVO> list = service.selectRegionInfoByDate();
+            resultMap.put("status", true);
+            resultMap.put("data", list);
+        } else {
+            List<AnimalInfoVO> list = service.selectRegionInfo(date);
+            resultMap.put("status", true);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/animalSex/{date}")
+    public Map<String, Object> getAnimalSex(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<AnimalInfoVO> list = service.selectanimalSex();
+            resultMap.put("data", list);
+        } else {
+            List<AnimalInfoVO> list = service.selectanimalSex(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/sexInfo/{date}")
+    public Map<String, Object> getSexInfoDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<AnimalInfoVO> list = service.selectTodaySexAnimalCnt();
+            resultMap.put("data", list);
+        } else {
+            List<AnimalInfoVO> list = service.selectSexAnimalInfo(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/regionInfo/{date}")
+    public Map<String, Object> getRegionInfoDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<AnimalInfoVO> list = service.selectTodayCntRegion();
+            resultMap.put("data", list);
+        } else {
+            List<AnimalInfoVO> list = service.selectCntRegion(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/neuter/{date}")
+    public Map<String, Object> getNeuterDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<AnimalInfoVO> list = service.selectTodayNeuterCnt();
+            resultMap.put("data", list);
+        } else {
+            List<AnimalInfoVO> list = service.selectNeuterCnt(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
 //     @GetMapping("/api/homeInfo/{date}")
 //     public Map<String, Object> getHomeInfoDate(@PathVariable String date){
 //         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -165,18 +237,20 @@ public class AnimalAPIController {
 //         return resultMap;
 //     }
 
-    @GetMapping("/api/status/{date}")
-    public Map<String, Object> getStatusDate(@PathVariable String date){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        if(date.equals("today")){
-            List<AnimalInfoVO> list = service.selectAnimalTodayStatusByDate(date);
-            resultMap.put("status", true);
-            resultMap.put("data", list);
-        } else {
-            List<AnimalInfoVO> list = service.selectAnimalStatusInfo(date);
-            resultMap.put("status", true);
-            resultMap.put("data", list);
-        }
-        return resultMap;
-    }
+    // @GetMapping("/api/status/{date}")
+    // public Map<String, Object> getStatusDate(@PathVariable String date){
+    //     Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    //     if(date.equals("today")){
+    //         AnimalInfoVO vo = service.selectAnimalTodayStatusByDate();
+    //         resultMap.put("status", true);
+    //         resultMap.put("data", vo);
+    //     } else {
+    //         AnimalInfoVO vo = service.selectAnimalStatusInfo(date);
+    //         resultMap.put("status", true);
+    //         resultMap.put("data", vo);
+    //     }
+    //     return resultMap;
+    // }
+
+    
 }

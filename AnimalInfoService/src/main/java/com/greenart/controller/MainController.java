@@ -14,10 +14,21 @@ public class MainController {
     
     @GetMapping("/")
     public String getMain(Model model) {
-        AnimalInfoVO vo = service.selectTodayAnimalInfo();
-        model.addAttribute("animalInfo", vo);
+        // AnimalInfoVO vo = service.selectTodayAnimalInfo();
+        // model.addAttribute("animalInfo", vo);
         // AnimalInfoVO vo2 = service.selectTodayAccAnimalInfo();
         // model.addAttribute("Accanimal", vo2);
+
+        AnimalInfoVO cnt = service.selectTodayCntStatusByDate();
+        AnimalInfoVO allCnt = service.selectTodayAllCntByDate();
+        
+        // DecimalFormat df = new DecimalFormat("###,###");
+        // String formatCnt = df.format(cnt);
+        // String formatAllCnt = df.format(allCnt);
+        
+        model.addAttribute("cnt", cnt);
+        model.addAttribute("allCnt", allCnt);
+
         return "/index";
     }
 }
