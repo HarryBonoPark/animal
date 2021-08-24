@@ -8,22 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    
 </head>
 <body>
-    <div class="left_menu">
-        <a href="/" id="logo">멍댕멍댕</a>
-        <ul class="main_menu">
-            <li>
-                <a href="/">Overview <span>전체통계</span></a>
-            </li>
-            <li>
-                <a href="/dog">Puppy <span>강아지</span></a>
-            </li>
-            <li>
-                <a href="/center">Protection Center <span>보호센터정보</span></a>
-            </li>
-        </ul>
-    </div>
+    <header>
+        <div class="header">
+            <ul class="left_menu">
+                <li>
+                    <a href="/">유기현황</a>
+                </li>
+                <li>
+                    <a href="/dog">강아지</a>
+                </li>
+                <li>
+                    <a href="#">고양이</a>
+                </li>
+            </ul>
+            <a href="/" id="logo">
+                <img src="/assets/images/logo.svg">
+            </a>
+            <ul class="right_menu">
+                <li>
+                    <a href="/center">보호센터</a>
+                </li>
+                <li>
+                    <a href="#">신고센터</a>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                </li>
+            </ul>
+        </div>
+    </header>
 </body>
 </html>

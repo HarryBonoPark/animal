@@ -30,7 +30,7 @@ $(function(){
                     datasets:[{
                         label:"구조된 강아지 중성화 여부",
                         data:neuterArr,
-                        backgroundColor:['rgb(220,20,60)', 'rgb(154,205,50)']
+                        backgroundColor:['#fecb5e', '#ff9900']
                     }]
                 }
             })
@@ -60,7 +60,7 @@ $(function(){
                     datasets:[{
                         label:"구조된 강아지 성별 비율",
                         data:confArr,
-                        backgroundColor:['rgb(220,20,60)', 'rgb(154,205,50)']
+                        backgroundColor:['#fecb5e', '#ff9900']
                     }]
                 }
             })
@@ -90,7 +90,7 @@ $(function(){
                     datasets:[{
                         label:"지역별 유기 수",
                         data:regionArr,
-                        backgroundColor:['rgb(100,149,237)']
+                        backgroundColor:['#ff9900']
                     }]
                 }
             })

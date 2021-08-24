@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <div class="content_head">
-                <%@include file="/WEB-INF/views/includes/menu.jsp"%>
+            <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         </div>
             <li class="region">
                     <span class="plain_name" data-region="서울특">서울특별시</span>
