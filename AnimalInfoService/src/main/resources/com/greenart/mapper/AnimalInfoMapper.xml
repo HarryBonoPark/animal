@@ -33,18 +33,18 @@
         select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
         and processState != '종료(반환)'
     </select> -->
-    <select id="selectCntStatusByDate" resultType="java.lang.Integer">
+    <select id="selectCntStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
         select count(*) as cnt from animal_info
         where processState ='보호중'
         <![CDATA[
-        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(NOW(),'%Y-%m-%d')
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date},'%Y-%m-%d')
         ]]>
     </select>
-    <select id="selectAllCntByDate" resultType="java.lang.Integer">
+    <select id="selectAllCntByDate" resultType="com.greenart.vo.AnimalInfoVO">
         select count(*) as noCnt from animal_info
         where desertionNo
         <![CDATA[
-        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(NOW(),'%Y-%m-%d')
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date},'%Y-%m-%d')
         ]]>
     </select>
     <select id="selectRegionInfoByDate" resultType="com.greenart.vo.AnimalInfoVO">
@@ -60,11 +60,15 @@
     <select id="selectSexAnimalCnt" resultType="com.greenart.vo.AnimalInfoVO">
         select count(sexCd) as sex from animal_info
         where sexCd='M'
-        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date}, '%Y-%m-%d')
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
         union
         select count(sexCd) as sex from animal_info
         where sexCd = 'F'
-        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date}, '%Y-%m-%d')
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
     </select>
     <select id="selectCntRegion" resultType="com.greenart.vo.AnimalInfoVO">
         select count(processState) as careDogCnt,

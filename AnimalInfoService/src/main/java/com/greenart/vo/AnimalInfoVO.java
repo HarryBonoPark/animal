@@ -30,6 +30,9 @@ public class AnimalInfoVO {
     private String specialMark;
     private String weight;
 
+    private Integer cnt;
+    private Integer noCnt;
+
     private String sex;
     private String region;
     private String careDogCnt;

@@ -16,20 +16,20 @@ public class MainController {
     
     @GetMapping("/")
     public String getMain(Model model) {
-        AnimalInfoVO vo = service.selectTodayAnimalInfo();
-        model.addAttribute("animalInfo", vo);
+        // AnimalInfoVO vo = service.selectTodayAnimalInfo();
+        // model.addAttribute("animalInfo", vo);
         // AnimalInfoVO vo2 = service.selectTodayAccAnimalInfo();
         // model.addAttribute("Accanimal", vo2);
 
-        Integer cnt = service.selectCntStatusByDate();
-        Integer allCnt = service.selectAllCntByDate();
+        AnimalInfoVO cnt = service.selectTodayCntStatusByDate();
+        AnimalInfoVO allCnt = service.selectTodayAllCntByDate();
         
-        DecimalFormat df = new DecimalFormat("###,###");
-        String formatCnt = df.format(cnt);
-        String formatAllCnt = df.format(allCnt);
+        // DecimalFormat df = new DecimalFormat("###,###");
+        // String formatCnt = df.format(cnt);
+        // String formatAllCnt = df.format(allCnt);
         
-        model.addAttribute("cnt", formatCnt);
-        model.addAttribute("allCnt", formatAllCnt);
+        model.addAttribute("cnt", cnt);
+        model.addAttribute("allCnt", allCnt);
 
         return "/index";
     }

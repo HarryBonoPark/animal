@@ -26,7 +26,7 @@ $(function(){
                     responsive:false
                 },
                 data:{
-                    labels:["중성화 여부 Y", "중성화 여부 N"],
+                    labels:["Y", "N"],
                     datasets:[{
                         label:"구조된 강아지 중성화 여부",
                         data:neuterArr,
@@ -90,7 +90,7 @@ $(function(){
                     datasets:[{
                         label:"지역별 유기 수",
                         data:regionArr,
-                        backgroundColor:['rgb(220,20,60)']
+                        backgroundColor:['rgb(100,149,237)']
                     }]
                 }
             })

@@ -1,5 +1,6 @@
 package com.greenart.service;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -91,11 +92,68 @@ public class AnimalInfoService {
     //     return mapper.selectAnimalStatusByDate(date);
     // }
 
-    public Integer selectCntStatusByDate(){        
-        return mapper.selectCntStatusByDate();
+    public AnimalInfoVO selectTodayCntStatusByDate(){    
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 10);
+        standard.set(Calendar.MINUTE, 30);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            // 현재 접속시간이 기준시간 (10시 30분 10초) 보다 이전일 때
+            // 하루 이전 날짜로 변경
+            now.add(Calendar.DATE, -1);
+            
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        AnimalInfoVO data = mapper.selectCntStatusByDate(dt);
+
+        Integer cnt = data.getCnt();
+
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String strCnt = dFormatter.format(cnt);
+
+        data.setStrCnt(strCnt);
+
+        return data;
+
+        // return mapper.selectCntStatusByDate(dt);
     }
-    public Integer selectAllCntByDate(){
-        return mapper.selectAllCntByDate();
+    public AnimalInfoVO selectCntStatusByDate(String date){    
+        return mapper.selectCntStatusByDate(date);
+    }
+    public AnimalInfoVO selectTodayAllCntByDate(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 10);
+        standard.set(Calendar.MINUTE, 30);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            // 현재 접속시간이 기준시간 (10시 30분 10초) 보다 이전일 때
+            // 하루 이전 날짜로 변경
+            now.add(Calendar.DATE, -1);
+            
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        AnimalInfoVO data = mapper.selectAllCntByDate(dt);
+        Integer noCnt = data.getNoCnt();
+
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String strAllCnt = dFormatter.format(noCnt);
+
+        data.setStrAllCnt(strAllCnt);
+
+        return data;
+
+        // return mapper.selectAllCntByDate(dt);
+    }
+    public AnimalInfoVO selectAllCntByDate(String date){
+        return mapper.selectAllCntByDate(date);
     }
 
     public List<AnimalInfoVO> selectRegionInfoByDate(){

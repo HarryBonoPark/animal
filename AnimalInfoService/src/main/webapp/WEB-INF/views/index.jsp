@@ -18,7 +18,7 @@
             <div class="dashboard_content">
                 <div class="content_mid">
                     <p class="ani_title">2021-06~ 유기된 강아지 수</p>
-                    <p class="ani_number">${allCnt} 마리</p>
+                    <p class="ani_number">${allCnt.strAllCnt} 마리</p>
                 </div>
                 <!-- <div class="content_right"> -->
                     <!-- <canvas id="regional_status" style="width: 100%; height: 100%;"></canvas> -->
@@ -30,7 +30,7 @@
                 <div class="content_left">
                     <!-- <canvas id="vaccine_chart" style="width: 100%; height: 100%;"></canvas> -->
                     <p class="ani_title">TODAY 보호중</p>
-                    <p class="ani_number">${cnt} 마리</p>
+                    <p class="ani_number">${cnt.strCnt} 마리</p>
                     
                 </div>
                 <div class="content_right">
