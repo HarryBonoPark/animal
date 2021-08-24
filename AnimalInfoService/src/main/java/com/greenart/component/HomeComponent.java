@@ -114,8 +114,6 @@ public class HomeComponent {
             vo.setSpecialMark(specialMark);
             vo.setWeight(weight);
 
-            // System.out.println(vo);
-
             service.insertAnimalInfo(vo);
         }
     }

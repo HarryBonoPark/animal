@@ -1,7 +1,5 @@
 package com.greenart.controller;
 
-import java.text.DecimalFormat;
-
 import com.greenart.service.AnimalInfoService;
 import com.greenart.vo.AnimalInfoVO;
 
