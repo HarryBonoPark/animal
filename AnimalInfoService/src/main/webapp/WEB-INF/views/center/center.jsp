@@ -14,13 +14,10 @@
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="right_area">
             <div class="content_left">
-                <p>전국 보호소 수</p>
+                <p>우리나라에서는</p>
                 <p><span id="centerCntAll">0</span></p>
+                <p>개의 보호소가 있어요</p>
             </div>
-            <!-- <div class="content_right">
-                <p>가족을 찾고 있는 강아지</p>
-                <p><span id="abandonedDogCntAll">0</span></p>
-            </div> -->
         </div>
         <select id="region_select">
             <option value="서울특">서울특별시</option>
@@ -38,10 +35,10 @@
             <option value="전라북">전라북도</option>
             <option value="전라남">전라남도</option>
             <option value="경상북">경상북도</option>
-            <option value="경상남">경산남도</option>
+            <option value="경상남">경상남도</option>
             <option value="제주특">제주특별자치도</option>
         </select>
-        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지를 관리하고 있어요 ^^</span>
+        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지를 관리하고 있어요</span>
         <div class="list">
             <table id="center_table">
                 <thead>
@@ -57,7 +54,7 @@
             </table>
             <div class="center_page_area">
                 <button id="center_prev">&lt;</button>
-                <span class="current">1</span> / <span class="total">23</span>
+                <span class="current">1</span> / <span class="total">2</span>
                 <button id="center_next">&gt;</button>
             </div>
         </div>
