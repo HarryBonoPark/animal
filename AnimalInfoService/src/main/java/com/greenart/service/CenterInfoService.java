@@ -12,7 +12,15 @@ import org.springframework.stereotype.Service;
 public class CenterInfoService {
     @Autowired
     CenterInfoMapper mapper;
-    public List<CenterInfoVO> selectCenterInfo() {
-        return mapper.selectCenterInfo();
+    public List<CenterInfoVO> selectCenterInfo(String region) {
+        return mapper.selectCenterInfo(region);
+    }
+
+    public CenterInfoVO selectCenterInfoCnt() {
+        CenterInfoVO data = mapper.selectCenterInfoCnt();
+        Integer centerCnt = data.getCenterCnt();
+        data.setCenterCnt(centerCnt);
+
+        return data;
     }
 }

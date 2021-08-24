@@ -8,5 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CenterInfoMapper {
-    public List<CenterInfoVO> selectCenterInfo();
+    public List<CenterInfoVO> selectCenterInfo(String region);
+    public CenterInfoVO selectCenterInfoCnt();
 }

@@ -9,5 +9,8 @@ public class CenterInfoVO {
     private String careAddr; // 보호소 주소
     private String careTel; // 보호소 전화번호
     private String processState; // 보호중
-    private Integer careDogCnt; // 보호중인 강아지 마리수
+
+    private String careDogCnt; // 보호중인 강아지 마리수
+    private String region; // 지역
+    private Integer centerCnt; // 보호소 갯수
 }
