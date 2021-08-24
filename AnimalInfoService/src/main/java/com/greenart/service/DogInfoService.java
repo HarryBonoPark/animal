@@ -3,7 +3,6 @@ package com.greenart.service;
 import java.util.List;
 
 import com.greenart.mapper.DogInfoMapper;
-import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.DogInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class DogInfoService {
     public DogInfoVO selectDogInfoById(Integer seq) {
         return mapper.selectDogInfoById(seq);
     }
-    // public Integer selectCntAll(Integer offset){
-    //     return mapper.selectCntAll(offset);
-    // }
+    public List<DogInfoVO> selectRegionDogInfo(String region){
+        return mapper.selectRegionDogInfo(region);
+    }
 }

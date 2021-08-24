@@ -6,12 +6,13 @@ import java.util.Map;
 
 import com.greenart.mapper.DogInfoMapper;
 import com.greenart.service.DogInfoService;
-import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.DogInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -53,6 +54,19 @@ public class DogInfoAPIController {
 
         resultMap.put("data", vo);
 
+        return resultMap;
+    }
+    @GetMapping("/api/regionDog")
+    public Map<String, Object> getRegionDogInfo(@RequestParam @Nullable String region){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<DogInfoVO> vo = service.selectRegionDogInfo(region);
+        
+        char[] c = region.toCharArray();
+        region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
+        System.out.println(region);
+
+        resultMap.put("status", true);
+        resultMap.put("dogList", vo);
         return resultMap;
     }
 }

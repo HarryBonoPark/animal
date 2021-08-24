@@ -10,6 +10,6 @@ public interface DogInfoMapper {
     public List<DogInfoVO> selectDogInfo(String date);
     public Integer selectCnt();
     public DogInfoVO selectDogInfoById(Integer seq);
-    // public Integer selectCntAll(Integer offset);
+    public List<DogInfoVO> selectRegionDogInfo(String region);
 
 }

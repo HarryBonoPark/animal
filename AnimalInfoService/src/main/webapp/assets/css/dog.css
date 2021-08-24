@@ -7,25 +7,27 @@
     padding-bottom: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2); 
 }
 
-.dog_box p{font-size: 15px; font-family:"Noto Sans KR" sans-serif;}
 .dog_box:nth-child(3n){margin-right: 0;}
-.dogfile{margin-top: 10px; width: 70%; height:130px; position: relative; overflow: hidden; margin:10px auto; border-radius: 5px;
-background-color: #f4f4f4;}
-.dogfile img {height: 120%; position: absolute; top: 0; left: 50%; transform: translateX(-50%);}
+.dog_box p{font-size: 15px; font-family:"Noto Sans KR" sans-serif; margin: 5px;}
+.dogfile{margin-top: 10px; width: 80%; height:150px; position: relative; overflow: hidden; margin:10px auto; border-radius: 5px;
+background-color: #f4f4f4; }
+.dogfile img {height: 100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%); text-align: center;}
 .dog_box > span {font-weight: 800;} 
-.pager_area {text-align: center;}
-.dog-tbody {display: none;}
+.dog_box > .dogfile img{text-align: center;}
+.container >.pager_area {text-align: center;}
+
+.dog-tbody {display: none; width: 100%;}
 .dog-tbody.active {display: block;}
 
 .container > .dog_form{
     width: 300px;  position:fixed; display: none; background-color: #fff; top:20%; left:50%;
-    z-index: 999; padding: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); font-family: "Noto Sans KR", sans-serif;
+    z-index: 999; padding: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); font-family:"Noto Sans KR" sans-serif;
     border-radius: 5px; display: none;
 }
 .dog_form>h1{
     width: 100%; position: absolute; top: 0; left: 0;
     background-color: rgb(124, 124, 124); text-align: center; font-weight: 300; color: #fff; 
-    user-select: none; cursor: grab;
+    user-select: none; cursor: grab; 
 }
 .dog_form >.dogfile{padding: 20px;}
 
@@ -51,3 +53,20 @@ background-color: #f4f4f4;}
 .dog-box #popOpenBtnCmmn{
     margin-top: 10px;
 }
+.shelter{font-size: 16px; color: rgb(156, 156, 156); padding: 20px;}
+
+
+.region{
+    font-size: 13px;
+    box-sizing: none;
+    display: table-cell;
+    text-align: center;
+    cursor: pointer;
+    width: 830px;
+    position: relative;
+    padding: 8px 10px; font-family: "Noto Sans KR", sans-serif;
+    font-weight: 300; border: 1px solid #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dog_area {width: 100%;}
+/* .dog-tbody:first-child {display: block; width: 100%;} */
+

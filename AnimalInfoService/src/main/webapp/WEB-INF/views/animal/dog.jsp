@@ -15,16 +15,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
         integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
 </head>
 
 <body>
     <div class="container">
-        <%@include file="/WEB-INF/views/includes/menu.jsp"%>
-        <div class="dog_header">
-            <div class="dog_area">
-                <!-- <div class="dog_box">
+        <div class="content_head">
+                <%@include file="/WEB-INF/views/includes/menu.jsp"%>
+        </div>
+            <li class="region">
+                    <span class="plain_name" data-region="서울특">서울특별시</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="경기도">경기도</span>
+            </li>
+            <li class="region">      
+                    <span class="plain_name" data-region="인천광">인천광역시</span>   
+            </li>
+            <li class="region">   
+                    <span class="plain_name" data-region="세종특">세종특별자치시</span>  
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="대전광">대전광역시</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="대구광">대구광역시</span>  
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="울산광">울산광역시</span>  
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="광주광">광주광역시</span>
+            </li>
+            <li class="region">                
+                    <span class="plain_name" data-region="부산광">부산광역시</span>    
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="제주특">제주특별자치도</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="경상남">경상남도</span>
+            </li>
+            <li class="region">        
+                    <span class="plain_name" data-region="경상북">경상북도</span>  
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="전라북">전라북도</span>
+            </li>
+            <li class="region"
+                    <span class="plain_name" data-region="전라남">전라남도</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="충청남">충청남도</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="충청북">충청북도</span>
+            </li>
+            <li class="region">
+                    <span class="plain_name" data-region="강원도">강원도</span>
+            </li>
+        
+        <div class="dog_area">
+            <!-- <div class="dog_box">
                     <p class="dogfile">
                         <img src="http://www.animal.go.kr/files/shelter/2021/08/20210820100869_s.jpg">
                     </p>
@@ -76,15 +127,8 @@
                     </p>
                     <button id="popOpenBtnCmmn" data-num="1">상세정보</button>
                 </div> -->
-            </div>
-            <div class="pager_area">
-                <button id="prev">&lt;</button>
-                <span class="current">1</span> / <span class="total">7</span>
-                <button id="next">&gt;</button>
-            </div>
         </div>
-
-        <!-- 팝업창 틀! -->
+        <!-- 팝업창 정보 -->
         <div class="dog_form" data-num="1">
             <h1>상세 정보</h1>
             <p class="dogfile">
@@ -124,7 +168,7 @@
             </p>
             <p class="careAddr">
                 <span>주소</span>
-                <span class="careAddr">사랑ㅅ ㅣ고백구 행복동</span>
+                <span class="careAddr">사랑시 고백구 행복동</span>
             </p>
             <p class="careTel">
                 <span>전화번호</span>
@@ -144,8 +188,12 @@
             </p>
             <button id="popCloseBtnCmmn" data-num="1">확인</button>
         </div>
-
+        <div class="pager_area">
+            <button id="prev">&lt;</button>
+            <span class="current">1</span> / <span class="total">7</span>
+            <button id="next">&gt;</button>
+        </div>
+    </div>
     </div>
 </body>
-
 </html>
