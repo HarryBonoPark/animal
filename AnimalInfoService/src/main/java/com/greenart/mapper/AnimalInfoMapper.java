@@ -13,7 +13,7 @@ public interface AnimalInfoMapper {
     public AnimalInfoVO selectAccAnimalCnt(String date); // 누적
 
     // public List<AnimalInfoVO> selectAnimalStatusByDate(String date);
-    public AnimalInfoVO selectAnimalStatusByDate();
+    // public AnimalInfoVO selectAnimalStatusByDate();
     public AnimalInfoVO selectCntStatusByDate(String date);
     public AnimalInfoVO selectAllCntByDate(String date);
 
