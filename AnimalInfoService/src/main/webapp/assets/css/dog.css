@@ -1,72 +1,65 @@
-.dog_header{margin-top: 87px; width: 830px; ; 
-        box-sizing: border-box; padding-left: 20px;}
-.dog_box{
-    background-color: #fff; margin-right: 20px;
-    width: calc((100% - 60px) / 3); display: inline-block;vertical-align: top; 
-    margin-bottom: 20px; font-size: 16px; text-align: center;
-    padding-bottom: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
-.dog_box:nth-child(3n){margin-right: 0;}
-.dog_box p{font-size: 15px; font-family:"Noto Sans KR" sans-serif; margin: 5px;}
-.dogfile{margin-top: 10px; width: 80%; height:150px; position: relative; overflow: hidden; margin:10px auto; border-radius: 5px;
-background-color: #f4f4f4; }
-.dogfile img {height: 100%; position: absolute; top: 0; left: 50%; transform: translateX(-50%); text-align: center;}
-.dog_box > span {font-weight: 800;} 
-.dog_box > .dogfile img{text-align: center;}
-.container >.pager_area {text-align: center;}
-
-.dog-tbody {display: none; width: 100%;}
+.container {
+    padding:80px 0;
+    width: 1100px; margin:0 auto;
+}
+.container h1 {
+    font-size: 32px; 
+    font-family: 'Cafe24Ssurround';
+    color: #434343;
+    margin-bottom: 40px; text-align: center;
+}
+.content_head {
+    overflow: hidden; text-align: center;
+    margin-bottom: 30px;
+}
+.content_head li {display: inline-block;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+    padding:10px 20px;
+    background-color: #f3f3f3;
+    margin:8px 5px;
+    border-radius: 100px;
+    cursor:pointer;
+}
+.content_head li:hover {
+    background-color: #ffd595; color: #fff;
+}
+.content_head li.selected {
+    background-color: #ff9900;
+    color: #fff; font-weight: 500;
+}
+.dog-tbody {display: none; font-size: 0;}
 .dog-tbody.active {display: block;}
 
-.container > .dog_form{
-    width: 300px;  position:fixed; display: none; background-color: #fff; top:20%; left:50%;
-    z-index: 999; padding: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.3); font-family:"Noto Sans KR" sans-serif;
-    border-radius: 5px; display: none;
-}
-.dog_form>h1{
-    width: 100%; position: absolute; top: 0; left: 0;
-    background-color: rgb(124, 124, 124); text-align: center; font-weight: 300; color: #fff; 
-    user-select: none; cursor: grab; 
-}
-.dog_form >.dogfile{padding: 20px;}
-
-.dog_form > h1:active {
-    cursor: grabbing; font-family: "Noto Sans KR", sans-serif;
-}
-
-.dog_form >p {padding: 2px; font-family: "Noto Sans KR", sans-serif;}
-
-.dog_form #popCloseBtnCmmn {
-    width:20%;
+.dog_box {
+    width:calc((100% - 60px) / 4);
+    display: inline-block; box-sizing: border-box;
+    margin-bottom: 20px;
+    vertical-align: top; height: 300px;
+    border: 1px solid #000; margin-right: 20px;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
     padding:10px;
-    font-size:16px;
-    border: 10px;
-    background-color: rgb(143, 142, 142); 
-    color:rgb(255, 255, 255);
-    transition:all 0.3s;
-    font-family: "Noto Sans KR", sans-serif;
-    margin: auto;
-    display: block;
-    margin-top: 10px;
 }
-.dog-box #popOpenBtnCmmn{
-    margin-top: 10px;
+.dog_box:nth-child(4n) {
+    margin-right: 0;
 }
-.shelter{font-size: 16px; color: rgb(156, 156, 156); padding: 20px;}
-
-
-.region{
-    font-size: 13px;
-    box-sizing: none;
-    display: table-cell;
-    text-align: center;
-    cursor: pointer;
-    width: 830px;
-    position: relative;
-    padding: 8px 10px; font-family: "Noto Sans KR", sans-serif;
-    font-weight: 300; border: 1px solid #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.dog_box .dogfile {
+    width:100px; height:100px;
+    overflow: hidden;
+    border-radius: 100px; position: relative;
+    background-image: url("/assets/images/no_image.jpg");
+    background-position: center;
 }
-.dog_area {width: 100%;}
-/* .dog-tbody:first-child {display: block; width: 100%;} */
-
+.dog_box .dogfile img {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform:translate(-50%, -50%);
+}

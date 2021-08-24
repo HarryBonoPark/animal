@@ -45,6 +45,8 @@ $(function () {
                     '</div>'
                 $(".dog-tbody").eq(page).append(tag);
             }
+
+            resizeAnimalImageInit();            
             
             // $(".dog-tbody").eq(0).addClass("active");
             $(".popOpenBtnCmmn").click(function () {
@@ -131,6 +133,7 @@ $(function () {
                 $(".dog-tbody").removeClass("active");
                 $(".dog-tbody").eq(currentPage - 1).addClass("active");
                 console.log(currentPage);
+                resizeAnimalImage();
             })
             $("#prev").click(function () {
                 // let currentPage = Number($(".current").html());
@@ -139,6 +142,7 @@ $(function () {
                 $(".current").html(currentPage);
                 $(".dog-tbody").removeClass("active");
                 $(".dog-tbody").eq(currentPage - 1).addClass("active");
+                resizeAnimalImage();
             })
         }
 
@@ -147,6 +151,8 @@ $(function () {
         // $(".content_head").css("display","block");
         // let region = $(".region").find("option:click").val();   
         // getRegionDog(region);
+        $(".region").removeClass("selected");
+        $(this).addClass("selected");
         let region = $(this).find(".plain_name").attr("data-region");
         getRegionDog(region);
     })
@@ -199,6 +205,7 @@ $(function () {
                         '</div>'
                     $(".dog-tbody").eq(page).append(tag);
                 }
+                resizeAnimalImageInit();
                 $(".dog-tbody").eq(0).addClass("active");
                 $(".popOpenBtnCmmn").click(function () {
                     $(".dog_form").css("display", "block");
@@ -353,7 +360,34 @@ $(function () {
     //         }
     //     })
     // });
-
+    function resizeAnimalImageInit() {
+        for(let i=0; i<$(".dog_box .dogfile img").length; i++) {
+            $(".dog_box .dogfile img").eq(i).on("load", function(){
+                let w = $(".dog_box .dogfile img").eq(i).width();
+                let h = $(".dog_box .dogfile img").eq(i).height();
+                console.log("w"+w, "h"+h)
+                if(w >= h) {
+                    $(".dog_box .dogfile img").eq(i).css("height", "110%");
+                }
+                else {
+                    $(".dog_box .dogfile img").eq(i).css("width", "110%");
+                }
+            })
+        }
+    }
+    function resizeAnimalImage() {
+        for(let i=0; i<$(".dog_box .dogfile img").length; i++) {
+            let w = $(".dog_box .dogfile img").eq(i).width();
+            let h = $(".dog_box .dogfile img").eq(i).height();
+            console.log("w"+w, "h"+h)
+            if(w >= h) {
+                $(".dog_box .dogfile img").eq(i).css("height", "110%");
+            }
+            else {
+                $(".dog_box .dogfile img").eq(i).css("width", "110%");
+            }
+        }
+    }
 })
 
 
