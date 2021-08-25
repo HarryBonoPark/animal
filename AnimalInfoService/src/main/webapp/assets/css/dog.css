@@ -42,24 +42,154 @@
     width:calc((100% - 60px) / 4);
     display: inline-block; box-sizing: border-box;
     margin-bottom: 20px;
-    vertical-align: top; height: 300px;
-    border: 1px solid #000; margin-right: 20px;
+    vertical-align: top; height: 220px;
+    /* border: 1px solid #000;  */
+    box-shadow:0 0 5px rgba(0,0,0,0.2);
+    margin-right: 20px;
     font-size: 14px;
     font-family: "Noto Sans KR";
-    padding:10px;
+    padding:15px; position: relative; overflow: hidden;
 }
 .dog_box:nth-child(4n) {
     margin-right: 0;
 }
 .dog_box .dogfile {
-    width:100px; height:100px;
-    overflow: hidden;
+    width:80px; height:80px;
+    overflow: hidden; z-index: 9;
     border-radius: 100px; position: relative;
     background-image: url("/assets/images/no_image.jpg");
-    background-position: center;
+    background-position: center; position: relative;
+}
+.dogLine {
+    position: absolute; width: 175px; left: 90px; top: 60px;
+    background-color: #ccc; height: 1px;
+}
+.dogShelter {
+    position: absolute;
+    right:15px; top: 28px;
+    overflow: hidden;
+    color: #555;
+    text-overflow: ellipsis;
 }
 .dog_box .dogfile img {
     position: absolute;
     left: 50%; top: 50%;
     transform:translate(-50%, -50%);
 }
+.dog_box .kind {
+    font-size: 16px; margin-top: 20px;
+    font-weight: 700; color: #434343; margin-bottom: 10px;
+    font-family: 'Cafe24Ssurround';
+    margin-left: 10px;
+}
+.dog_box .dogprofile, .dog_box .dogGen, .dog_box .dogAge {
+    margin-bottom: 10px; font-size: 16px;
+    font-family: 'Cafe24Ssurround';
+    color: #333; margin-left: 10px;
+}
+.dog_box > p > span {vertical-align: top;}
+.dog_box i {
+    vertical-align: top;
+    position: relative; top: -4px;
+    font-size: 20px; display: inline-block;
+    width:35px; color: #434343;
+}
+.popOpenBtnCmmn {
+    position: absolute; width: 100%; height: 100%;
+    left: 0; top: 0; z-index: 99;
+    background-color:rgba(0,0,0,0.8);
+    border: 0; color: #f4f4f4;
+    font-family: 'Noto Sans KR';
+    font-size: 18px; padding: 0;
+    opacity: 0; cursor:pointer;
+    transition:opacity 0.3s;
+}
+.dog_box:hover .popOpenBtnCmmn {
+    opacity: 1;
+}
+.popOpenBtnCmmn i {
+    color: #f4f4f4;
+    font-size: 48px; margin-left: -15px;
+    display: inline-block;
+}
+.pager_area {
+    text-align: center; margin-top: 30px;
+    font-family: 'Roboto';
+}
+.pager_area > * {margin: 10px; vertical-align: middle;}
+.pager_area > button {
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+    color: #666; font-size: 24px; opacity: 0.8;
+}
+.pager_area > button:hover {
+    opacity: 1;
+}
+.pager_area .current {font-weight: 700;}
+
+.dog_form {position: fixed;
+    width: 100%; height: 100%; left: 0; top: 0;
+    z-index: 9999; display: none;
+    background-color: rgba(0,0,0,0.8);
+}
+.dog_form .dog_form_contents {
+    width: 50%; height: 45%; background-color: #fff;
+    position: absolute;
+    left: 50%; top: 50%; transform:translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+.dog_form img {
+    /* height: 300px; */
+}
+.dog_form_contents > div {
+    display: inline-block; vertical-align: top;
+}
+.dog_form_contents {font-size: 0;}
+.dog_form_img_box {
+    width: 50%; height: 100%;
+    overflow: hidden; position: relative;
+    background-color:#f4f4f4;
+}
+.dog_form_img_box img {
+    position: absolute; 
+    height: 100%;
+    left: 50%; top: 50%; transform:translate(-50%, -50%);
+}
+
+.dog_form_description_box {
+    font-family: "Noto Sans KR", sans-serif;
+    width: 50%; font-size: 16px;
+    box-sizing: border-box;
+    padding:30px;
+}
+.dog_form_description_box > p {
+    margin-bottom: 10px;
+}
+.dog_form_description_box .dogShelters {
+    font-size: 14px; color: #434343;
+    margin-bottom: 5px;
+}
+.dog_form_description_box .kind {
+    font-size: 24px; font-weight: 700; color: #333;
+    margin-bottom: 40px;
+}
+#popCloseBtnCmmn {
+    position: absolute; right: 20px; top: 20px;
+    font-size: 36px;
+    color: #666;
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+}
+#popCloseBtnCmmn:hover {
+    color: rgb(255, 189, 57);
+}
+
+.nodata {
+    padding:50px 0; text-align: center; 
+}
+.nodata img {
+    width: 200px; opacity: 0.8; margin-bottom: 30px;
+}
+.nodata h1 {color: #999;}

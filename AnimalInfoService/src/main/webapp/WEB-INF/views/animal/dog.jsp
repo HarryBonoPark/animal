@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/assets/css/dog.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/dog.js"></script>
@@ -82,9 +83,13 @@
             
         </div>
         <div class="pager_area">
-            <button id="prev">&lt;</button>
+            <button id="prev">
+                <i class="fas fa-chevron-circle-left"></i>
+            </button>
             <span class="current">1</span> / <span class="total">7</span>
-            <button id="next">&gt;</button>
+            <button id="next">
+                <i class="fas fa-chevron-circle-right"></i>
+            </button>
         </div>
     </div>
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>
