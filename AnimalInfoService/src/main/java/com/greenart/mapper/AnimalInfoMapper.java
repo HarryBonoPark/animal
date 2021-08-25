@@ -15,7 +15,8 @@ public interface AnimalInfoMapper {
     // public List<AnimalInfoVO> selectAnimalStatusByDate(String date);
     // public AnimalInfoVO selectAnimalStatusByDate();
     public AnimalInfoVO selectCntStatusByDate(String date);
-    public AnimalInfoVO selectAllCntByDate(String date);
+    // public AnimalInfoVO selectAllCntByDate(String date);
+    public AnimalInfoVO selectAllCntByDate();
 
     public List<AnimalInfoVO> selectRegionInfoByDate(String date);
 

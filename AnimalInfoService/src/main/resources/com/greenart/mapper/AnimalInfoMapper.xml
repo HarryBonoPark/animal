@@ -41,11 +41,12 @@
         ]]>
     </select>
     <select id="selectAllCntByDate" resultType="com.greenart.vo.AnimalInfoVO">
-        select count(*) as noCnt from animal_info
+        SELECT count(*) as noCnt FROM animal_info WHERE noticeSdt BETWEEN DATE_ADD(NOW(),INTERVAL -3 MONTH ) AND NOW()
+        <!-- select count(*) as noCnt from animal_info
         where desertionNo
         <![CDATA[
         and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date},'%Y-%m-%d')
-        ]]>
+        ]]> -->
     </select>
     <select id="selectRegionInfoByDate" resultType="com.greenart.vo.AnimalInfoVO">
         select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
