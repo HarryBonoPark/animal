@@ -5,18 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <title>동물보호센터 정보</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/assets/css/center.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/center.js"></script>
 </head>
 <body>
+    <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <div class="container">
-        <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="right_area">
             <div class="content_left">
-                <p>우리나라에서는</p>
-                <p><span id="centerCntAll">0</span></p>
-                <p>개의 보호소가 있어요</p>
+                <span>전국에</span>
+                <span><span id="centerCntAll">0</span></span>
+                <span>개의 보호소가 있어요</span>
             </div>
         </div>
         <select id="region_select">
@@ -53,11 +54,12 @@
                 
             </table>
             <div class="center_page_area">
-                <button id="center_prev">&lt;</button>
+                <button id="center_prev"><i class="fas fa-chevron-circle-left"></i></button>
                 <span class="current">1</span> / <span class="total">2</span>
-                <button id="center_next">&gt;</button>
+                <button id="center_next"><i class="fas fa-chevron-circle-right"></i></button>
             </div>
         </div>
     </div>
+    <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>
 </html>
