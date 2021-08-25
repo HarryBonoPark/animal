@@ -26,7 +26,7 @@ $(function(){
                     responsive:false
                 },
                 data:{
-                    labels:["Y", "N"],
+                    labels:["중성화 했어요", "중성화 안했어요"],
                     datasets:[{
                         label:"구조된 강아지 중성화 여부",
                         data:neuterArr,

@@ -138,7 +138,7 @@ public class AnimalInfoService {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String dt = formatter.format(now.getTime());
 
-        AnimalInfoVO data = mapper.selectAllCntByDate(dt);
+        AnimalInfoVO data = mapper.selectAllCntByDate();
         Integer noCnt = data.getNoCnt();
 
         DecimalFormat dFormatter = new DecimalFormat("###,###");
@@ -150,8 +150,8 @@ public class AnimalInfoService {
 
         // return mapper.selectAllCntByDate(dt);
     }
-    public AnimalInfoVO selectAllCntByDate(String date){
-        return mapper.selectAllCntByDate(date);
+    public AnimalInfoVO selectAllCntByDate(){
+        return mapper.selectAllCntByDate();
     }
 
     public List<AnimalInfoVO> selectRegionInfoByDate(){

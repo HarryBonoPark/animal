@@ -28,7 +28,6 @@ public class HomeComponent {
         Date todaydt = new Date();
         SimpleDateFormat dtFormatter = new SimpleDateFormat("YYYYMMdd");
         String today = dtFormatter.format(todaydt);
-        System.out.println(today);
 
         StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=FVm2RjOykHRLs6b5caz%2FuG2F9lBc1o2FrwfILXc3G2kEk2i8fJEMUljI95nRVGfG6WHyfA1S1rQYpCH5bDVTTw%3D%3D"); /*Service Key*/
@@ -50,10 +49,15 @@ public class HomeComponent {
         NodeList nList = doc.getElementsByTagName("item");
         System.out.println("데이터 수 : "+nList.getLength());
 
+        if(nList.getLength() <= 0){
+            return;
+        }
+        
         for(int i=0; i<nList.getLength(); i++) {
             Node n = nList.item(i);
-            Element elem = (Element)n;
+            Element elem = (Element) n;
 
+            AnimalInfoVO vo = new AnimalInfoVO();
             String age = getTagValue("age", elem);
             String careAddr = getTagValue("careAddr", elem);
             String careNm = getTagValue("careNm", elem);
@@ -78,7 +82,6 @@ public class HomeComponent {
             String specialMark = getTagValue("specialMark", elem);
             String weight = getTagValue("weight", elem);
 
-            AnimalInfoVO vo = new AnimalInfoVO();
             Date hDt = new Date();
             SimpleDateFormat hFormatter = new SimpleDateFormat("yyyyMMdd");
             hDt = hFormatter.parse(happenDt);
