@@ -44,11 +44,10 @@
             <table id="center_table">
                 <thead>
                     <tr>
-                        <!-- <td>지역</td> -->
+                        <td>No.</td>
                         <td>보호소</td>
                         <td>전화번호</td>
-                        <td>보호소 주소</td>
-                        <!-- <td>보호중</td> -->
+                        <td>주소</td>
                     </tr>
                 </thead>
                 
