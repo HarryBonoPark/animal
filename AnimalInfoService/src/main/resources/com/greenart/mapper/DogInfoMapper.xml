@@ -64,6 +64,10 @@
                 when orgNm like '%제%주%특%' then '제주특' 
 			end as region
 			from animal_info order by noticeSdt desc
-			) a  where region =#{region} limit 12 
+			) a  
+			<if test = "region != 'all'">
+				where region =#{region} 
+			</if>
+			limit 12 
 </select>
 </mapper>

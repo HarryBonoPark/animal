@@ -24,6 +24,9 @@
         <h1>유기동물(강아지) 조회</h1>
         <ul class="content_head">
             <li class="region selected">
+                <span class="plain_name" data-region="all">전국</span>
+            </li>
+            <li class="region">
                 <span class="plain_name" data-region="서울특">서울특별시</span>
             </li>
             <li class="region">
