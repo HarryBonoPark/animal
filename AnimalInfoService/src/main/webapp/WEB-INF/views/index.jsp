@@ -25,7 +25,7 @@
                     <p class="ani_number">${cnt.strCnt} 마리</p>
                 </div>
                 <div class="content_mid">
-                    <p class="ani_title">2021-06~ 유기된 강아지 수</p>
+                    <p class="ani_title">최근 3개월간 유기된 강아지 수</p>
                     <p class="ani_number">${allCnt.strAllCnt} 마리</p>
                 </div>
             </div>

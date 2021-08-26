@@ -27,7 +27,6 @@
                     when orgNm like '%제%주%특%' then '제주특' 
                     end as region
                 from animal_info
-            <!-- where processState = '보호중' -->
             group by careNm
         ) a where region = #{region}
     </select>

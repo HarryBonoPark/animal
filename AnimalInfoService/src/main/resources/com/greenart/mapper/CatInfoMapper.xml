@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.CatInfoMapper">
+    <insert id="insertCatInfo">
+        INSERT INTO cat_info
+        (
+            age, careAddr, careNm, careTel, officetel, colorCd, desertionNo, 
+            filename, popfile, happenDt, happenPlace, kindCd, neuterYn, noticeSdt, 
+            noticeEdt, noticeNo, orgNm, processState, sexCd, specialMark, weight
+        )
+        VALUES
+        (
+            #{age}, #{careAddr}, #{careNm}, #{careTel}, #{officetel}, #{colorCd}, #{desertionNo}, 
+            #{filename}, #{popfile}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn}, #{noticeSdt}, 
+            #{noticeEdt}, #{noticeNo}, #{orgNm}, #{processState}, #{sexCd}, #{specialMark}, #{weight}
+        )
+    </insert>
+    <select id="selectCatInfo" resultType="com.greenart.vo.CatInfoVO">
+        select * from
+        (
+        	select *,
+                case 
+                    when sexCd = 'F' then '암컷'
+                    when sexCd = 'M' then '수컷'
+                end as sex,
+                case 
+                    when neuterYn = 'N' then '중성화 X'
+                    when neuterYn = 'U' then '중성화 O' 
+                end as sexYn,
+                case 
+                    when orgNm like '%서%울%특%' then '서울특' 
+                    when orgNm like '%부%산%광%' then '부산광' 
+                    when orgNm like '%대%구%광%' then '대구광' 
+                    when orgNm like '%인%천%광%' then '인천광' 
+                    when orgNm like '%광%주%광%' then '광주광' 
+                    when orgNm like '%대%전%광%' then '대전광' 
+                    when orgNm like '%울%산%광%' then '울산광' 
+                    when orgNm like '%세%종%특%' then '세종특' 
+                    when orgNm like '%경%기%도%' then '경기도' 
+                    when orgNm like '%강%원%도%' then '강원도' 
+                    when orgNm like '%충%청%북%' then '충청북' 
+                    when orgNm like '%충%청%남%' then '충청남' 
+                    when orgNm like '%전%라%북%' then '전라북' 
+                    when orgNm like '%전%라%남%' then '전라남' 
+                    when orgNm like '%경%상%북%' then '경상북' 
+                    when orgNm like '%경%상%남%' then '경상남' 
+                    when orgNm like '%제%주%특%' then '제주특' 
+                end as region
+            from cat_info
+        ) a 
+        <if test = "region != 'all'">
+            where region = #{region}
+        </if>
+        limit 100
+    </select>
+    <select id="selectCatDetailInfoBySeq" resultType="com.greenart.vo.CatInfoVO">
+        select *,
+            case 
+                when sexCd = 'F' then '암컷'
+                when sexCd = 'M' then '수컷'
+            end as sex,
+            case 
+                when neuterYn = 'N' then '중성화 X'
+                when neuterYn = 'U' then '중성화 O' 
+            end as sexYn
+        from cat_info where seq = #{seq}
+    </select>
+</mapper>
