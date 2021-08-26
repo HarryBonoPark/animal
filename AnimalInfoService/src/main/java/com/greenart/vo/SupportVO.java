@@ -11,4 +11,7 @@ public class SupportVO {
     private String email;
     private String title;
     private String content; 
+    
+    private String kind; 
+    private String region; 
 }

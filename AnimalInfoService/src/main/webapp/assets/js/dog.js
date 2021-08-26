@@ -150,9 +150,6 @@ $(function () {
 
     });
     $(".region").click(function () {
-        // $(".content_head").css("display","block");
-        // let region = $(".region").find("option:click").val();   
-        // getRegionDog(region);
         $(".region").removeClass("selected");
         $(this).addClass("selected");
         let region = $(this).find(".plain_name").attr("data-region");
@@ -292,80 +289,6 @@ $(function () {
         })
     }
 
-
-    //     $.ajax({
-    //         type:"get",
-    //         url:"/api/dogDetailInfo/today",
-    //         success:function(r){
-    //             console.log(r);
-    //             $(".dog_form").html("");
-    //             for (let i=0; i<r.dogList.length; i++){
-    //                 let tag = 
-    //                 '<div id="popUp" class="dog_form">'+
-    //                 '<div class="popBg" data-num="1"></div>'+
-    //                 '<h1>상세 정보</h1>'+
-    //                     '<p class="dogfile">'+
-    //                         '<img src="'+r.dogList[i].filename+'">'+
-    //                     '</p>'+
-    //                     '<p class="kind">'+
-    //                         '<span>품종</span>'+
-    //                         '<span class="dogKind">'+r.dogList[i].kindCd+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="dogprofile">'+
-    //                         '<span>등록일</span>'+
-    //                         '<span class="register">'+r.dogList[i].noticeSdt+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="dogGen">'+
-    //                         '<span>성별</span>'+
-    //                         '<span class="gen">'+r.dogList[i].sex+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="dogAge">'+
-    //                         '<span>나이</span>'+
-    //                         '<span class=" age">'+r.dogList[i].kindCd+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="color">'+
-    //                         '<span>색상</span>'+
-    //                         '<span class="color">'+r.dogList[i].colorCd+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="weight">'+
-    //                         '<span>무게</span>'+
-    //                         '<span class="weight">'+r.dogList[i].weight+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="neuterYn">'+
-    //                         '<span>중성화</span>'+
-    //                         '<span class="sexYn">'+r.dogList[i].sexYn+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="dogShelter">'+
-    //                         '<span>보호소</span>'+
-    //                         '<span class="shelter">'+r.dogList[i].careNm+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="careAddr">'+
-    //                         '<span>주소</span>'+
-    //                         '<span class="careAddr">'+r.dogList[i].careAddr+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="careTel">'+
-    //                         '<span>전화번호</span>'+
-    //                         '<span class="careTel">'+r.dogList[i].careTel+'</span>'+
-    //                     '</p>'+
-    //                     '<p class="happenPlace">'+
-    //                         '<span>발견장소</span>'+
-    //                         '<span class="happenPlace">'+r.dogList[i].happenPlace+'</span>'+
-    //                     '</p>'
-    //                     '<p class="processState">'
-    //                         '<span>보호 여부</span>'
-    //                         '<span class="processState">'+r.dogList[i].processState+'</span>'
-    //                     '</p>'
-    //                     '<p class="specialMark">'
-    //                         '<span>특징: </span>'
-    //                         '<span class="specialMark">'+r.dogList[i].specialMark+'</span>'
-    //                     '</p>'+
-    //                     '<button id="popCloseBtnCmmn" data-num="1">확인</button>'+
-    //                 '</div>'
-    //                 $(".dog_form").append(tag);
-    //             }
-    //         }
-    //     })
-    // });
     function resizeAnimalImageInit() {
         for(let i=0; i<$(".dog_box .dogfile img").length; i++) {
             $(".dog_box .dogfile img").eq(i).on("load", function(){

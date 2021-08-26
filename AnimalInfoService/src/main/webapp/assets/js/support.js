@@ -1,6 +1,14 @@
 $(function(){
+    $("#cancel").click(function(){
+        if(!confirm("작성중인 내용이 모두 삭제됩니다")){
+            return;
+        }
+        history.back();
+    })
+
     $("#regist").click(function(){
         const pattern=/\s/g;
+
         let user_name=$("#user_name").val();
         if(user_name==""||user_name==null||user_name==undefined){
             alert("이름을 입력하세요");
@@ -54,14 +62,20 @@ $(function(){
             return;
         }
 
+        let user_kind = $("#kind_select option:selected").val();
+        let user_region =$("#region_select option:selected").val();
+        
         let data = {
                 name: user_name,
                 phone: user_phone,
                 password: user_pwd,
                 email: user_email,
                 title: user_title,
-                content: user_content        
+                content: user_content,
+                kind: user_kind,
+                region: user_region
         }
+        
         $.ajax({
             type:"post",
             url:"/support/regist",
@@ -69,11 +83,12 @@ $(function(){
             contentType:"application/json",
             success:function(r){
                 alert(r.message);
-                location.reload();
+                history.back();
             },
             error:function(e){
                 console.log(e);
             }
         })
+        
     });
 })

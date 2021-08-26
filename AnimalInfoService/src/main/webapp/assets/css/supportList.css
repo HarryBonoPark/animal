@@ -1,0 +1,61 @@
+
+.content_head {
+    overflow: hidden; text-align: center;
+    margin-bottom: 30px;
+}
+.content_head li {display: inline-block;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+    padding:10px 20px;
+    background-color: #f3f3f3;
+    margin:8px 5px;
+    border-radius: 100px;
+    cursor:pointer;
+}
+.content_head li:hover {
+    background-color: #ffd595; color: #fff;
+}
+.content_head li.selected {
+    background-color: #ff9900;
+    color: #fff; font-weight: 500;
+}
+.container{
+    padding:100px 0;
+    width:1100px; margin:0 auto;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+#support_table {
+    width: 100%; 
+    margin-top: 20px;
+    text-align: center;
+
+}
+#support_table thead td {
+    font-weight: 700; color: #fafafa;
+    background-color: #ffb521;
+    border: 0;
+}
+#support_table td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px; padding:15px;
+}
+#support_table tbody tr:nth-child(odd) {
+    background-color: #fffcf5;
+}
+
+.support_page_area {
+    text-align: center; margin-top: 30px;
+    font-family: 'Roboto';
+}
+.support_page_area > * {margin: 10px; vertical-align: middle;}
+.support_page_area > button {
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+    color: #666; font-size: 24px; opacity: 0.8;
+}
+.support_page_area > button:hover {
+    opacity: 1;
+}
+.support_page_area .current {font-weight: 700;}

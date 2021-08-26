@@ -30,6 +30,36 @@
     <table class="regist_table">
         <tbody>
             <tr>
+                <td>문 의</td>
+                <td><select id="kind_select">
+                    <option value="all">전체</option>
+                    <option value="입양 문의">입양 문의</option>
+                    <option value="보호센터 문의">보호센터 문의</option>
+                    <option value="파양 문의">파양 문의</option>
+                </select>
+                <select id="region select">
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                </select>
+            </td>
+            </tr>
+            <tr>
                 <td>이름</td>
                 <td><input type="text" id="user_name"></td>
             </tr>
@@ -55,12 +85,10 @@
             </tr>
             <tr>
                 <td>내용</td>
-                <td><input type="text" id="user_content"></td>
+                <td><input type="text" id="user_content" style="height: 150px;"></td>
             </tr>
             <tr>
-                <td>
-                    <button id="regist">등 록</button>
-                </td>
+                <td colspan="2"><button id="cancel">등록취소</button><button id="regist">등 록</button></td>
             </tr>
         </tbody>
     </table>

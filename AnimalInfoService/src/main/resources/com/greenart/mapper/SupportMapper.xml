@@ -2,10 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.SupportMapper">
+<!-- 값 가져오기 -->
 <insert id="insertSupport">
     INSERT INTO support_info
-        (name, phone, password, email, title, content)
+        (name, kind, phone, password, email, title, content, region)
     VALUES
-        (#{name}, #{phone}, #{password}, #{email}, #{title}, #{content});
+        (#{name}, #{kind}, #{phone}, #{password}, #{email}, #{title}, #{content}, #{region});
 </insert>
+<!-- 지역별 값 가져오기 -->
+<select id="selectSupportList" resultType="com.greenart.vo.SupportVO">
+    select * from support_info 
+    <if test="region !='all'"> 
+        where region=#{region}
+    </if>
+</select>
+<!-- 선택된 게시글 삭제 -->
+<delete id="deleteSupport">
+    delete from support_info where seq=#{seq}
+</delete>
+
 </mapper>
