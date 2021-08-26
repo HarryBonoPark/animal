@@ -13,6 +13,7 @@
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <div class="container">
+        <h1>지역별 보호센터 조회</h1>
         <div class="right_area">
             <div class="content_left">
                 <span>전국에</span>
@@ -39,7 +40,7 @@
             <option value="경상남">경상남도</option>
             <option value="제주특">제주특별자치도</option>
         </select>
-        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지를 관리하고 있어요</span>
+        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지와 고양이를 관리하고 있어요</span>
         <div class="list">
             <table id="center_table">
                 <thead>

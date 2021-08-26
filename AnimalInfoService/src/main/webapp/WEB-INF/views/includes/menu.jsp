@@ -22,7 +22,7 @@
                     <a href="/dog">강아지</a>
                 </li>
                 <li>
-                    <a href="#">고양이</a>
+                    <a href="/cat">고양이</a>
                 </li>
             </ul>
             <a href="/" id="logo">
