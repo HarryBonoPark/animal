@@ -36,7 +36,7 @@
                     <a href="#">신고센터</a>
                 </li>
                 <li>
-                    <a href="#">고객센터</a>
+                    <a href="/support/list">고객센터</a>
                 </li>
             </ul>
         </div>

@@ -16,6 +16,7 @@ import com.greenart.vo.CatInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
@@ -121,6 +122,7 @@ public class CatInfoAPIController {
         }
         return resultMap;
     }
+
     public static String getTagValue(String tag, Element elem) {
         NodeList nlList = elem.getElementsByTagName(tag).item(0).getChildNodes();
         if(nlList == null) return null;
@@ -128,10 +130,9 @@ public class CatInfoAPIController {
         if(node == null) return null;
         return node.getNodeValue();
     }
+
     @GetMapping("/api/cat/list")
-    public Map<String, Object> getCatListInfo (
-        @RequestParam @Nullable String region
-    ) throws Exception {
+    public Map<String, Object> getCatListInfo (@RequestParam @Nullable String region) throws Exception {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
         List<CatInfoVO> list = service.selectCatInfo(region);
@@ -141,6 +142,19 @@ public class CatInfoAPIController {
 
         char[] c = region.toCharArray();
         region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
+
+        return resultMap;
+    }
+    
+    // 팝업 api
+    @GetMapping("/api/cat/detail/{seq}")
+    public Map<String, Object> getCatDetailInfoBySeq(@PathVariable Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        List<CatInfoVO> dList = service.selectCatDetailInfoBySeq(seq);
+
+        resultMap.put("status", true);
+        resultMap.put("dList", dList);
 
         return resultMap;
     }

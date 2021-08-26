@@ -18,4 +18,7 @@ public class CatInfoService {
     public List<CatInfoVO> selectCatInfo(String region) {
         return mapper.selectCatInfo(region);
     }
+    public List<CatInfoVO> selectCatDetailInfoBySeq(Integer seq) {
+        return mapper.selectCatDetailInfoBySeq(seq);
+    }
 }

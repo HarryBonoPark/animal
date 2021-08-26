@@ -54,4 +54,16 @@
         </if>
         limit 100
     </select>
+    <select id="selectCatDetailInfoBySeq" resultType="com.greenart.vo.CatInfoVO">
+        select *,
+            case 
+                when sexCd = 'F' then '암컷'
+                when sexCd = 'M' then '수컷'
+            end as sex,
+            case 
+                when neuterYn = 'N' then '중성화 X'
+                when neuterYn = 'U' then '중성화 O' 
+            end as sexYn
+        from cat_info where seq = #{seq}
+    </select>
 </mapper>
