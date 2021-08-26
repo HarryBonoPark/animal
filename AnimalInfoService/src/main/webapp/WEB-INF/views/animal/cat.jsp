@@ -20,6 +20,7 @@
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="container">
         <h1>유기동물(고양이) 조회</h1>
+
         <!-- 지역 선택 -->
         <ul class="content_head">
                 <li class="region selected">
@@ -77,6 +78,8 @@
                         <span class="plain_name" data-region="강원도">강원도</span>
                 </li>
         </ul>
+        
+        <!-- 고양이 정보 -->
         <div class="cat_area">
                 
         </div>

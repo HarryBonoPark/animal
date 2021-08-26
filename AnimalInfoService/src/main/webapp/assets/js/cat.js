@@ -11,7 +11,6 @@ $(function() {
     })
 
     getCatRegionInfo("all");
-    resizeAnimalImageInit();
 
     function getCatRegionInfo(region) {
         let url = "http://localhost:8947/api/cat/list?region="+region;
@@ -57,11 +56,93 @@ $(function() {
                         '<p class="catAge">'+
                             '<span></span>'+
                         '</p>'+
-                        '<button class="popOpenBtnCmmn"><i class="fas fa-search-plus"></i><span>상세정보</span></button>'+
+                        '<button class="popOpenBtnCmmn" data-num="'+r.catList[i].seq+'"><i class="fas fa-search-plus"></i><br><span>상세정보</span></button>'+
                     '</div>'
                     $(".cat_tbody").eq(page).append(tag);
                 }
+
+                resizeAnimalImageInit();
                 $(".cat_tbody").eq(0).addClass("active");
+
+                // 팝업
+                $(".popOpenBtnCmmn").click(function() {
+                    $(".cat_form").css("display", "block");
+                    let seq = $(this).attr("data-num");
+                    let url = "http://localhost:8947/api/cat/detail?seq="+seq;
+                    $.ajax({
+                        type:"get",
+                        url:url,
+                        success:function(r) {
+                            console.log(r);
+                            $(".cat_form").html("");
+                            let tag =
+                            '<div class="cat_form_contents">'+
+                                    '<div class="cat_form_img_box">'+
+                                        '<p class="catfile">' +
+                                            '<img src="' + r.data.popfile + '">' +
+                                        '</p>' +
+                                    '</div>'+
+                                    '<div class="cat_form_description_box">'+
+                                        '<p class="catShelters">' +
+                                            '<span class="shelters">' + r.data.careNm + '</span>' +
+                                        '</p>' +
+                                        '<p class="kind">' +
+                                            '<span class="catKind">' + r.data.kindCd + '</span>' +
+                                            '<span class="gen"> (' + r.data.sex + ')</span>' +
+                                        '</p>' +
+                                        '<p class="happenPlace">' +
+                                            '<span>발견 장소: </span>' +
+                                            '<span class="happenPlace">' + r.data.happenPlace + '</span>' +
+                                        '</p>' +
+                                        '<p class="specialMark">' +
+                                            '<span>특징: </span>' +
+                                            '<span class="specialMark">' + r.data.specialMark + '</span>' +
+                                        '</p>' +
+                                        '<p class="color">' +
+                                            '<span>색상: </span>' +
+                                            '<span class="color">' + r.data.colorCd + '</span>' +
+                                        '</p>' +
+                                        '<p class="catAge">' +
+                                            '<span>나이: </span>' +
+                                            '<span class=" age">' + r.data.age + '</span>' +
+                                        '</p>' +
+                                        '<p class="weight">' +
+                                            '<span>체중: </span>' +
+                                            '<span class="weight">' + r.data.weight + '</span>' +
+                                        '</p>' +
+                                        '<p class="neuterYn">' +
+                                            '<span>중성화: </span>' +
+                                            '<span class="sexYn">' + r.data.sexYn + '</span>' +
+                                        '</p>' +
+                                        '<p class="processState">' +
+                                            '<span>보호 여부: </span>' +
+                                            '<span class="processState">' + r.data.processState + '</span>' +
+                                        '</p>' +
+                                        '<p class="catprofile">' +
+                                            '<span>등록일: </span>' +
+                                            '<span class="register">' + makeDate(new Date(r.data.noticeSdt)) + '</span>' +
+                                        '</p>' +
+                                        '<p class="careAddr">' +
+                                            '<span>주소: </span>' +
+                                            '<span class="careAddr">' + r.data.careAddr + '</span>' +
+                                        '</p>' +
+                                        '<p class="careTel">' +
+                                            '<span>전화번호: </span>' +
+                                            '<span class="careTel">' + r.data.careTel + '</span>' +
+                                        '</p>' +
+                                    '</div>'+
+                                    '<button id="popCloseBtnCmmn" data-num="1"><i class="fas fa-times"></i><button>'+
+                                '</div>'
+
+                            // if()
+
+                            $(".cat_form").append(tag);
+                            $("#popCloseBtnCmmn").click(function() {
+                                $(".cat_form").css("display", "none");
+                            })
+                        }
+                    })
+                })
             }
         })
     }
