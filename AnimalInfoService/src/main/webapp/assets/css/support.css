@@ -1,7 +1,7 @@
 .main_banner_area {
-    background-image: url("/assets/images/banner_support.jpg");
+    background-image: url("/assets/images/banner_small.jpg");
     background-position: center;
-    height:686px;
+    height:500px;
 }
 .main_banner_contents {
     width: 1100px; margin:0 auto;

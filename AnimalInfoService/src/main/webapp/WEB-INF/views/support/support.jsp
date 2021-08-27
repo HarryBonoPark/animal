@@ -31,7 +31,6 @@
         <div class="main_banner_contents">
             <h1 class="banner_title">반려동물에게 관심과 사랑을 주세요.</h1>
             <p class="banner_text">무엇이 궁금한가요?</p>
-            <p class="banner_warn">질문해 주세요</p>
         </div>
     </div>
 
