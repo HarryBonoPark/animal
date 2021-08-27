@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import com.greenart.service.AnimalInfoService;
+import com.greenart.service.CatInfoService;
 import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.CatInfoVO;
 
@@ -22,6 +23,7 @@ import org.w3c.dom.NodeList;
 @Component
 public class HomeComponent {
     @Autowired AnimalInfoService service;
+    @Autowired CatInfoService c_service;
 
     @Scheduled(cron="0 59 23 * * *")
     public void getHomeInfo()throws Exception{
@@ -239,7 +241,7 @@ public class HomeComponent {
 
             // System.out.println(vo);
 
-            service.insertCatInfo(vo);
+            c_service.insertCatInfo(vo);
         }
     }
 

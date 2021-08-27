@@ -140,7 +140,7 @@
 
 
 <!-- CAT -->
-    <insert id="insertCatInfo">
+    <!-- <insert id="insertCatInfo">
         INSERT INTO cat_info
         (
             age, careAddr, careNm, careTel, officetel, colorCd, desertionNo, 
@@ -153,7 +153,7 @@
             #{filename}, #{popfile}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn}, #{noticeSdt}, 
             #{noticeEdt}, #{noticeNo}, #{orgNm}, #{processState}, #{sexCd}, #{specialMark}, #{weight}
         )
-    </insert>
+    </insert> -->
     <select id="selectCatCntStatusByDate" resultType="com.greenart.vo.CatInfoVO">
         select count(*) as c_cnt from cat_info
         where processState ='보호중'

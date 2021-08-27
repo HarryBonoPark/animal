@@ -33,4 +33,23 @@ public class CatInfoVO {
     private String sex;
     private String sexYn;
     private String region;
+
+    private Integer c_cnt;
+    private Integer c_noCnt;
+
+    private String c_sex;
+    private String c_region;
+    private String c_careDogCnt;
+    private String c_neuter;
+
+    private String c_strCnt;
+    private String c_strAllCnt;
+
+    private String year;
+    private String month;
+    private String catCnt;
+
+    private Integer catState;
+    private String p_state;
+    private String strCatState;
 }

@@ -308,9 +308,9 @@ public class AnimalInfoService {
 
 
 // CAT
-    public void insertCatInfo(CatInfoVO vo){
-        mapper.insertCatInfo(vo);
-    }
+    // public void insertCatInfo(CatInfoVO vo){
+    //     mapper.insertCatInfo(vo);
+    // }
 
     public CatInfoVO selectTodayCatCntStatusByDate(){
         Calendar now = Calendar.getInstance();

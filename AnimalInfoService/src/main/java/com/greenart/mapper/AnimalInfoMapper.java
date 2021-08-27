@@ -32,7 +32,7 @@ public interface AnimalInfoMapper {
 
 
     // CAT
-    public void insertCatInfo(CatInfoVO vo);
+    // public void insertCatInfo(CatInfoVO vo);
     public CatInfoVO selectCatCntStatusByDate(String date);
     public CatInfoVO selectAllCatCntByDate(String date);
     public List<CatInfoVO> selectCatSexAnimalCnt(String date);
