@@ -28,4 +28,19 @@ public class OtherInfoVO {
     private String sexCd;
     private String specialMark;
     private String weight;
+
+    private Integer o_cnt;
+    private Integer o_noCnt;
+
+    private String o_sex;
+    private String o_region;
+    private String careOtherCnt;
+    private String o_neuter;
+
+    private String o_strCnt;
+    private String o_strAllCnt;
+
+    private String year;
+    private String month;
+    private String otherCnt;
 }

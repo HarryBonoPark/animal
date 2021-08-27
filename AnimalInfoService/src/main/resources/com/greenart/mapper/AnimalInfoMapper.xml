@@ -253,4 +253,83 @@
         and date_format(noticeEdt, "%Y-%m-%d") <=  str_to_date(#{date}, "%Y-%m-%d")
         ]]>
     </select>
+
+
+
+
+<!-- OTHER -->
+    <select id="selectOtherCntStatusByDate" resultType="com.greenart.vo.OtherInfoVO">
+        select count(*) as o_cnt from other_info
+        where processState ='보호중'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date},'%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectAllOtherCntByDate" resultType="com.greenart.vo.OtherInfoVO">
+        SELECT count(*) as o_noCnt FROMothert_info WHERE noticeSdt BETWEEN DATE_ADD(NOW(),INTERVAL -3 MONTH ) AND NOW()
+        <!-- select count(*) as noCnt from other_info
+        where desertionNo
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date},'%Y-%m-%d')
+        ]]> -->
+    </select>
+    <select id="selectOtherSexAnimalCnt" resultType="com.greenart.vo.OtherInfoVO">
+        select count(sexCd) as o_sex from other_info
+        where sexCd='M'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        union
+        select count(sexCd) as o_sex from other_info
+        where sexCd = 'F'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectOtherCntRegion" resultType="com.greenart.vo.OtherInfoVO">
+        select count(processState) as careOtherCnt,
+            case 
+                    when orgNm like '서%울%특%' then '서울' 
+                    when orgNm like '부%산%광%' then '부산' 
+                    when orgNm like '대%구%광%' then '대구' 
+                    when orgNm like '인%천%광%' then '인천' 
+                    when orgNm like '광%주%광%' then '광주' 
+                    when orgNm like '대%전%광%' then '대전' 
+                    when orgNm like '울%산%광%' then '울산' 
+                    when orgNm like '세%종%특%' then '세종' 
+                    when orgNm like '경%기%도%' then '경기' 
+                    when orgNm like '강%원%도%' then '강원' 
+                    when orgNm like '충%청%북%' then '충북' 
+                    when orgNm like '충%청%남%' then '충남' 
+                    when orgNm like '전%라%북%' then '전북' 
+                    when orgNm like '전%라%남%' then '전남' 
+                    when orgNm like '경%상%북%' then '경북' 
+                    when orgNm like '경%상%남%' then '경남' 
+                    when orgNm like '제%주%특%' then '제주' 
+                end as o_region 
+            <![CDATA[
+        from other_info where date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        group by o_region order by o_region asc
+    </select>
+    <select id="selectOtherNeuterCnt" resultType="com.greenart.vo.OtherInfoVO">
+        select count(neuterYn) as o_neuter from other_info
+        where neuterYn = 'Y'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        union
+        select count(neuterYn) as o_neuter from other_info
+        where neuterYn = 'N'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectMonthOtherCnt" resultType="com.greenart.vo.OtherInfoVO">
+        select year(happenDt) as year, month(happenDt) as month, count(*) as otherCnt from other_info
+        <![CDATA[
+        where date_format(happenDt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d') and happenDt > DATE_SUB(now(), interval 3 month)
+        ]]>
+        group by year, month
+    </select>
 </mapper>
