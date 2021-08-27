@@ -22,7 +22,7 @@
                     <a href="/dog">강아지</a>
                 </li>
                 <li>
-                    <a href="#">고양이</a>
+                    <a href="/cat">고양이</a>
                 </li>
             </ul>
             <a href="/" id="logo">
@@ -36,7 +36,7 @@
                     <a href="#">신고센터</a>
                 </li>
                 <li>
-                    <a href="#">고객센터</a>
+                    <a href="/support/list">고객센터</a>
                 </li>
             </ul>
         </div>

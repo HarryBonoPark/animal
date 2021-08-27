@@ -18,19 +18,19 @@ $(function() {
             success:function(r) {
                 data_length = r.data.length;
                 currentPage = 1;
-                $(".total").html(Math.ceil(data_length / 10));
+                $(".total").html(Math.ceil(data_length / 20));
                 console.log(r);
                 $(".center_tbody").html("");
-                let page = Math.ceil(r.data.length/10);
+                let page = Math.ceil(r.data.length/20);
                 for(let i=0; i<page; i++) {
                     $("#center_table").append('<tbody class="center_tbody"></tbody>');
                 }
                 for(let i=0; i<r.data.length; i++) {
-                    let page = Math.floor(i/10);
-                    // console.log(Math.floor(i/10));
+                    let page = Math.floor(i/20);
+                    // console.log(Math.floor(i/20));
                     let tag = 
                     '<tr>'+
-                        // '<td>'+r.data[i].orgNm+'</td>'+
+                        '<td>'+(i+1)+'</td>'+
                         '<td>'+r.data[i].careNm+'</td>'+
                         '<td>'+r.data[i].careTel+'</td>'+
                         '<td>'+r.data[i].careAddr+'</td>'+
@@ -55,7 +55,7 @@ $(function() {
     $("#center_next").click(function() {
         // let currentPage = Number($(".current").html());
         currentPage++;
-        if(currentPage > data_length / 10) currentPage = Math.ceil(data_length / 10);
+        if(currentPage > data_length / 20) currentPage = Math.ceil(data_length / 20);
         $(".current").html(currentPage);
         $(".center_tbody").removeClass("active");
         $(".center_tbody").eq(currentPage-1).addClass("active");
