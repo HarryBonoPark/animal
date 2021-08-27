@@ -23,6 +23,7 @@
                 case 
                     when sexCd = 'F' then '암컷'
                     when sexCd = 'M' then '수컷'
+                    when sexCd = 'Q' then '미상'
                 end as sex,
                 case 
                     when neuterYn = 'N' then '중성화 X'
@@ -59,6 +60,7 @@
             case 
                 when sexCd = 'F' then '암컷'
                 when sexCd = 'M' then '수컷'
+                when sexCd = 'Q' then '미상'
             end as sex,
             case 
                 when neuterYn = 'N' then '중성화 X'

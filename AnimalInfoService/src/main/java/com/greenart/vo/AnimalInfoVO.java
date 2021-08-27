@@ -40,6 +40,14 @@ public class AnimalInfoVO {
 
     private String strCnt;
     private String strAllCnt;
+
+    private String year;
+    private String month;
+    private String dogCnt;
+
+    private Integer dogState;
+    private String p_state;
+    private String strDogState;
     // private String accAllCnt;
     
 }

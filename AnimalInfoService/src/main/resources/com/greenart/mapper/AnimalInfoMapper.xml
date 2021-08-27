@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.AnimalInfoMapper">
+<!-- DOG -->
     <insert id="insertAnimalInfo">
         INSERT INTO animal_info
         (
@@ -17,22 +18,18 @@
         )
     </insert>
     <!-- Today -->
-    <select id="selectAnimalInfoByDate" resultType="com.greenart.vo.AnimalInfoVO"> 
+    <!-- <select id="selectAnimalInfoByDate" resultType="com.greenart.vo.AnimalInfoVO"> 
         select count(*) from animal_info
         where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
-    </select>
+    </select> -->
     <!-- 누적 유기 -->
-    <select id="selectAccAnimalCnt" resultType="com.greenart.vo.AnimalInfoVO">
+    <!-- <select id="selectAccAnimalCnt" resultType="com.greenart.vo.AnimalInfoVO">
         select count(*) as accDogCnt from animal_info
         <![CDATA[
         where noticeSdt <= date(#{date})
         ]]>
-    </select>
-
-    <!-- <select id="selectAnimalStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
-        select * from animal_info where noticeSdt >= str_to_date(#{date}, "%Y-%m-%d")
-        and processState != '종료(반환)'
     </select> -->
+
     <select id="selectCntStatusByDate" resultType="com.greenart.vo.AnimalInfoVO">
         select count(*) as cnt from animal_info
         where processState ='보호중'
@@ -95,7 +92,7 @@
             <![CDATA[
         from animal_info where date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
         ]]>
-        group by region 
+        group by region order by region asc
     </select>
     <select id="selectNeuterCnt" resultType="com.greenart.vo.AnimalInfoVO">
         select count(neuterYn) as neuter from animal_info
@@ -108,6 +105,152 @@
         where neuterYn = 'N'
         <![CDATA[
         and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectMonthDogCnt" resultType="com.greenart.vo.AnimalInfoVO">
+        select year(happenDt) as year, month(happenDt) as month, count(*) as dogCnt from animal_info
+        <![CDATA[
+        where date_format(happenDt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d') and happenDt > DATE_SUB(now(), interval 3 month)
+        ]]>
+        group by year, month
+    </select>
+    <select id="selectDogProcessState" resultType="com.greenart.vo.AnimalInfoVO">
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(반환)' 
+        union 
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(자연사)'
+        union 
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(안락사)' 
+        union 
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(입양)'
+        union 
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(기증)'
+        union 
+        select count(*) as dogState, processState as p_state from animal_info
+        where processState = '종료(방사)'
+        <![CDATA[
+        and date_format(noticeEdt, "%Y-%m-%d") <=  str_to_date(#{date}, "%Y-%m-%d")
+        ]]>
+    </select>
+
+
+
+<!-- CAT -->
+    <!-- <insert id="insertCatInfo">
+        INSERT INTO cat_info
+        (
+            age, careAddr, careNm, careTel, officetel, colorCd, desertionNo, 
+            filename, popfile, happenDt, happenPlace, kindCd, neuterYn, noticeSdt, 
+            noticeEdt, noticeNo, orgNm, processState, sexCd, specialMark, weight
+        )
+        VALUES
+        (
+            #{age}, #{careAddr}, #{careNm}, #{careTel}, #{officetel}, #{colorCd}, #{desertionNo}, 
+            #{filename}, #{popfile}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn}, #{noticeSdt}, 
+            #{noticeEdt}, #{noticeNo}, #{orgNm}, #{processState}, #{sexCd}, #{specialMark}, #{weight}
+        )
+    </insert> -->
+    <select id="selectCatCntStatusByDate" resultType="com.greenart.vo.CatInfoVO">
+        select count(*) as c_cnt from cat_info
+        where processState ='보호중'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') = str_to_date(#{date},'%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectAllCatCntByDate" resultType="com.greenart.vo.CatInfoVO">
+        SELECT count(*) as c_noCnt FROM cat_info WHERE noticeSdt BETWEEN DATE_ADD(NOW(),INTERVAL -3 MONTH ) AND NOW()
+        <!-- select count(*) as noCnt from cat_info
+        where desertionNo
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date},'%Y-%m-%d')
+        ]]> -->
+    </select>
+    <select id="selectCatSexAnimalCnt" resultType="com.greenart.vo.CatInfoVO">
+        select count(sexCd) as c_sex from cat_info
+        where sexCd='M'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        union
+        select count(sexCd) as c_sex from cat_info
+        where sexCd = 'F'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectCatCntRegion" resultType="com.greenart.vo.CatInfoVO">
+        select count(processState) as c_careDogCnt,
+            case 
+                    when orgNm like '서%울%특%' then '서울' 
+                    when orgNm like '부%산%광%' then '부산' 
+                    when orgNm like '대%구%광%' then '대구' 
+                    when orgNm like '인%천%광%' then '인천' 
+                    when orgNm like '광%주%광%' then '광주' 
+                    when orgNm like '대%전%광%' then '대전' 
+                    when orgNm like '울%산%광%' then '울산' 
+                    when orgNm like '세%종%특%' then '세종' 
+                    when orgNm like '경%기%도%' then '경기' 
+                    when orgNm like '강%원%도%' then '강원' 
+                    when orgNm like '충%청%북%' then '충북' 
+                    when orgNm like '충%청%남%' then '충남' 
+                    when orgNm like '전%라%북%' then '전북' 
+                    when orgNm like '전%라%남%' then '전남' 
+                    when orgNm like '경%상%북%' then '경북' 
+                    when orgNm like '경%상%남%' then '경남' 
+                    when orgNm like '제%주%특%' then '제주' 
+                end as c_region 
+            <![CDATA[
+        from cat_info where date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        group by c_region order by c_region asc
+    </select>
+    <select id="selectCatNeuterCnt" resultType="com.greenart.vo.CatInfoVO">
+        select count(neuterYn) as c_neuter from cat_info
+        where neuterYn = 'Y'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+        union
+        select count(neuterYn) as c_neuter from cat_info
+        where neuterYn = 'N'
+        <![CDATA[
+        and date_format(noticeSdt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d')
+        ]]>
+    </select>
+    <select id="selectMonthCatCnt" resultType="com.greenart.vo.CatInfoVO">
+        select year(happenDt) as year, month(happenDt) as month, count(*) as catCnt from cat_info
+        <![CDATA[
+        where date_format(happenDt, '%Y-%m-%d') <= str_to_date(#{date}, '%Y-%m-%d') and happenDt > DATE_SUB(now(), interval 3 month)
+        ]]>
+        group by year, month
+    </select>
+    <select id="selectCatProcessState" resultType="com.greenart.vo.CatInfoVO">
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(반환)' 
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(자연사)'
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(안락사)' 
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(입양)'
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(기증)'
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료(방사)'
+        union 
+        select count(*) as catState, processState as p_state from cat_info
+        where processState = '종료()'
+        <![CDATA[
+        and date_format(noticeEdt, "%Y-%m-%d") <=  str_to_date(#{date}, "%Y-%m-%d")
         ]]>
     </select>
 </mapper>

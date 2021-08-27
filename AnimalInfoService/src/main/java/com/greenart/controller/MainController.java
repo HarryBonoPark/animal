@@ -2,6 +2,7 @@ package com.greenart.controller;
 
 import com.greenart.service.AnimalInfoService;
 import com.greenart.vo.AnimalInfoVO;
+import com.greenart.vo.CatInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,13 +22,13 @@ public class MainController {
 
         AnimalInfoVO cnt = service.selectTodayCntStatusByDate();
         AnimalInfoVO allCnt = service.selectTodayAllCntByDate();
-        
-        // DecimalFormat df = new DecimalFormat("###,###");
-        // String formatCnt = df.format(cnt);
-        // String formatAllCnt = df.format(allCnt);
-        
+        CatInfoVO c_cnt = service.selectTodayCatCntStatusByDate();
+        CatInfoVO c_AllCnt = service.selectTodayAllCatCntByDate();
+                
         model.addAttribute("cnt", cnt);
         model.addAttribute("allCnt", allCnt);
+        model.addAttribute("c_cnt", c_cnt);
+        model.addAttribute("c_AllCnt", c_AllCnt);
 
         return "/index";
     }

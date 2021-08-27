@@ -147,14 +147,14 @@ public class CatInfoAPIController {
     }
     
     // 팝업 api
-    @GetMapping("/api/cat/detail/{seq}")
-    public Map<String, Object> getCatDetailInfoBySeq(@PathVariable Integer seq) {
+    @GetMapping("/api/cat/detail")
+    public Map<String, Object> getCatDetailInfoBySeq(@RequestParam Integer seq) throws Exception {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
-        List<CatInfoVO> dList = service.selectCatDetailInfoBySeq(seq);
+        CatInfoVO vo = service.selectCatDetailInfoBySeq(seq);
 
         resultMap.put("status", true);
-        resultMap.put("dList", dList);
+        resultMap.put("data", vo);
 
         return resultMap;
     }

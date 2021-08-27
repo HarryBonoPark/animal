@@ -37,21 +37,21 @@
     margin-top: 10px;
 }
 .main_banner_contents .banner_contents {
-    position: absolute; right: 0px; top: 380px;
+    position: absolute; right: 0px; top: 250px;
     font-family: 'Cafe24Ssurround'; color: #fcfcfc;
 }
 .main_banner_contents .banner_contents .ani_title {
-    font-size: 36px; text-align: right; margin-bottom: 10px;
+    font-size: 36px; text-align: right; margin-bottom: 8px;
 }
 .main_banner_contents .banner_contents .content_mid {
     margin-top: 50px;
 }
 .main_banner_contents .banner_contents .ani_number {
-    font-size: 52px; text-align: right;
+    font-size: 52px; text-align: right; margin-top: 3px;
 }
 .dashboard_content {
     width: 1100px; margin:0 auto; padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 180px;
 }
 .dashboard_content h1 {
     font-size: 28px; color: #333;
@@ -75,3 +75,4 @@
 .dashboard_content .pie_chart_area .content_right:last-child {
     margin-top: 100px;
 }
+/* .dashboard_content .content_data {width: 1100px; height: 450px; margin-right: 40px;} */

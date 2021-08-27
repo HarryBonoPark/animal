@@ -21,12 +21,15 @@
             <p class="banner_warn">반려동물 유기는 형사처벌 대상입니다.</p>
             <div class="banner_contents">
                 <div class="content_left">
-                    <p class="ani_title">TODAY 보호중</p>
+                    <p class="ani_title">하루간 발견된 강아지</p>
                     <p class="ani_number">${cnt.strCnt} 마리</p>
+                    <p class="ani_title">하루간 발견된 고양이</p>
+                    <p class="ani_number">${c_cnt.c_strCnt} 마리</p>
                 </div>
                 <div class="content_mid">
-                    <p class="ani_title">최근 3개월간 유기된 강아지 수</p>
-                    <p class="ani_number">${allCnt.strAllCnt} 마리</p>
+                    <p class="ani_title">최근 3개월간 가족을 잃은</p>
+                    <p class="ani_number">강아지 ${allCnt.strAllCnt} 마리</p>
+                    <p class="ani_number">고양이 ${c_AllCnt.c_strAllCnt} 마리</p>
                 </div>
             </div>
         </div>
@@ -35,17 +38,50 @@
         <div class="dashboard_content">
             
             <div class="content_mid live_confirm_area">
-                <h1>지역별 유기 현황</h1>
+                <h1>어디에서 강아지가 가족을 많이 잃었나요?</h1>
                 <canvas id="region_status" style="width: 100%; height: 100%;"></canvas>
             </div>
             <div class="pie_chart_area">
                 <div class="content_right">
-                    <h1>유기동물 성별비율</h1>
+                    <h1>유기 된 강아지 성별비율</h1>
                     <canvas id="sex_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
                 <div class="content_right">
-                    <h1>유기동물 중성화 비율</h1>
+                    <h1>유기 된 강아지 중성화</h1>
                     <canvas id="neuter_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_content">
+            
+            <div class="content_mid live_confirm_area">
+                <h1>어디에서 고양이가 가족을 많이 잃었나요?</h1>
+                <canvas id="c_region_status" style="width: 100%; height: 100%;"></canvas>
+            </div>
+            <div class="pie_chart_area">
+                <div class="content_right">
+                    <h1>유기 된 고양이 성별비율</h1>
+                    <canvas id="c_sex_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="content_right">
+                    <h1>유기 된 고양이 중성화</h1>
+                    <canvas id="c_neuter_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_content">
+            <div class="content_mid content_data">
+                <h1>최근 3개월간 많은 반려동물이 가족을 잃었어요</h1>
+                <canvas id="dogcat_status" style="width: 100%; height: 100%;"></canvas>
+            </div>
+            <div class="pie_chart_area">
+                <div class="content_right">
+                    <h1>보호가 종료된 강아지</h1>
+                    <canvas id="d_state_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="content_right">
+                    <h1>보호가 종료된 고양이</h1>
+                    <canvas id="c_state_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
         </div>

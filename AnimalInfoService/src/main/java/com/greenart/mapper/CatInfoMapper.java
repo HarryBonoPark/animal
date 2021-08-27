@@ -10,5 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CatInfoMapper {
     public void insertCatInfo(CatInfoVO vo);
     public List<CatInfoVO> selectCatInfo(String region);
-    public List<CatInfoVO> selectCatDetailInfoBySeq(Integer seq);
+    public CatInfoVO selectCatDetailInfoBySeq(Integer seq);
 }

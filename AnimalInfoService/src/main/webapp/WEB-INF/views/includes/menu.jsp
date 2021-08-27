@@ -16,13 +16,13 @@
         <div class="header">
             <ul class="left_menu">
                 <li>
-                    <a href="/">유기현황</a>
-                </li>
-                <li>
                     <a href="/dog">강아지</a>
                 </li>
                 <li>
                     <a href="/cat">고양이</a>
+                </li>
+                <li>
+                    <a href="/other">기타동물</a>
                 </li>
             </ul>
             <a href="/" id="logo">
