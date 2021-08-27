@@ -31,4 +31,15 @@ public class SupportService {
     public void deleteSupport(Integer seq){
         mapper.deleteSupport(seq);
     }
+    //전체 값 가져오기
+    public SupportVO selectSupportBySeq(Integer seq){
+        return mapper.selectSupportBySeq(seq);
+    }
+    //수정할 사항 
+    public void updateSupportList(SupportVO vo){
+        mapper.updateSupportList(vo);
+    }
+    public Integer checkPassword(SupportVO vo) {
+        return mapper.checkPassword(vo);
+    }
 }

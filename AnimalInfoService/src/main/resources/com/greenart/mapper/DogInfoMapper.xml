@@ -5,9 +5,12 @@
 <select id="selectDogInfo" resultType="com.greenart.vo.DogInfoVO">
         select * ,
             case when sexCd = 'F' then '암컷'
-            when sexCd = 'M' then '수컷' end as sex,
+            when sexCd = 'M' then '수컷'
+            when sexCd='Q' then '미상'
+            end as sex,
             case when neuterYn = 'N' then '중성화 X'
-            when neuterYn = 'U' then '중성화 O' end as sexYn
+            when neuterYn = 'Y' then '중성화 O'
+            when neuterYn = 'U' then '미상' end as sexYn
         from animal_info
     where 
     <![CDATA[        
@@ -31,9 +34,11 @@
 <select id="selectDogInfoById" resultType="com.greenart.vo.DogInfoVO">
     select *, 
     case when sexCd = 'F' then '암컷'
-            when sexCd = 'M' then '수컷' end as sex,
+            when sexCd = 'M' then '수컷' 
+            when sexCd= 'Q' then '미상' end as sex,
             case when neuterYn = 'N' then '중성화 X'
-            when neuterYn = 'U' then '중성화 O' end as sexYn
+            when neuterYn = 'Y' then '중성화 O'
+            when neuterYn = 'U' then '미상' end as sexYn
     from animal_info where seq = #{seq}
 </select>
 <select id="selectRegionDogInfo" resultType="com.greenart.vo.DogInfoVO">
@@ -41,9 +46,11 @@
 		(
 		select *,
 			case when sexCd = 'F' then '암컷'
-            when sexCd = 'M' then '수컷' end as sex,
+            when sexCd = 'M' then '수컷'
+            when sexCd= 'Q' then '미상' end as sex,
             case when neuterYn = 'N' then '중성화 X'
-            when neuterYn = 'Y' then '중성화 O' end as sexYn,
+            when neuterYn = 'Y' then '중성화 O'
+            when neuterYn = 'U' then '미상' end as sexYn,
 			case 
 				when orgNm like '%서%울%특%' then '서울특' 
                 when orgNm like '%부%산%광%' then '부산광' 
@@ -68,6 +75,6 @@
 			<if test = "region != 'all'">
 				where region =#{region} 
 			</if>
-			limit 12 
+		limit 36
 </select>
 </mapper>

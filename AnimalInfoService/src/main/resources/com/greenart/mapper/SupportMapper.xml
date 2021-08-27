@@ -2,23 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.SupportMapper">
-<!-- 값 가져오기 -->
 <insert id="insertSupport">
     INSERT INTO support_info
         (name, kind, phone, password, email, title, content, region)
     VALUES
         (#{name}, #{kind}, #{phone}, #{password}, #{email}, #{title}, #{content}, #{region});
 </insert>
-<!-- 지역별 값 가져오기 -->
 <select id="selectSupportList" resultType="com.greenart.vo.SupportVO">
     select * from support_info 
     <if test="region !='all'"> 
         where region=#{region}
     </if>
 </select>
-<!-- 선택된 게시글 삭제 -->
 <delete id="deleteSupport">
     delete from support_info where seq=#{seq}
 </delete>
-
+<!-- 기존의 데이터 가져오기 -->
+<select id="selectSupportBySeq" resultType="com.greenart.vo.SupportVO">
+    select * from support_info where seq=#{seq}
+</select>
+<!-- 업데이트 할 데이터  -->
+<update id="updateSupportList">
+    UPDATE support_info SET
+        kind=#{kind},
+        name=#{name},
+        phone=#{phone},
+        password=#{password},
+        email=#{email},
+        title=#{title},
+        content=#{content},
+        region=#{region}
+    where seq=#{seq}
+</update>
+<!-- 해당 seq에 대한 비밀번호 가져오기 -->
+<select id="checkPassword" resultType="java.lang.Integer">
+    select count(*) from support_info where seq=#{seq} and password=#{password}
+</select>
 </mapper>

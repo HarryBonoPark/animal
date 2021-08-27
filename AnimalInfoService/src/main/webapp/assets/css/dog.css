@@ -133,7 +133,7 @@
     background-color: rgba(0,0,0,0.8);
 }
 .dog_form .dog_form_contents {
-    width: 50%; height: 45%; background-color: #fff;
+    width: 50%; height: 400px; background-color: #fff;
     position: absolute;
     left: 50%; top: 50%; transform:translate(-50%, -50%);
     border-radius: 10px;
@@ -162,7 +162,7 @@
     font-family: "Noto Sans KR", sans-serif;
     width: 50%; font-size: 16px;
     box-sizing: border-box;
-    padding:30px;
+    padding:10px;
 }
 .dog_form_description_box > p {
     margin-bottom: 10px;

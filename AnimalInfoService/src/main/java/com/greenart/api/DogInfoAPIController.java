@@ -63,7 +63,7 @@ public class DogInfoAPIController {
         
         char[] c = region.toCharArray();
         region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
-        System.out.println(region);
+        //System.out.println(region);
 
         resultMap.put("status", true);
         resultMap.put("dogList", vo);
