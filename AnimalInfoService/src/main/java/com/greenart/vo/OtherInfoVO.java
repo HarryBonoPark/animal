@@ -43,4 +43,8 @@ public class OtherInfoVO {
     private String year;
     private String month;
     private String otherCnt;
+
+    private String kind;
+    private String sex;
+    private String sexYn;
 }

@@ -45,5 +45,14 @@ select * from
 			</if>
 		limit 36
 </select>
-
+<select id="selectOtherById" resultType="com.greenart.vo.OtherInfoVO">
+select *, mid(kindCd,8) as kind,
+    case when sexCd = 'F' then '암컷'
+            when sexCd = 'M' then '수컷' 
+            when sexCd= 'Q' then '미상' end as sex,
+            case when neuterYn = 'N' then '중성화 X'
+            when neuterYn = 'Y' then '중성화 O'
+            when neuterYn = 'U' then '미상' end as sexYn
+    from other_info where seq = #{seq}
+</select>
 </mapper>

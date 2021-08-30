@@ -16,6 +16,7 @@ import com.greenart.vo.OtherInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
@@ -160,5 +161,15 @@ public class OtherInfoAPIController {
         resultMap.put("otherList", vo);
         return resultMap;
     }
+    @GetMapping("/api/OtherDetailInfo/{seq}")
+    public Map<String, Object> getOtherDetailById(@PathVariable Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        OtherInfoVO vo = service.selectOtherById(seq);
+
+        resultMap.put("data", vo);
+
+        return resultMap;
+    }
+
 
 }

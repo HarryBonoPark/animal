@@ -112,6 +112,90 @@
     font-size: 20px; display: inline-block;
     width:35px; color: #434343;
 }
-/* .other_box:hover .popOpenBtnCmmn {
+.other_box:hover .popUpBtnCmmn {
     opacity: 1;
-} */
+}
+.popUpBtnCmmn {
+    position: absolute; width: 100%; height: 100%;
+    left: 0; top: 0; z-index: 99;
+    background-color:rgba(0,0,0,0.8);
+    border: 0; color: #f4f4f4;
+    font-family: 'Noto Sans KR';
+    font-size: 18px; padding: 0;
+    opacity: 0; cursor:pointer;
+    transition:opacity 0.3s;
+}
+
+.popUpBtnCmmn i {
+    color: #f4f4f4;
+    font-size: 48px; margin-left: -15px;
+    display: inline-block;
+}
+
+.other_form {position: fixed;
+    width: 100%; height: 100%; left: 0; top: 0;
+    z-index: 9999; display: none;
+    background-color: rgba(0,0,0,0.8);
+}
+.other_form .other_form_contents {
+    width: 50%; height: 400px; background-color: #fff;
+    position: absolute;
+    left: 50%; top: 50%; transform:translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.other_form_contents > div {
+    display: inline-block; vertical-align: top;
+}
+.other_form_contents {font-size: 0;}
+.other_form_img_box {
+    width: 50%; height: 100%;
+    overflow: hidden; position: relative;
+    background-color:#f4f4f4;
+}
+.other_form_img_box img {
+    position: absolute; 
+    height: 100%;
+    left: 50%; top: 50%; transform:translate(-50%, -50%);
+}
+
+.other_form_description_box {
+    font-family: "Noto Sans KR", sans-serif;
+    width: 50%; font-size: 16px;
+    box-sizing: border-box;
+    padding:10px;
+}
+.other_form_description_box > p {
+    margin-bottom: 10px;
+}
+.other_form_description_box .otherShelters {
+    font-size: 14px; color: #434343;
+    margin-bottom: 5px;
+}
+.other_form_description_box .kind {
+    font-size: 24px; font-weight: 700; color: #333;
+    margin-bottom: 40px;
+}
+
+/* 팝업창 닫기 버튼 */
+#popCloseBtnCmmn {
+    position: absolute; right: 20px; top: 20px;
+    font-size: 36px;
+    color: #666;
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+}
+#popCloseBtnCmmn:hover {
+    color: rgb(255, 189, 57);
+}
+
+/* 데이터가 없을 시 나오는 이미지 */
+.nodata {
+    padding:50px 0; text-align: center; 
+}
+.nodata img {
+    width: 200px; opacity: 0.8; margin-bottom: 30px;
+}
+.nodata h1 {color: #999;}

@@ -30,6 +30,7 @@ public class DogInfoVO {
     
     private String sex;
     private String sexYn;
+    private String kind;
 
     private String region;
     

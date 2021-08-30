@@ -16,7 +16,6 @@
                 crossorigin="anonymous" />
 
 </head>
-
 <body>
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="container">

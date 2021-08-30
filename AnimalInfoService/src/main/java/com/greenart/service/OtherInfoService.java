@@ -17,4 +17,7 @@ public class OtherInfoService {
     public List<OtherInfoVO> selectRegionOtherInfo(String region){
         return mapper.selectRegionOtherInfo(region);
     }
+    public OtherInfoVO selectOtherById(Integer seq){
+        return mapper.selectOtherById(seq);
+    }
 }

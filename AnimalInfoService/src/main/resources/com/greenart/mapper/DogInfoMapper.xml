@@ -36,7 +36,7 @@
 <select id="selectRegionDogInfo" resultType="com.greenart.vo.DogInfoVO">
 	select * from
 		(
-		select *,
+		select *, mid(kindCd,4) as kind,
 			case when sexCd = 'F' then '암컷'
             when sexCd = 'M' then '수컷'
             when sexCd= 'Q' then '미상' end as sex,
@@ -71,7 +71,7 @@
 </select>
 <!-- 팝업창으로 만들기  -->
 <select id="selectDogInfoById" resultType="com.greenart.vo.DogInfoVO">
-    select *, 
+    select *, mid(kindCd,4) as kind,
     case when sexCd = 'F' then '암컷'
             when sexCd = 'M' then '수컷' 
             when sexCd= 'Q' then '미상' end as sex,

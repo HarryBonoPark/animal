@@ -16,7 +16,7 @@ $(function () {
             type: "get",
             url: url,
             success: function (r) {
-                console.log(r);
+                //console.log(r);
                 currentPage = 1;
                 $(".current").html(currentPage);
                 $(".dog_area").html("");
@@ -42,7 +42,7 @@ $(function () {
                     '</p>' +
                     '<p class="kind">' +
                     '<span><i class="fas fa-dog"></i></span>' +
-                    '<span class="dogKind">' + r.dogList[i].kindCd + '</span>' +
+                    '<span class="dogKind">' + r.dogList[i].kind + '</span>' +
                     '</p>' +
                     '<p class="dogprofile">' +
                         '<span><i class="far fa-calendar-check"></i></span>' +
@@ -53,9 +53,6 @@ $(function () {
                         '<span class="gen">' + r.dogList[i].sex + '</span>, ' +
                         '<span class=" age">' + r.dogList[i].age + '</span>' +
                     '</p>' +
-                    '<p class="dogAge">' +
-                        '<span></span>' +
-                    '</p>' +
                     '<button class="popOpenBtnCmmn" data-num="' + r.dogList[i].seq + '"><i class="fas fa-search-plus"></i><br><span>상세정보</span></button>' +
                     '</div>'
                     $(".dog-tbody").eq(page).append(tag);
@@ -63,15 +60,17 @@ $(function () {
                 
                 resizeAnimalImageInit();
                 $(".dog-tbody").eq(0).addClass("active");
+
+                 //상세정보 보기
                 $(".popOpenBtnCmmn").click(function () {
                     $(".dog_form").css("display", "block");
                     let seq = $(this).attr("data-num");
-                    console.log($(this).attr("data-num"));
+                    //console.log($(this).attr("data-num"));
                     $.ajax({
                         type: "get",
                         url: "/api/dogDetailInfo/" + seq,
                         success: function (r) {
-                            console.log(r);
+                            //console.log(r);
                             $(".dog_form").html("");
                             let tag =
                         '<div class="dog_form_contents">'+
@@ -85,7 +84,7 @@ $(function () {
                                         '<span class="shelters">' + r.data.careNm + '</span>' +
                                     '</p>' +
                                     '<p class="kind">' +
-                                        '<span class="dogKind">' + r.data.kindCd + '</span>' +
+                                        '<span class="dogKind">' + r.data.kind + '</span>' +
                                         '<span class="gen"> (' + r.data.sex + ')</span>' +
                                     '</p>' +
                                     '<p class="happenPlace">' +
@@ -102,7 +101,7 @@ $(function () {
                                     '</p>' +
                                     '<p class="dogAge">' +
                                         '<span>나이: </span>' +
-                                        '<span class=" age">' + r.data.kindCd + '</span>' +
+                                        '<span class=" age">' + r.data.age + '</span>' +
                                     '</p>' +
                                     '<p class="weight">' +
                                         '<span>체중: </span>' +
@@ -138,7 +137,8 @@ $(function () {
                             
                         }
                     })
-                })
+                });
+
             }
         })
     }
@@ -149,7 +149,7 @@ $(function () {
         $(".current").html(currentPage);
         $(".dog-tbody").removeClass("active");
         $(".dog-tbody").eq(currentPage - 1).addClass("active");
-        console.log(currentPage);
+        //console.log(currentPage);
         resizeAnimalImage();
     })
     $("#prev").click(function () {
@@ -166,7 +166,7 @@ $(function () {
             $(".dog_box .dogfile img").eq(i).on("load", function(){
                 let w = $(".dog_box .dogfile img").eq(i).width();
                 let h = $(".dog_box .dogfile img").eq(i).height();
-                console.log("w"+w, "h"+h)
+                //console.log("w"+w, "h"+h)
                 if(w >= h) {
                     $(".dog_box .dogfile img").eq(i).css("height", "110%");
                 }
@@ -180,7 +180,7 @@ $(function () {
         for(let i=0; i<$(".dog_box .dogfile img").length; i++) {
             let w = $(".dog_box .dogfile img").eq(i).width();
             let h = $(".dog_box .dogfile img").eq(i).height();
-            console.log("w"+w, "h"+h)
+            //console.log("w"+w, "h"+h)
             if(w >= h) {
                 $(".dog_box .dogfile img").eq(i).css("height", "110%");
             }

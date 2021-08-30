@@ -10,4 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface OtherInfoMapper {
     public void insertOtherInfo(OtherInfoVO vo);
     public List<OtherInfoVO> selectRegionOtherInfo(String region);
+    public OtherInfoVO selectOtherById(Integer seq);
 }
