@@ -38,11 +38,11 @@ $(function() {
                         '</p>'+
                         '<p class="catLine"></p>'+
                         '<p class="catShelter">'+
-                                '<span class="shelter"' + "[" + r.catList[i].careNm + "]" + '></span>'+
+                                '<span class="shelter">' + "[" + r.catList[i].careNm + "]" + '</span>'+
                         '</p>'+
                         '<p class="kind">'+
                                 '<span><i class="fas fa-cat"></i></span>'+
-                                '<span class="catKind">'+r.catList[i].kindCd+'</span>'+
+                                '<span class="catKind">'+r.catList[i].kind+'</span>'+
                         '</p>'+
                         '<p class="catprofile">'+
                                 '<span><i class="far fa-calendar-check"></i></span>'+
@@ -87,7 +87,7 @@ $(function() {
                                             '<span class="shelters">' + r.data.careNm + '</span>' +
                                         '</p>' +
                                         '<p class="kind">' +
-                                            '<span class="catKind">' + r.data.kindCd + '</span>' +
+                                            '<span class="catKind">' + r.data.kind + '</span>' +
                                             '<span class="gen"> (' + r.data.sex + ')</span>' +
                                         '</p>' +
                                         '<p class="happenPlace">' +
@@ -133,8 +133,6 @@ $(function() {
                                     '</div>'+
                                     '<button id="popCloseBtnCmmn" data-num="1"><i class="fas fa-times"></i><button>'+
                                 '</div>'
-
-                            // if()
 
                             $(".cat_form").append(tag);
                             $("#popCloseBtnCmmn").click(function() {

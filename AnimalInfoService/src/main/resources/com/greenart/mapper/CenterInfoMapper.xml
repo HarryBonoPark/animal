@@ -2,11 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.CenterInfoMapper">
-    <select id="selectCenterInfo" resultType="com.greenart.vo.CenterInfoVO">
+    <insert id="insertCenterInfo">
+        INSERT INTO center_info
+        (
+            careNm, orgNm, divisionNm, saveTrgtAnimal, careAddr, jibunAddr, lat, lng, dsignationDate, 
+            weekOprStime, weekOprEtime, weekCellStime, weekCellEtime, weekendOprStime, weekendOprEtime, weekendCellStime, weekendCellEtime, 
+            closeDay, vetPersonCnt, specsPersonCnt, medicalCnt, breedCnt, quarabtineCnt, feedCnt, transCarCnt, careTel, dataStdDt
+        )
+        VALUES
+        (
+            #{careNm}, #{orgNm}, #{divisionNm}, #{saveTrgtAnimal}, #{careAddr}, #{jibunAddr}, #{lat}, #{lng}, #{dsignationDate}, 
+            #{weekOprStime}, #{weekOprEtime}, #{weekCellStime}, #{weekCellEtime}, #{weekendOprStime}, #{weekendOprEtime}, #{weekendCellStime}, #{weekendCellEtime}, 
+            #{closeDay}, #{vetPersonCnt}, #{specsPersonCnt}, #{medicalCnt}, #{breedCnt}, #{quarabtineCnt}, #{feedCnt}, #{transCarCnt}, #{careTel}, #{dataStdDt}
+        )
+    </insert>
+    <select id="selectCenterInfoByRegion" resultType="com.greenart.vo.CenterInfoVO">
         select * from
         (
-            select distinct orgNm, careNm, careAddr, careTel, processState, 
-                count(processState) as careDogCnt,
+            select distinct orgNm, careNm, divisionNm, careAddr, careTel, seq,
                 case 
                     when orgNm like '%서%울%특%' then '서울특' 
                     when orgNm like '%부%산%광%' then '부산광' 
@@ -26,11 +39,14 @@
                     when orgNm like '%경%상%남%' then '경상남' 
                     when orgNm like '%제%주%특%' then '제주특' 
                     end as region
-                from animal_info
+                from center_info
             group by careNm
         ) a where region = #{region}
     </select>
-    <select id="selectCenterInfoCnt" resultType="com.greenart.vo.CenterInfoVO">
-        select count(distinct careNm) as centerCnt from animal_info
+    <select id="selectCenterInfoCntAll" resultType="com.greenart.vo.CenterInfoVO">
+        select count(careNm) as centerCnt from center_info
+    </select>
+    <select id="selectCenterInfoBySeq" resultType="com.greenart.vo.CenterInfoVO">
+        select * from center_info where seq = #{seq}
     </select>
 </mapper>

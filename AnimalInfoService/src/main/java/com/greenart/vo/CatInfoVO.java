@@ -30,6 +30,8 @@ public class CatInfoVO {
     private String specialMark;
     private String weight;
 
+    private String kind;
+
     private String sex;
     private String sexYn;
     private String region;
