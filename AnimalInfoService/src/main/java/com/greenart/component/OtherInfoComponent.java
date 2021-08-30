@@ -45,12 +45,15 @@ public class OtherInfoComponent {
 
         NodeList nList = doc.getElementsByTagName("item");
         System.out.println("데이터 수 : "+nList.getLength());
+
         if(nList.getLength() <= 0){
             return;
         }
+        
         for(int i=0; i<nList.getLength(); i++){
             Node n =nList.item(i);
             Element elem = (Element) n;
+
             OtherInfoVO vo = new OtherInfoVO();
             String age = getTagValue("age", elem); 
             //System.out.println(age);

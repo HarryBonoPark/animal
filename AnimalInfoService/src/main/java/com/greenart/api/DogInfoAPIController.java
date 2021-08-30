@@ -19,43 +19,37 @@ import org.springframework.web.bind.annotation.RestController;
 public class DogInfoAPIController {
     @Autowired DogInfoService service;
     @Autowired DogInfoMapper mapper;
-    @GetMapping("/api/dog/{date}")
-    public Map<String, Object> getDogInfo(@PathVariable String date){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    
+    // @GetMapping("/api/dog/{date}")
+    // public Map<String, Object> getDogInfo(@PathVariable String date){
+    //     Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         
-        List<DogInfoVO> list = service.selectDogInfo(date);
+    //     List<DogInfoVO> list = service.selectDogInfo(date);
 
-        resultMap.put("status",true);
-        resultMap.put("dogList",list);
+    //     resultMap.put("status",true);
+    //     resultMap.put("dogList",list);
 
-        Integer allCnt = service.selectCnt();
-        if(allCnt==null) allCnt=0;
-        resultMap.put("allCnt", allCnt);
+    //     Integer allCnt = service.selectCnt();
+    //     if(allCnt==null) allCnt=0;
+    //     resultMap.put("allCnt", allCnt);
 
-        Integer page = (int)Math.ceil(allCnt/12);
-        resultMap.put("page", page);
+    //     Integer page = (int)Math.ceil(allCnt/12);
+    //     resultMap.put("page", page);
 
-        return resultMap;
-    }
-    @GetMapping("/api/dogDetailInfo/{}")
-    public Map<String, Object> getDogDetail(@PathVariable String date){
-    Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    //     return resultMap;
+    // }
 
-    List<DogInfoVO> list = service.selectDogInfo(date);
+    // @GetMapping("/api/dogDetailInfo/{}")
+    // public Map<String, Object> getDogDetail(@PathVariable String date){
+    // Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
-    resultMap.put("status",true);
-    resultMap.put("dogList",list);
-    return resultMap;
-    }
-    @GetMapping("/api/dogDetailInfo/{seq}")
-    public Map<String, Object> getDogDetailById(@PathVariable Integer seq) {
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        DogInfoVO vo = service.selectDogInfoById(seq);
+    // List<DogInfoVO> list = service.selectDogInfo(date);
 
-        resultMap.put("data", vo);
+    // resultMap.put("status",true);
+    // resultMap.put("dogList",list);
+    // return resultMap;
+    // }
 
-        return resultMap;
-    }
     @GetMapping("/api/regionDog")
     public Map<String, Object> getRegionDogInfo(@RequestParam @Nullable String region){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -69,4 +63,15 @@ public class DogInfoAPIController {
         resultMap.put("dogList", vo);
         return resultMap;
     }
+
+    @GetMapping("/api/dogDetailInfo/{seq}")
+    public Map<String, Object> getDogDetailById(@PathVariable Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        DogInfoVO vo = service.selectDogInfoById(seq);
+
+        resultMap.put("data", vo);
+
+        return resultMap;
+    }
+
 }

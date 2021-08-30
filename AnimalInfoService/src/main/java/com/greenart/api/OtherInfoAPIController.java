@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -13,6 +14,7 @@ import com.greenart.service.OtherInfoService;
 import com.greenart.vo.OtherInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -143,6 +145,20 @@ public class OtherInfoAPIController {
         Node node = (Node) nlList.item(0);
         if(node == null) return null;
         return node.getNodeValue();
+    }
+    
+    @GetMapping("/api/regionOther")
+    public Map<String, Object> getRegionOtherInfo(@RequestParam @Nullable String region){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<OtherInfoVO> vo = service.selectRegionOtherInfo(region);
+        
+        char[] c = region.toCharArray();
+        region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
+        //System.out.println(region);
+
+        resultMap.put("status", true);
+        resultMap.put("otherList", vo);
+        return resultMap;
     }
 
 }

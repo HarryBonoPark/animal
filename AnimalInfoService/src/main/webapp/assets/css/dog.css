@@ -5,6 +5,7 @@
     font-weight: normal;
     font-style: normal;
 }
+/* 전체 css  */
 .container {
     padding:80px 0;
     width: 1100px; margin:0 auto;
@@ -35,9 +36,10 @@
     background-color: #ff9900;
     color: #fff; font-weight: 500;
 }
+/* 강아지 영역 전체 */
 .dog-tbody {display: none; font-size: 0;}
 .dog-tbody.active {display: block;}
-
+/* 강아지 영역 하나 하나 */
 .dog_box {
     width:calc((100% - 60px) / 4);
     display: inline-block; box-sizing: border-box;
@@ -94,6 +96,10 @@
     font-size: 20px; display: inline-block;
     width:35px; color: #434343;
 }
+.dog_box:hover .popOpenBtnCmmn {
+    opacity: 1;
+}
+/* 상세정보 열기 버튼 */
 .popOpenBtnCmmn {
     position: absolute; width: 100%; height: 100%;
     left: 0; top: 0; z-index: 99;
@@ -104,14 +110,13 @@
     opacity: 0; cursor:pointer;
     transition:opacity 0.3s;
 }
-.dog_box:hover .popOpenBtnCmmn {
-    opacity: 1;
-}
+
 .popOpenBtnCmmn i {
     color: #f4f4f4;
     font-size: 48px; margin-left: -15px;
     display: inline-block;
 }
+/* page버튼 */
 .pager_area {
     text-align: center; margin-top: 30px;
     font-family: 'Roboto';
@@ -127,6 +132,7 @@
 }
 .pager_area .current {font-weight: 700;}
 
+/* 강아지 팝업창 영역  */
 .dog_form {position: fixed;
     width: 100%; height: 100%; left: 0; top: 0;
     z-index: 9999; display: none;
@@ -140,9 +146,7 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     overflow: hidden;
 }
-.dog_form img {
-    /* height: 300px; */
-}
+
 .dog_form_contents > div {
     display: inline-block; vertical-align: top;
 }
@@ -175,6 +179,8 @@
     font-size: 24px; font-weight: 700; color: #333;
     margin-bottom: 40px;
 }
+
+/* 팝업창 닫기 버튼 */
 #popCloseBtnCmmn {
     position: absolute; right: 20px; top: 20px;
     font-size: 36px;
@@ -186,6 +192,7 @@
     color: rgb(255, 189, 57);
 }
 
+/* 데이터가 없을 시 나오는 이미지 */
 .nodata {
     padding:50px 0; text-align: center; 
 }

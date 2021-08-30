@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 container / 지역 버튼 css */
+.container {
+    padding:80px 0;
+    width: 1100px; margin:0 auto;
+}
+.container h1 {
+    font-size: 32px; 
+    font-family: 'Cafe24Ssurround';
+    color: #434343;
+    margin-bottom: 40px; text-align: center;
+}
+.content_head {
+    overflow: hidden; text-align: center;
+    margin-bottom: 30px;
+}
+.content_head li {display: inline-block;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+    padding:10px 20px;
+    background-color: #f3f3f3;
+    margin:8px 5px;
+    border-radius: 100px;
+    cursor:pointer;
+}
+.content_head li:hover {
+    background-color: #ffd595; color: #fff;
+}
+.content_head li.selected {
+    background-color: #ff9900;
+    color: #fff; font-weight: 500;
+}
+/* 버튼 css */
+.pager_area {
+    text-align: center; margin-top: 30px;
+    font-family: 'Roboto';
+}
+.pager_area > * {margin: 10px; vertical-align: middle;}
+.pager_area > button {
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+    color: #666; font-size: 24px; opacity: 0.8;
+}
+.pager_area > button:hover {
+    opacity: 1;
+}
+.pager_area .current {font-weight: 700;}
+
+/* 강아지 영역 전체 */
+.other-tbody {display: none; font-size: 0;}
+.other-tbody.active {display: block;}
+/* 강아지 영역 하나 하나 */
+.other_box {
+    width:calc((100% - 60px) / 4);
+    display: inline-block; box-sizing: border-box;
+    margin-bottom: 20px;
+    vertical-align: top; height: 220px;
+    /* border: 1px solid #000;  */
+    box-shadow:0 0 5px rgba(0,0,0,0.2);
+    margin-right: 20px;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+    padding:15px; position: relative; overflow: hidden;
+}
+.other_box:nth-child(4n) {
+    margin-right: 0;
+}
+.other_box .otherfile {
+    width:80px; height:80px;
+    overflow: hidden; z-index: 9;
+    border-radius: 100px; position: relative;
+    background-image: url("/assets/images/no_image.jpg");
+    background-position: center; position: relative;
+}
+.otherLine {
+    position: absolute; width: 175px; left: 90px; top: 60px;
+    background-color: #ccc; height: 1px;
+}
+.otherShelter {
+    position: absolute;
+    right:15px; top: 28px;
+    overflow: hidden;
+    color: #555;
+    text-overflow: ellipsis;
+}
+.other_box .otherfile img {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform:translate(-50%, -50%);
+}
+.other_box .kind {
+    font-size: 16px; margin-top: 20px;
+    font-weight: 700; color: #434343; margin-bottom: 10px;
+    font-family: 'Cafe24Ssurround';
+    margin-left: 10px;
+}
+.other_box .otherprofile, .other_box .otherGen, .other_box .otherAge {
+    margin-bottom: 10px; font-size: 16px;
+    font-family: 'Cafe24Ssurround';
+    color: #333; margin-left: 10px;
+}
+.other_box > p > span {vertical-align: top;}
+.other_box i {
+    vertical-align: top;
+    position: relative; top: -4px;
+    font-size: 20px; display: inline-block;
+    width:35px; color: #434343;
+}
+/* .other_box:hover .popOpenBtnCmmn {
+    opacity: 1;
+} */

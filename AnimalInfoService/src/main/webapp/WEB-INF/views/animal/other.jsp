@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,23 +7,20 @@ pageEncoding="UTF-8"%>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="/assets/css/reset.css">
+        <title>기타동물정보</title>
+        <link rel="stylesheet" href="/assets/css/other.css">
+        <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="/assets/js/other.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
                 crossorigin="anonymous" />
-        <link rel="stylesheet" href="/assets/css/dog.css">
-        <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="/assets/js/dog.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-                integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="container">
-                <h1>유기동물(강아지) 조회</h1>
+                <h1>기타동물 조회</h1>
                 <ul class="content_head">
                         <li class="region selected">
                                 <span class="plain_name" data-region="all">전국</span>
@@ -80,13 +77,15 @@ pageEncoding="UTF-8"%>
                                 <span class="plain_name" data-region="강원도">강원도</span>
                         </li>
                 </ul>
-                <div class="dog_area">
+                <!-- 기타동물 전체 정보 -->
+                <div class="other_area">
 
                 </div>
                 <!-- 팝업창 정보 -->
-                <div class="dog_form" data-num="1">
+                <div class="other_form" data-num="1">
 
                 </div>
+
                 <div class="pager_area">
                         <button id="prev">
                                 <i class="fas fa-chevron-circle-left"></i>

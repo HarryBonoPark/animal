@@ -60,7 +60,6 @@ $(function () {
                     '</div>'
                     $(".dog-tbody").eq(page).append(tag);
                 }
-
                 
                 resizeAnimalImageInit();
                 $(".dog-tbody").eq(0).addClass("active");
