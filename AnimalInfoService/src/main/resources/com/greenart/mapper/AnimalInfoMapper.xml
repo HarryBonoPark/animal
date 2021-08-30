@@ -266,7 +266,7 @@
         ]]>
     </select>
     <select id="selectAllOtherCntByDate" resultType="com.greenart.vo.OtherInfoVO">
-        SELECT count(*) as o_noCnt FROMothert_info WHERE noticeSdt BETWEEN DATE_ADD(NOW(),INTERVAL -3 MONTH ) AND NOW()
+        SELECT count(*) as o_noCnt FROM other_info WHERE noticeSdt BETWEEN DATE_ADD(NOW(),INTERVAL -3 MONTH ) AND NOW()
         <!-- select count(*) as noCnt from other_info
         where desertionNo
         <![CDATA[

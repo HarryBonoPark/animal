@@ -9,6 +9,7 @@ import java.util.List;
 import com.greenart.mapper.AnimalInfoMapper;
 import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.CatInfoVO;
+import com.greenart.vo.OtherInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -474,5 +475,144 @@ public class AnimalInfoService {
     }
     public List<CatInfoVO> selectCatProcessState(String date){
         return mapper.selectCatProcessState(date);
+    }
+
+
+
+
+
+    // OTHER
+    public OtherInfoVO selectTodayOtherCntStatusByDate(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            // 현재 접속시간이 기준시간 (10시 30분 10초) 보다 이전일 때
+            // 하루 이전 날짜로 변경
+            now.add(Calendar.DATE, -1);
+            
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        OtherInfoVO data = mapper.selectOtherCntStatusByDate(dt);
+
+        Integer cnt = data.getO_cnt();
+
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String strCnt = dFormatter.format(cnt);
+
+        data.setO_strCnt(strCnt);
+
+        return data;
+    }
+    public OtherInfoVO selectOtherCntStatusByDate(String date){
+        return mapper.selectOtherCntStatusByDate(date);
+    }
+    public OtherInfoVO selectTodayAllOtherCntByDate(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            // 현재 접속시간이 기준시간 (10시 30분 10초) 보다 이전일 때
+            // 하루 이전 날짜로 변경
+            now.add(Calendar.DATE, -1);
+            
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        OtherInfoVO data = mapper.selectAllOtherCntByDate(dt);
+        Integer noCnt = data.getO_noCnt();
+
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String strAllCnt = dFormatter.format(noCnt);
+
+        data.setO_strAllCnt(strAllCnt);
+
+        return data;
+    }
+    public OtherInfoVO selectAllOtherCntByDate(String date){
+        return mapper.selectAllOtherCntByDate(date);
+    }
+
+    public List<OtherInfoVO> selectTodayOtherSexAnimalCnt(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            now.add(Calendar.DATE, -1);
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+
+        return mapper.selectOtherSexAnimalCnt(dt);
+    }
+    public List<OtherInfoVO> selectOtherSexAnimalCnt(String date){
+        return mapper.selectOtherSexAnimalCnt(date);
+    }
+    public List<OtherInfoVO> selectTodayOtherCntRegion(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            now.add(Calendar.DATE, -1);
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        return mapper.selectOtherCntRegion(dt);
+    }
+    public List<OtherInfoVO> selectOtherCntRegion(String date){
+        return mapper.selectOtherCntRegion(date);
+    }
+    public List<OtherInfoVO> selectTodayOtherNeuterCnt(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            now.add(Calendar.DATE, -1);
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        return mapper.selectOtherNeuterCnt(dt);
+    }
+    public List<OtherInfoVO> selectOtherNeuterCnt(String date){
+        return mapper.selectOtherNeuterCnt(date);
+    }
+    public List<OtherInfoVO> selectTodayMonthOtherCnt(){
+        Calendar now = Calendar.getInstance();
+        Calendar standard = Calendar.getInstance();
+        standard.set(Calendar.HOUR_OF_DAY, 23);
+        standard.set(Calendar.MINUTE, 59);
+        standard.set(Calendar.SECOND, 00);
+
+        if(now.getTimeInMillis() < standard.getTimeInMillis()){
+            now.add(Calendar.DATE, -1);
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String dt = formatter.format(now.getTime());
+
+        return mapper.selectMonthOtherCnt(dt);
+    }
+    public List<OtherInfoVO> selectMonthOtherCnt(String date){
+        return mapper.selectMonthOtherCnt(date);
     }
 }

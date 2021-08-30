@@ -3,6 +3,7 @@ package com.greenart.controller;
 import com.greenart.service.AnimalInfoService;
 import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.CatInfoVO;
+import com.greenart.vo.OtherInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +24,16 @@ public class MainController {
         AnimalInfoVO cnt = service.selectTodayCntStatusByDate();
         AnimalInfoVO allCnt = service.selectTodayAllCntByDate();
         CatInfoVO c_cnt = service.selectTodayCatCntStatusByDate();
-        CatInfoVO c_AllCnt = service.selectTodayAllCatCntByDate();
+        CatInfoVO c_allCnt = service.selectTodayAllCatCntByDate();
+        OtherInfoVO o_cnt = service.selectTodayOtherCntStatusByDate();
+        OtherInfoVO o_allCnt = service.selectTodayAllOtherCntByDate();
                 
         model.addAttribute("cnt", cnt);
         model.addAttribute("allCnt", allCnt);
         model.addAttribute("c_cnt", c_cnt);
-        model.addAttribute("c_AllCnt", c_AllCnt);
+        model.addAttribute("c_AllCnt", c_allCnt);
+        model.addAttribute("o_cnt", o_cnt);
+        model.addAttribute("o_allCnt", o_allCnt);
 
         return "/index";
     }
