@@ -39,12 +39,12 @@
                     <td><span>(지번)</span> ${detail.jibunAddr}</td>
                 </tr>
                 <tr>
-                    <td>평일 운영 시간 (분양 시간)</td>
-                    <td>${detail.weekOprStime} - ${detail.weekOprEtime} (${detail.weekCellStime} - ${detail.weekCellEtime})</td>
+                    <td>평일 운영 시간</td>
+                    <td>${detail.weekOprStime} - ${detail.weekOprEtime}</td>
                 </tr>
                 <tr>
-                    <td>주말 운영 시간 (분양 시간)</td>
-                    <td>${detail.weekendOprStime} - ${detail.weekendOprEtime} (${detail.weekendCellStime} - ${detail.weekendCellEtime})</td>
+                    <td>주말 운영 시간</td>
+                    <td>${detail.weekendOprStime} - ${detail.weekendOprEtime}</td>
                 </tr>
                 <tr>
                     <td>휴무일</td>
@@ -89,6 +89,55 @@
             </tbody>
         </table>
     </div>
+
+    
+    <!-- 지도 -->
+
+    <div id="map" style="width:100%; height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5f62b3dc4c8f75d31d29f1b4303e7efb&libraries=services"></script>
+	<script>
+        var lat = '${detail.lat}';
+        var lng = '${detail.lng}';
+        var careAddr = '${detail.careAddr}';
+
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(Number(lat), Number(lng)),
+			level: 3 
+		};
+		var map = new kakao.maps.Map(container, options);
+        var markerPosition  = new kakao.maps.LatLng(Number(lat), Number(lng));
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        if(lat == 0.0 && lng == 0.0) {
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch(careAddr, function(result, status) {
+
+
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+            
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+                } 
+            });  
+        }
+
+        marker.setMap(map)
+
+	</script>
 
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>

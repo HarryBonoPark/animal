@@ -83,12 +83,12 @@ public class CenterAPIController {
             // 동물 보호센터 지정 일자
             Date dDt = new Date();
             SimpleDateFormat dFormatter = new SimpleDateFormat("yyyyMMdd");
-            dDt = dFormatter.parse(dsignationDate==null?"-":dsignationDate);
+            dDt = dFormatter.parse(dsignationDate==null?"00000000":dsignationDate);
 
             // 데이터 기준 일자
             Date sDt = new Date();
             SimpleDateFormat sFormatter = new SimpleDateFormat("yyyyMMdd");
-            sDt = sFormatter.parse(dataStdDt==null?"-":dataStdDt);
+            sDt = sFormatter.parse(dataStdDt==null?"00000000":dataStdDt);
 
             vo.setCareNm(careNm);
             vo.setOrgNm(orgNm);
