@@ -32,7 +32,7 @@
         <div class="header">
             <ul class="left_menu">
                 <li>
-                    <a href="#">공지사항</a>
+                    <a href="#"">공지사항</a>
                 </li>
                 <li>
                     <a href="/dog">강아지</a>

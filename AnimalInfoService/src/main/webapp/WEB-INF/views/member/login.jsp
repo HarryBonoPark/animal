@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <h1 class="title">로그인</h1>
     <table class="login_table">
         <tbody>
@@ -34,11 +35,10 @@
             <tr>
                 <td colspan="4">
                     <button id="login_btn">로그인</button>
-                    <td><a href="/join">회원가입</a></td>
+                    <td><a href="/member/join">회원가입</a></td>
                 </td>
             </tr>
         </tbody>
     </table>
 </body>
-
 </html>

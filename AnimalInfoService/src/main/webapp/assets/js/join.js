@@ -66,6 +66,7 @@ $(function(){
         let user_birth_month = $("#user_birth_month").val();
         let user_birth_date = $("#user_birth_date").val();
         let user_address = $("#user_address").val();
+        let user_address_detail = $("#user_address_detail").val();
         let user_phone = $("#user_phone").val();
         let user_gen = $("#user_gen option:selected").val();
         
@@ -73,6 +74,7 @@ $(function(){
         if(!inputValidation(user_birth_month,"생년월일")){return;}
         if(!inputValidation(user_birth_date,"생년월일")){return;}
         if(!inputValidation(user_address,"주소")){return;}
+        if(!inputValidation(user_address_detail,"상세주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}
         let birth = user_birth_year+leadingZero(user_birth_month)+leadingZero(user_birth_date);
 
@@ -84,6 +86,7 @@ $(function(){
             birth: birth,
             gen: user_gen,
             address: user_address,
+            address_detail: user_address_detail,
             phone: user_phone   
         };    
         $.ajax({

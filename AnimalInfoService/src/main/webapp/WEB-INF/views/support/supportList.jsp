@@ -87,7 +87,7 @@
                                                 <td>문 의</td>
                                                 <td>이 름</td>
                                                 <td>제 목</td>
-                                                <td>수 정</td>
+                                                <td>조 회</td>
                                                 <td>삭 제</td>
                                         </tr>
                                 </thead>

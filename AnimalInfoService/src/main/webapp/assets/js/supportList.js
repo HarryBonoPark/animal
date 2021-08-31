@@ -35,7 +35,7 @@ $(function(){
                     '<td>'+r.data[i].kind+'</td>'+
                     '<td>'+r.data[i].name+'</td>'+
                     '<td>'+r.data[i].title+'</td>'+
-                    '<td><button class="modify" data-seq="'+r.data[i].seq+'">수정</button></td>'+
+                    '<td><button class="modify" data-seq="'+r.data[i].seq+'">조회</button></td>'+
                     '<td><button class="delete" data-seq="'+r.data[i].seq+'">삭제</button></td>'+
                     '</tr>'
                     $(".support_tbody").eq(page).append(tag);

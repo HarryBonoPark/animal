@@ -34,6 +34,7 @@ $(function(){
             success:function(r){
                 if(r.status){
                     location.href="/";
+                    
                 }
                 else{
                     alert(r.message);

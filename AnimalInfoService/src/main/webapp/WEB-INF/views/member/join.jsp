@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,22 @@
             location.href="/";
         </c:if>
     </script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+    window.onload = function(){
+         //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            $("#chk_addr").click(function(){
+                new daum.Postcode({
+                    oncomplete: function(data) { //선택시 입력값 세팅
+                        document.getElementById("user_address").value = data.address; // 주소 넣기
+                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                    }
+                }).open();
+            });
+        }
+
+    </script>
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
@@ -26,7 +43,7 @@
         <tbody>
             <tr>
                 <td>아이디</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="user_id">
                 </td>
                 <td>
@@ -35,25 +52,25 @@
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td colspan="3">
+                <td>
                     <input type="password" id="user_pwd">
                 </td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
-                <td colspan="3">
+                <td>
                     <input type="password" id="user_pwd_confirm">
                 </td>
             </tr>
             <tr>
                 <td>이름</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="user_name">
                 </td>
             </tr>
             <tr>
                 <td>이메일</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="user_email">
                 </td>
                 <td>
@@ -65,19 +82,15 @@
                 <td>
                     <input type="text" id="user_birth_year">
                     <span>년</span>
-                </td>
-                <td>
                     <input type="text" id="user_birth_month">
                     <span>월</span>
-                </td>
-                <td>
                     <input type="text" id="user_birth_date">
                     <span>일</span>
                 </td>
             </tr>
             <tr>
                 <td>성별</td>
-                <td colspan="3">
+                <td>
                     <select id="user_gen">
                         <option value="0" selected>남</option>
                         <option value="1">여</option>
@@ -87,18 +100,21 @@
             </tr>
             <tr>
                 <td>주소</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="user_address">
+                    <span></span>
+                    <input type="text" id="user_address_detail">
                 </td>
+                <td><button id="chk_addr">주소확인</button></td>
             </tr>
             <tr>
                 <td>전화번호</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="user_phone">
                 </td>
             </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="3">
                     <button id="join">회원가입</button>
                 </td>
             </tr>

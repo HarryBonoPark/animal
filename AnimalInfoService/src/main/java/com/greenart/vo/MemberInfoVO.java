@@ -12,6 +12,7 @@ public class MemberInfoVO {
     private String birth;
     private String gen;
     private String address;
+    private String address_detail;
     private String phone;
     private Integer status;
 }

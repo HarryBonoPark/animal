@@ -5,9 +5,9 @@
 <!-- 전체 데이터 넣어주기 -->
 <insert id="InsertMemberInfo">
 INSERT INTO member_info
-    (name, password, id, email, birth, gen, address, phone)
+    (name, password, id, email, birth, gen, address, address_detail, phone)
 VALUES
-    (#{name}, #{password}, #{id}, #{email}, #{birth}, #{gen}, #{address}, #{phone});
+    (#{name}, #{password}, #{id}, #{email}, #{birth}, #{gen}, #{address}, #{address_detail}, #{phone});
 </insert>
 <!-- 아이디 중복값 체크 -->
 <select id="selectMemberById" resultType="java.lang.Integer">
@@ -23,6 +23,6 @@ VALUES
 </select>
 <!-- 회원가입된 사람의 정보 가져오기 -->
 <select id="selectMemberInfo" resultType="com.greenart.vo.MemberInfoVO">
-    select id, password, email, address, birth, gen, phone, status from member_info where id=#{id}
+    select name, password, id, email, birth, gen, address, address_detail, phone, status from member_info where id=#{id}
 </select>
 </mapper>
