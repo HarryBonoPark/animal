@@ -34,7 +34,7 @@ $(function() {
                         '<td>'+r.data[i].careNm+'</td>'+
                         '<td>'+r.data[i].careTel+'</td>'+
                         '<td>'+r.data[i].careAddr+'</td>'+
-                        '<td><a href="/api/center/detail?seq='+r.data[i].seq+'">detail</a></td>'+
+                        '<td><a href="/center/detail?seq='+r.data[i].seq+'" class="center_detail_a">detail</a></td>'+
                     '</tr>'
                     $(".center_tbody").eq(page).append(tag);
                 }
@@ -65,13 +65,5 @@ $(function() {
         $(".current").html(currentPage);
         $(".center_tbody").removeClass("active");
         $(".center_tbody").eq(currentPage-1).addClass("active");
-    })
-
-    $.ajax({
-        type:"get",
-        url:"/api/center/detail?seq="+seq,
-        success:function(r) {
-            console.log(r);
-        }
     })
 })
