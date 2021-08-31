@@ -11,12 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class DogInfoService {
     @Autowired DogInfoMapper mapper;
-    // public List<DogInfoVO> selectDogInfo(String date){
-    //     return mapper.selectDogInfo(date);
-    // }
-    // public Integer selectCnt(){
-    //     return mapper.selectCnt();
-    // }
     public DogInfoVO selectDogInfoById(Integer seq) {
         return mapper.selectDogInfoById(seq);
     }

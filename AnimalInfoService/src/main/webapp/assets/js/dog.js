@@ -200,8 +200,3 @@ function leadingZero(n) {
     return n < 10 ? "0" + n : "" + n;
 }
 
-$(function () {
-    // $(".dog_form").draggable({
-    //     handle: "h1"
-    // })
-})

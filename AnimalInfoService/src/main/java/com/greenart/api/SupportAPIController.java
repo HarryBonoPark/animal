@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SupportAPIController {
     @Autowired SupportService service;
+    //전체 데이터 넣어주기
     @PostMapping("/support/regist")
     public Map<String, Object> supportRegist(@RequestBody SupportVO vo){
         return service.insertSupport(vo);
@@ -34,6 +35,7 @@ public class SupportAPIController {
         resultMap.put("data", list);
         return resultMap;
     }
+    //삭제 기능
     @DeleteMapping("/api/delete")
     public Map<String, Object> deleteSupport(@RequestParam Integer seq){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -41,6 +43,7 @@ public class SupportAPIController {
         resultMap.put("message", "삭제되었습니다.");
         return resultMap;
     }
+    //수정하기 위해 입력된 값 가져오기
     @GetMapping("/api/support/get")
     public Map<String, Object> getSupport(@RequestParam Integer seq){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -49,6 +52,7 @@ public class SupportAPIController {
         resultMap.put("data",vo);
         return resultMap;
     }
+    //수정하기
     @PatchMapping("/api/update")
     public Map<String, Object> supportUpdate(@RequestBody SupportVO vo){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();

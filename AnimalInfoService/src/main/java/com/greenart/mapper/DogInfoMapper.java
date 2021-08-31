@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface DogInfoMapper {
-    // public List<DogInfoVO> selectDogInfo(String date);
-    // public Integer selectCnt();
     public List<DogInfoVO> selectRegionDogInfo(String region);
     public DogInfoVO selectDogInfoById(Integer seq);
 

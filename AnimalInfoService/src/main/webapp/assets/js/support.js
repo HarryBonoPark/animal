@@ -184,8 +184,8 @@ $(function(){
                 location.href = '/support/list';
             }
         })
-        
     });
+    
 })
 
 function getParameterByName(name) {

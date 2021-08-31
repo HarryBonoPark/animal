@@ -19,37 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DogInfoAPIController {
     @Autowired DogInfoService service;
     @Autowired DogInfoMapper mapper;
-    
-    // @GetMapping("/api/dog/{date}")
-    // public Map<String, Object> getDogInfo(@PathVariable String date){
-    //     Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        
-    //     List<DogInfoVO> list = service.selectDogInfo(date);
-
-    //     resultMap.put("status",true);
-    //     resultMap.put("dogList",list);
-
-    //     Integer allCnt = service.selectCnt();
-    //     if(allCnt==null) allCnt=0;
-    //     resultMap.put("allCnt", allCnt);
-
-    //     Integer page = (int)Math.ceil(allCnt/12);
-    //     resultMap.put("page", page);
-
-    //     return resultMap;
-    // }
-
-    // @GetMapping("/api/dogDetailInfo/{}")
-    // public Map<String, Object> getDogDetail(@PathVariable String date){
-    // Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-
-    // List<DogInfoVO> list = service.selectDogInfo(date);
-
-    // resultMap.put("status",true);
-    // resultMap.put("dogList",list);
-    // return resultMap;
-    // }
-
+    //지역 별 데이터 가져오기
     @GetMapping("/api/regionDog")
     public Map<String, Object> getRegionDogInfo(@RequestParam @Nullable String region){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -63,7 +33,7 @@ public class DogInfoAPIController {
         resultMap.put("dogList", vo);
         return resultMap;
     }
-
+    //상세정보 가져오기
     @GetMapping("/api/dogDetailInfo/{seq}")
     public Map<String, Object> getDogDetailById(@PathVariable Integer seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();

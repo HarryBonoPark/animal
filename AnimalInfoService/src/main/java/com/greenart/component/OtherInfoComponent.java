@@ -12,11 +12,13 @@ import com.greenart.vo.OtherInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+@Component
 public class OtherInfoComponent {
     @Autowired OtherInfoService service;
     
