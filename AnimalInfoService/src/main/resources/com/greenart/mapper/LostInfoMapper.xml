@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.LostInfoMapper">
+    <insert id="insertLostAnimalInfo">
+        INSERT INTO lost_animal
+        (
+            region, lostDate, writerName, writerEmail, writerPhone, 
+            animalName, animalKind, animalKindMore, animalColor, animalSex, animalAge, 
+            lostPlace, specialMark, registNumber, image_uri
+        )
+        VALUES
+        (
+            #{region}, #{lostDate}, #{writerName}, #{writerEmail}, #{writerPhone}, 
+            #{animalName}, #{animalKind}, #{animalKindMore}, #{animalColor}, #{animalSex}, #{animalAge}, 
+            #{lostPlace}, #{specialMark}, #{registNumber}, #{image_uri}
+        )
+    </insert>
+    <insert id="insertLostAnimalImage">
+        INSERT INTO animal_images
+        (
+            aimg_lost_seq, aimg_file_name, aimg_uri, aimg_reg_dt, aimg_size
+        )
+        VALUES
+        (
+            #{aimg_lost_seq}, #{aimg_file_name}, #{aimg_uri}, #{aimg_reg_dt}, #{aimg_size}
+        )
+    </insert>
+</mapper>
