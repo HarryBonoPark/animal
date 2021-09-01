@@ -11,3 +11,5 @@
 }
 .red {color: red;}
 span {color: gray; font-size: 8px;}
+
+#img_preview img {width: 200px;}

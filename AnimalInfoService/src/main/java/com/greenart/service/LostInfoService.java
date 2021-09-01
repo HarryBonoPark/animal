@@ -29,4 +29,8 @@ public class LostInfoService {
     public void insertLostAnimalImage(LostImageVO vo) {
         mapper.insertLostAnimalImage(vo);
     }
+
+    public String selectLostAnimalImagePath(String uri) {
+        return mapper.selectLostAnimalImagePath(uri);
+    }
 }

@@ -93,7 +93,8 @@ $(function() {
             animalAge : animal_age,
             lostPlace : lost_place,
             specialMark : special_mark,
-            registNumber : regist_number
+            registNumber : regist_number,
+            image_uri : $("#img_preview").attr("img-uri")
         }
         console.log(data);
 
@@ -109,6 +110,40 @@ $(function() {
                 console.log(e);
             }
         })
+    })
+
+    $("#img_save").click(function(){
+        let form = $("#image_form");
+        let formData = new FormData(form[0]);
+        $.ajax({
+            url:"/upload",
+            type:"post",
+            data:formData,
+            contentType:false,
+            processData:false,
+            success:function(r){
+                console.log(r);
+                if(r.status){
+                    $("#img_save").prop("disabled", true);
+                    $("#img_delete").prop("disabled", false);
+                    $("#image_delete > input").prop("disabled", true);
+                    $("#img_preview").append('<img src="/image/'+r.image_uri+'">');
+                    $("#img_preview").attr("img-uri", r.image_uri);
+                }
+                alert(r.message);
+            }
+        })
+        })
+        $("#img_delete").click(function(){
+            let uri = $("#img_preview").attr("img-uri");
+            $("#img_preview").html("");
+
+            $("#image_form > input").val("");
+            $(this).prop("disabled", true);
+            $("#image_form > input").prop("disabled", false);
+            $("#img_save").prop("disabled", false);
+
+            alert("등록된 사진이 삭제됩니다.");
     })
 
 })

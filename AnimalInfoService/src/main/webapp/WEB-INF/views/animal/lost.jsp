@@ -121,7 +121,7 @@
                         <span id="img_preview">
 
                         </span> 
-                        <form>
+                        <form id="image_form">
                             <span>※ 첨부파일은 200MByte를 넘을 수 없습니다.</span>
                             <span>업로드 가능한 확장자는 gif, jpeg, png, jpg 입니다.</span>
                             <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg" name="file">

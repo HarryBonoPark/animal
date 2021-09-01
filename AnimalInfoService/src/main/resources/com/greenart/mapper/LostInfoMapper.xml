@@ -17,13 +17,16 @@
         )
     </insert>
     <insert id="insertLostAnimalImage">
-        INSERT INTO animal_images
+        INSERT INTO animal_image
         (
-            aimg_lost_seq, aimg_file_name, aimg_uri, aimg_reg_dt, aimg_size
+            aimg_file_name, aimg_uri, aimg_size
         )
         VALUES
         (
-            #{aimg_lost_seq}, #{aimg_file_name}, #{aimg_uri}, #{aimg_reg_dt}, #{aimg_size}
+            #{aimg_file_name}, #{aimg_uri}, #{aimg_size}
         )
     </insert>
+    <select id="selectLostAnimalImagePath" resultType="java.lang.String">
+        select aimg_file_name from animal_image where aimg_uri = #{uri} order by aimg_seq desc limit 1
+    </select>
 </mapper>
