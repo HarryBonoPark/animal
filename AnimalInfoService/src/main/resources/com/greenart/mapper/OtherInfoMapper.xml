@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.OtherInfoMapper">
+<insert id="insertOtherInfo">
+INSERT INTO other_info
+    (age,careAddr, careNm, careTel, colorCd, desertionNo, filename, happenDt, happenPlace, kindCd, neuterYn,
+    noticeEdt, noticeNo, noticeSdt, officetel, orgNm, popfile, processState, sexCd, specialMark, weight)
+VALUES(#{age}, #{careAddr}, #{careNm}, #{careTel}, #{colorCd}, #{desertionNo}, #{filename}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn},
+    #{noticeEdt}, #{noticeNo}, #{noticeSdt}, #{officetel}, #{orgNm}, #{popfile}, #{processState}, #{sexCd}, #{specialMark}, #{weight});
+</insert>
+</mapper>

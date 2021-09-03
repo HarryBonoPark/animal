@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import com.greenart.service.AnimalInfoService;
 import com.greenart.vo.AnimalInfoVO;
 import com.greenart.vo.CatInfoVO;
+import com.greenart.vo.OtherInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -424,13 +425,17 @@ public class AnimalAPIController {
         if(date.equals("today")){
             List<AnimalInfoVO> d_list = service.selectTodayMonthDogCnt();
             List<CatInfoVO> c_list = service.selectTodayMonthCatCnt();
+            List<OtherInfoVO> o_list = service.selectTodayMonthOtherCnt();
             resultMap.put("d_data", d_list);
             resultMap.put("c_data", c_list);
+            resultMap.put("o_data", o_list);
         } else {
             List<AnimalInfoVO> d_list = service.selectMonthDogCnt(date);
             List<CatInfoVO> c_list = service.selectMonthCatCnt(date);
+            List<OtherInfoVO> o_list = service.selectTodayMonthOtherCnt();
             resultMap.put("d_data", d_list);
             resultMap.put("c_data", c_list);
+            resultMap.put("o_data", o_list);
         }
         return resultMap;
     }
@@ -455,6 +460,52 @@ public class AnimalAPIController {
             resultMap.put("data", list);
         } else {
             List<CatInfoVO> list = service.selectCatProcessState(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+
+
+
+    // OTHER
+    @GetMapping("/api/otherSexInfo/{date}")
+    public Map<String, Object> getOtherSexInfoDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<OtherInfoVO> list = service.selectTodayOtherSexAnimalCnt();
+            resultMap.put("data", list);
+        } else {
+            List<OtherInfoVO> list = service.selectOtherSexAnimalCnt(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/otherRegionInfo/{date}")
+    public Map<String, Object> getotherRegionInfoDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<OtherInfoVO> list = service.selectTodayOtherCntRegion();
+            resultMap.put("data", list);
+        } else {
+            List<OtherInfoVO> list = service.selectOtherCntRegion(date);
+            resultMap.put("data", list);
+        }
+        return resultMap;
+    }
+
+    @GetMapping("/api/otherNeuter/{date}")
+    public Map<String, Object> getOtherNeuterDate(@PathVariable String date){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        if(date.equals("today")){
+            List<OtherInfoVO> list = service.selectTodayOtherNeuterCnt();
+            resultMap.put("data", list);
+        } else {
+            List<OtherInfoVO> list = service.selectOtherNeuterCnt(date);
             resultMap.put("data", list);
         }
         return resultMap;

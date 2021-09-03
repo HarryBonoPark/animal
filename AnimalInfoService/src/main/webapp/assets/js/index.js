@@ -85,8 +85,10 @@ $(function(){
 
             let dArr = new Array();
             let cArr = new Array();
+            let oArr = new Array();
             let dLabel = new Array();
             let cLabel = new Array();
+            let oLabel = new Array();
             for(let i=0; i<r.d_data.length; i++){
                 dArr.push(r.d_data[i].dogCnt);
                 dLabel.push(r.d_data[i].month+"월");
@@ -94,6 +96,10 @@ $(function(){
             for(let i=0; i<r.c_data.length; i++){
                 cArr.push(r.c_data[i].catCnt);
                 cLabel.push(r.c_data[i].month+"월");
+            }
+            for(let i=0; i<r.o_data.length; i++){
+                oArr.push(r.o_data[i].otherCnt);
+                oLabel.push(r.o_data[i].month+"월");
             }
             let dogCatChart = new Chart($("#dogcat_status"), {
                 type:"line",
@@ -110,6 +116,10 @@ $(function(){
                         label:"CAT",
                         data:cArr,
                         backgroundColor:['#ff9900']
+                    },{
+                        label:"OTHER",
+                        data:oArr,
+                        backgroundColor:['#ff6600']
                     }]
                 }
             })
@@ -302,6 +312,103 @@ $(function(){
                     datasets:[{
                         label:"지역별 고양이 유기 수",
                         data:cRegionArr,
+                        backgroundColor:['#ff9900']
+                    }]
+                }
+            })
+        }
+    })
+
+
+
+    $.ajax({
+        type:"get",
+        url:"/api/otherNeuter/today",
+        success:function(r){
+            console.log("중성화 여부");
+            console.log(r);
+
+            let o_neuterArr = new Array();
+            let o_neuterLabel = new Array();
+            for(let i=0; i<r.data.length; i++){
+                o_neuterArr.push(r.data[i].o_neuter);
+                o_neuterLabel.push(r.data[i].neuterYn);
+            }
+            let neuterChart = new Chart($("#o_neuter_chart"), {
+                type:"pie",
+                options:{
+                    responsive:false
+                },
+                data:{
+                    labels:["중성화 했어요", "중성화 안했어요"],
+                    datasets:[{
+                        label:"구조된 다른동물 중성화 여부",
+                        data:o_neuterArr,
+                        backgroundColor:['#fecb5e', '#ff9900']
+                    }]
+                }
+            })
+        }
+    })
+
+    $.ajax({
+        type:"get",
+        url:"/api/otherSexInfo/today",
+        success:function(r){
+            console.log("동물 성별 유기 비율");
+            console.log(r);
+
+            let o_confArr = new Array();
+            let o_confLabel = new Array();
+            for(let i=0; i<r.data.length; i++){
+                o_confArr.push(r.data[i].o_sex);
+                o_confLabel.push(r.data[i].sexCd);
+            }
+            let ageChart = new Chart($("#o_sex_chart"), {
+                type:"pie",
+                options:{
+                    responsive:false
+                },
+                data:{
+                    labels:["수컷","암컷"],
+                    datasets:[{
+                        label:"구조된 다른동물 성별 비율",
+                        data:o_confArr,
+                        backgroundColor:['#fecb5e', '#ff9900']
+                    }]
+                }
+            })
+        }
+    })
+
+    $.ajax({
+        type:"get",
+        url:"/api/otherRegionInfo/today",
+        success:function(r){
+            console.log("지역별 유기 현황");
+            console.log(r);
+
+            let o_regionArr = new Array();
+            let o_regionLabel = new Array();
+            for(let i=0; i<r.data.length; i++){
+                o_regionArr.push(r.data[i].careOtherCnt);
+                o_regionLabel.push(r.data[i].o_region);
+            }
+            let regionChart = new Chart($("#o_region_status"), {
+                type:"bar",
+                options:{
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive:false
+                },
+                data:{
+                    labels:o_regionLabel,
+                    datasets:[{
+                        label:"지역별 강아지 유기 수",
+                        data:o_regionArr,
                         backgroundColor:['#ff9900']
                     }]
                 }
