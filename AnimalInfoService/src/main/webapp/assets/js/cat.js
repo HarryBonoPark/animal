@@ -76,7 +76,7 @@ $(function() {
                             console.log(r);
                             $(".cat_form").html("");
                             let tag =
-                            '<div class="cat_form_contents">'+
+                                '<div class="cat_form_contents">'+
                                     '<div class="cat_form_img_box">'+
                                         '<p class="catfile">' +
                                             '<img src="' + r.data.popfile + '">' +

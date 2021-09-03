@@ -9,7 +9,7 @@
     color: #434343;
     margin-bottom: 40px; text-align: center;
 }
-.red {color: red;}
-span {color: gray;}
-
-#img_preview img {width: 200px;}
+img {width: 300px;}
+.lost_box {border: 1px solid #434343; padding: 10px;}
+.lost_animal {display: none;}
+.lost_animal.active {display: table-row-group;}

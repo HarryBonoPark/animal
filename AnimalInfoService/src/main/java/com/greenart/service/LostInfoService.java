@@ -1,6 +1,8 @@
 package com.greenart.service;
 
+import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.greenart.mapper.LostInfoMapper;
@@ -32,5 +34,9 @@ public class LostInfoService {
 
     public String selectLostAnimalImagePath(String uri) {
         return mapper.selectLostAnimalImagePath(uri);
+    }
+
+    public List<LostInfoVO> selectLostAnimalList(String region, Date startDate, Date endDate) {
+        return mapper.selectLostAnimalList(region, startDate, endDate);
     }
 }

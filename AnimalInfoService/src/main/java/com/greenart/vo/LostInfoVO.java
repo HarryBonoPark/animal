@@ -22,4 +22,7 @@ public class LostInfoVO {
     private String specialMark;
     private String registNumber;
     private String image_uri;
+
+    private Date startDate;
+    private Date endDate;
 }

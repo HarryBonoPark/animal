@@ -27,7 +27,7 @@ $(function() {
 
         let lostDate = $("#lostDate").val();
         if(lostDate == "" || lostDate == null || lostDate == undefined){
-            alert("지역을 선택하세요");
+            alert("분실 날짜를 선택하세요");
             return;
         }
 

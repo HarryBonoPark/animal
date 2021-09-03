@@ -29,4 +29,23 @@
     <select id="selectLostAnimalImagePath" resultType="java.lang.String">
         select aimg_file_name from animal_image where aimg_uri = #{uri} order by aimg_seq desc limit 1
     </select>
+    <select id="selectLostAnimalList" resultType="com.greenart.vo.LostInfoVO">
+        select * from lost_animal
+            where date_format(lostDate, "%Y-%m-%d") between str_to_date(#{startDate}, "%Y-%m-%d") and str_to_date(#{endDate}, "%Y-%m-%d")
+            <if test = "region != 'all'">
+                and region = #{region} 
+            </if>
+            order by lostDate desc
+    </select>
+    <!-- <select id="selectLostAnimalList" resultType="com.greenart.vo.LostInfoVO">
+        select * from 
+        (
+            select * from lost_animal
+            <if test = "region != 'all'">
+                where region = #{region}
+            </if>
+        ) a 
+        where date_format(lostDate, "%Y-%m-%d") between str_to_date(#{startDate}, "%Y-%m-%d") and str_to_date(#{endDate}, "%Y-%m-%d")
+        order by lostDate desc
+    </select> -->
 </mapper>
