@@ -10,7 +10,7 @@ $(function() {
     getCenterRegionInfo("서울특");
 
     function getCenterRegionInfo(region) {
-        let url = "http://localhost:8947/api/center?region="+region;
+        let url = "http://localhost:8947/api/center/region?region="+region;
 
         $.ajax({
             type:"get",
@@ -34,7 +34,7 @@ $(function() {
                         '<td>'+r.data[i].careNm+'</td>'+
                         '<td>'+r.data[i].careTel+'</td>'+
                         '<td>'+r.data[i].careAddr+'</td>'+
-                        // '<td>'+r.data[i].careDogCnt+' 마리'+'</td>'+
+                        '<td><a href="/center/detail?seq='+r.data[i].seq+'" class="center_detail_a">detail</a></td>'+
                     '</tr>'
                     $(".center_tbody").eq(page).append(tag);
                 }
@@ -53,7 +53,6 @@ $(function() {
         }
     })
     $("#center_next").click(function() {
-        // let currentPage = Number($(".current").html());
         currentPage++;
         if(currentPage > data_length / 20) currentPage = Math.ceil(data_length / 20);
         $(".current").html(currentPage);
@@ -61,7 +60,6 @@ $(function() {
         $(".center_tbody").eq(currentPage-1).addClass("active");
     })
     $("#center_prev").click(function() {
-        // let currentPage = Number($(".current").html());
         currentPage--;
         if(currentPage < 1) currentPage = 1;
         $(".current").html(currentPage);

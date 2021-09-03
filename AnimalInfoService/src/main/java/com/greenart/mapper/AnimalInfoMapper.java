@@ -12,14 +12,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AnimalInfoMapper {
     // DOG
     public void insertAnimalInfo(AnimalInfoVO vo);
-    // public AnimalInfoVO selectAnimalInfoByDate(String date); // Today
-    // public AnimalInfoVO selectAccAnimalCnt(String date); // 누적
-    // public List<AnimalInfoVO> selectAnimalStatusByDate(String date);
-    // public AnimalInfoVO selectAnimalStatusByDate();
     public AnimalInfoVO selectCntStatusByDate(String date);
     public AnimalInfoVO selectAllCntByDate();
-    // public List<AnimalInfoVO> selectRegionInfoByDate(String date);
-    // public List<AnimalInfoVO> selectanimalSex(String date);
     public List<AnimalInfoVO> selectSexAnimalCnt(String date);
     public List<AnimalInfoVO> selectCntRegion(String date);
     public List<AnimalInfoVO> selectNeuterCnt(String date);
@@ -28,9 +22,8 @@ public interface AnimalInfoMapper {
 
 
     // CAT
-    // public void insertCatInfo(CatInfoVO vo);
     public CatInfoVO selectCatCntStatusByDate(String date);
-    public CatInfoVO selectAllCatCntByDate(String date);
+    public CatInfoVO selectAllCatCntByDate();
     public List<CatInfoVO> selectCatSexAnimalCnt(String date);
     public List<CatInfoVO> selectCatCntRegion(String date);
     public List<CatInfoVO> selectCatNeuterCnt(String date);
@@ -40,7 +33,7 @@ public interface AnimalInfoMapper {
 
     // Other
     public OtherInfoVO selectOtherCntStatusByDate(String date);
-    public OtherInfoVO selectAllOtherCntByDate(String date);
+    public OtherInfoVO selectAllOtherCntByDate();
     public List<OtherInfoVO> selectOtherSexAnimalCnt(String date);
     public List<OtherInfoVO> selectOtherCntRegion(String date);
     public List<OtherInfoVO> selectOtherNeuterCnt(String date);

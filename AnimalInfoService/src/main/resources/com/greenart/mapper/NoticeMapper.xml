@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.NoticeMapper">
+    <insert id="insertNotice">
+        INSERT INTO animal.notice_info
+        (title, content, ni_cate_seq, create_dt)
+        VALUES(#{title}, #{content}, #{ni_cate_seq}, NOW());
+    </insert>
+    <select id="selectNotices" resultType="com.greenart.vo.NoticeVO">
+        select * from notice_info
+        where title like #{keyword}
+        <if test="category != null">
+            and ni_cate_seq = #{category}
+        </if>
+        order by create_dt desc limit 15 offset #{offset}
+    </select>
+
+    <select id="selectNoticeByseq" resultType="com.greenart.vo.NoticeVO">
+        select * from notice_info where seq = #{seq}
+    </select>
+    <select id="selectAllNotice" resultType="com.greenart.vo.NoticeVO">
+        select * from notice_info
+    </select>
+</mapper>

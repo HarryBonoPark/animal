@@ -71,9 +71,10 @@
     color: #555;
     text-overflow: ellipsis;
 }
-/* .cat_box .catShelter .shelter {
+.cat_box .catShelter .shelter {
     font-size:14px;
-    } */
+    }
+    
 .cat_box .catfile img {
     position: absolute;
     left: 50%; top: 50%;

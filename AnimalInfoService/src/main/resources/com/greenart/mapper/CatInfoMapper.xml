@@ -17,7 +17,7 @@
         )
     </insert>
     <select id="selectCatInfo" resultType="com.greenart.vo.CatInfoVO">
-        select * from
+        select *, mid(kindCd, 7) as kind from
         (
         	select *,
                 case 
@@ -56,7 +56,7 @@
         limit 100
     </select>
     <select id="selectCatDetailInfoBySeq" resultType="com.greenart.vo.CatInfoVO">
-        select *,
+        select *, mid(kindCd, 7) as kind,
             case 
                 when sexCd = 'F' then '암컷'
                 when sexCd = 'M' then '수컷'
