@@ -48,4 +48,16 @@ public class LostAPIController {
 
         return resultMap;
     }
+    // 분실 동물 상세정보
+    @GetMapping("/api/lost/detail")
+    public Map<String, Object> getLostAnimalInfoDetail(@RequestParam Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        LostInfoVO vo = service.selectLostAnimalInfoBySeq(seq);
+
+        resultMap.put("status", true);
+        resultMap.put("data", vo);
+
+        return resultMap;
+    }
 }

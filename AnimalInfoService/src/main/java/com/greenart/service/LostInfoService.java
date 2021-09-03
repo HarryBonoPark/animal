@@ -39,4 +39,8 @@ public class LostInfoService {
     public List<LostInfoVO> selectLostAnimalList(String region, Date startDate, Date endDate) {
         return mapper.selectLostAnimalList(region, startDate, endDate);
     }
+
+    public LostInfoVO selectLostAnimalInfoBySeq(Integer seq) {
+        return mapper.selectLostAnimalInfoBySeq(seq);
+    }
 }

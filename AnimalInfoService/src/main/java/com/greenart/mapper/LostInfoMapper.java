@@ -12,8 +12,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface LostInfoMapper {
     public void insertLostAnimalInfo(LostInfoVO vo);
     public void insertLostAnimalImage(LostImageVO vo);
-
     public String selectLostAnimalImagePath(String uri);
 
     public List<LostInfoVO> selectLostAnimalList(String region, Date startDate, Date endDate);
+    public LostInfoVO selectLostAnimalInfoBySeq(Integer seq);
 }

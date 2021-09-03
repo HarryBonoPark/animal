@@ -61,7 +61,7 @@
         </div>
 
         <div class="lost_area">
-
+            
         </div>
 
         <div class="lost_page_area">
@@ -70,6 +70,7 @@
             <button id="lost_page_next">&gt;</button>
         </div>
     </div>
+    <button class="lost_regist" onclick="location.href='/lost'">분실 신고하기</button>
 
 
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>

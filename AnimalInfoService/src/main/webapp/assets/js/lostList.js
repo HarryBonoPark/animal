@@ -84,7 +84,7 @@ $(function() {
                             '<span>분실 지역</span>'+
                             '<span class="region">'+r.data[i].region+'</span>'+
                         '</p>'+
-                        '<button class="detail_btn" data_num="1">자세히 보기</button>'+
+                        '<a href="/lost/detail?seq='+r.data[i].seq+'">자세히보기</a>'
                     '</div>'
                     $(".lost_animal").eq(page).append(tag);
                 }

@@ -37,15 +37,7 @@
             </if>
             order by lostDate desc
     </select>
-    <!-- <select id="selectLostAnimalList" resultType="com.greenart.vo.LostInfoVO">
-        select * from 
-        (
-            select * from lost_animal
-            <if test = "region != 'all'">
-                where region = #{region}
-            </if>
-        ) a 
-        where date_format(lostDate, "%Y-%m-%d") between str_to_date(#{startDate}, "%Y-%m-%d") and str_to_date(#{endDate}, "%Y-%m-%d")
-        order by lostDate desc
-    </select> -->
+    <select id="selectLostAnimalInfoBySeq" resultType="com.greenart.vo.LostInfoVO">
+        select * from lost_animal where seq = #{seq}
+    </select>
 </mapper>

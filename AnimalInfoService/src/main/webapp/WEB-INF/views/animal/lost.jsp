@@ -124,6 +124,7 @@
                         <form id="image_form">
                             <span>※ 첨부파일은 200MByte를 넘을 수 없습니다.</span>
                             <span>업로드 가능한 확장자는 gif, jpeg, png, jpg 입니다.</span>
+                            <span>'등록' 버튼을 누르셔야 사진이 업로드 됩니다.</span>
                             <input type="file" accept="image/gif, image/jpeg, image/png, image/jpg" name="file">
                             <button type="button" id="img_save">등록</button>
                             <button type="button" id="img_delete" disabled>삭제</button>
