@@ -79,13 +79,10 @@ public class MemberInfoService {
         }
         return resultMap;
     }
-    //전체 데이터 가져오기
-    // public MemberInfoVO selectMemberByseq(Integer seq){
-    //     return mapper.selectMemberByseq(seq);
-    // }
+    
     //수정 사항 
-    // public void updateMemberInfo(MemberInfoVO vo){
-    //     mapper.updateMemberInfo(vo);
-    // }
+    public void updateMemberInfo(MemberInfoVO vo){
+        mapper.updateMemberInfo(vo);
+    }
 
 }

@@ -27,13 +27,27 @@ $(function(){
         console.log(makeDateString(calendar.getDate()));
         calendar.remove();
     })
-    for(let i=0; i<10; i++) {
-        calendar.addEvent({
-            title: '테스트 이벤트',
-            start: new Date("2021-09-"+leadingZero(i+1)),
-            allDay: true
-        })
-    }
+
+    //let seq = memberInfo.mi_seq;
+
+    // $.ajax({
+    //     type:"get",
+    //     url: "/calendar/list/"+seq,
+    //     success: function(r){
+    //         console.log(r);
+    //         // for(let i=0; i<10; i++) {
+    //         //     calendar.addEvent({
+    //         //         //title: '테스트 이벤트',
+    //         //         title: '입양',
+    //         //         start: new Date("2021-09-"+leadingZero(i+1)),
+    //         //         allDay: true
+    //         //     })
+    //         // }
+    //     },
+    // })
+
+
+
 
     calendar.render();
 
@@ -137,16 +151,7 @@ $(function(){
         })
         
     });
-    // let seq = memberInfo.mi_seq;
 
-    // $.ajax({
-    //     type:"get",
-    //     url: "/calendar/list/"+seq,
-    //     success: function(r){
-    //         console.log(r);
-            
-    //     },
-    // })
 });
 
 

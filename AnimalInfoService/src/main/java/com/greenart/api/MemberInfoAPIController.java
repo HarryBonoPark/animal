@@ -11,6 +11,7 @@ import com.greenart.vo.MemberInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,4 +60,12 @@ public class MemberInfoAPIController {
             return resultMap;
         }
         
+        @PatchMapping("/member/update")
+        public Map<String, Object> updateMember(@RequestBody MemberInfoVO vo){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        service.updateMemberInfo(vo);
+        resultMap.put("status",true);
+        resultMap.put("message","수정되었습니다.");
+        return resultMap;
+        }
 }

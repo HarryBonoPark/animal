@@ -15,6 +15,5 @@ public interface MemberInfoMapper {
     public Integer memberLogin(LoginVO vo); //회원가입 정보 - 회원가입 된 사람인가? 0과 1값으로. 아니면 회원가입으로.
     public MemberInfoVO selectMemberInfo(String id); //회원가입된 사람의 정보 가져오기
     //수정하기
-    // public MemberInfoVO selectMemberByseq(Integer seq); //전체 정보 seq로 가져오기
-    // public void updateMemberInfo(MemberInfoVO vo); // 회원정보 수정
+    public void updateMemberInfo(MemberInfoVO vo); // 회원정보 수정
 }
