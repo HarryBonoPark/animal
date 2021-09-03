@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.LostInfoMapper">
+    <insert id="insertLostAnimalInfo">
+        INSERT INTO lost_animal
+        (
+            region, lostDate, writerName, writerEmail, writerPhone, 
+            animalName, animalKind, animalKindMore, animalColor, animalSex, animalAge, 
+            lostPlace, specialMark, registNumber, image_uri
+        )
+        VALUES
+        (
+            #{region}, #{lostDate}, #{writerName}, #{writerEmail}, #{writerPhone}, 
+            #{animalName}, #{animalKind}, #{animalKindMore}, #{animalColor}, #{animalSex}, #{animalAge}, 
+            #{lostPlace}, #{specialMark}, #{registNumber}, #{image_uri}
+        )
+    </insert>
+    <insert id="insertLostAnimalImage">
+        INSERT INTO animal_image
+        (
+            aimg_file_name, aimg_uri, aimg_size
+        )
+        VALUES
+        (
+            #{aimg_file_name}, #{aimg_uri}, #{aimg_size}
+        )
+    </insert>
+    <select id="selectLostAnimalImagePath" resultType="java.lang.String">
+        select aimg_file_name from animal_image where aimg_uri = #{uri} order by aimg_seq desc limit 1
+    </select>
+    <select id="selectLostAnimalList" resultType="com.greenart.vo.LostInfoVO">
+        select * from lost_animal
+            where date_format(lostDate, "%Y-%m-%d") between str_to_date(#{startDate}, "%Y-%m-%d") and str_to_date(#{endDate}, "%Y-%m-%d")
+            <if test = "region != 'all'">
+                and region = #{region} 
+            </if>
+            order by lostDate desc
+    </select>
+    <select id="selectLostAnimalInfoBySeq" resultType="com.greenart.vo.LostInfoVO">
+        select * from lost_animal where seq = #{seq}
+    </select>
+</mapper>

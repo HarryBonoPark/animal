@@ -40,7 +40,7 @@
             <option value="경상남">경상남도</option>
             <option value="제주특">제주특별자치도</option>
         </select>
-        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 강아지와 고양이를 관리하고 있어요</span>
+        <span class="title">에서는 <span class="centerRegionCnt">0</span>개의 보호소가 유기동물을 관리하고 있어요</span>
         <div class="list">
             <table id="center_table">
                 <thead>
@@ -49,10 +49,10 @@
                         <td>보호소</td>
                         <td>전화번호</td>
                         <td>주소</td>
+                        <td></td>
                     </tr>
                 </thead>
-                
-            </table>
+            </table>            
             <div class="center_page_area">
                 <button id="center_prev"><i class="fas fa-chevron-circle-left"></i></button>
                 <span class="current">1</span> / <span class="total">2</span>
