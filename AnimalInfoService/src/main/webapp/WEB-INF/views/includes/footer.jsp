@@ -13,17 +13,17 @@
     <footer>
         <div class="footer_wrap">
             <div class="footer_menu">
-                <a href="#">유기현황</a>
+                <a href="/dog">강아지</a>
                 <span class="sep">|</span>
-                <a href="#">강아지</a>
+                <a href="/cat">고양이</a>
                 <span class="sep">|</span>
-                <a href="#">고양이</a>
+                <a href="other">기타동물</a>
                 <span class="sep">|</span>
-                <a href="#">보호센터</a>
+                <a href="/center">보호센터</a>
                 <span class="sep">|</span>
-                <a href="#">신고센터</a>
+                <a href="/notice/nList">공지사항</a>
                 <span class="sep">|</span>
-                <a href="#">고객센터</a>
+                <a href="/support/list">고객센터</a>
             </div>
             <p class="company">멍댕멍댕 : 대구광역시 중구 국채보상로 568 16층</p>
             <p class="legal">Copyright 멍댕멍댕 2021. All Rights Reserved</p>

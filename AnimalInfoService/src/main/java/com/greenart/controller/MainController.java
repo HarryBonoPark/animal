@@ -16,10 +16,6 @@ public class MainController {
     
     @GetMapping("/")
     public String getMain(Model model) {
-        // AnimalInfoVO vo = service.selectTodayAnimalInfo();
-        // model.addAttribute("animalInfo", vo);
-        // AnimalInfoVO vo2 = service.selectTodayAccAnimalInfo();
-        // model.addAttribute("Accanimal", vo2);
 
         AnimalInfoVO cnt = service.selectTodayCntStatusByDate();
         AnimalInfoVO allCnt = service.selectTodayAllCntByDate();
