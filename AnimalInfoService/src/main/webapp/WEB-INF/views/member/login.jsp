@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,11 @@
     <link rel="stylesheet" href="/assets/css/login.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/login.js"></script>
-
+    <script>
+        <c:if test ="${member !=null}">
+            location.href="/";
+        </c:if>
+    </script>
 
 </head>
 
@@ -40,5 +45,6 @@
             </tr>
         </tbody>
     </table>
+    <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>
 </html>

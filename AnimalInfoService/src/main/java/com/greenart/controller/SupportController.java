@@ -25,4 +25,9 @@ public class SupportController {
         }
         return "/support/support";
     }
+    
+    @GetMapping("/support/list")
+    public String getSupport(){
+        return "/support/supportList";
+    }
 }

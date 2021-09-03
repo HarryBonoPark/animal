@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class DogInfoService {
     @Autowired DogInfoMapper mapper;
-    public DogInfoVO selectDogInfoById(Integer seq) {
-        return mapper.selectDogInfoById(seq);
-    }
     public List<DogInfoVO> selectRegionDogInfo(String region){
         return mapper.selectRegionDogInfo(region);
+    }
+    public DogInfoVO selectDogInfoById(Integer seq) {
+        return mapper.selectDogInfoById(seq);
     }
 }

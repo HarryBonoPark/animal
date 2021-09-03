@@ -5,9 +5,9 @@
 <!-- 전체 데이터 넣어주기 -->
 <insert id="InsertMemberInfo">
 INSERT INTO member_info
-    (name, password, id, email, birth, gen, address, address_detail, phone)
+    (seq, name, password, id, email, birth, gen, address, address_detail, phone)
 VALUES
-    (#{name}, #{password}, #{id}, #{email}, #{birth}, #{gen}, #{address}, #{address_detail}, #{phone});
+    (#{seq},#{name}, #{password}, #{id}, #{email}, #{birth}, #{gen}, #{address}, #{address_detail}, #{phone});
 </insert>
 <!-- 아이디 중복값 체크 -->
 <select id="selectMemberById" resultType="java.lang.Integer">
@@ -23,6 +23,24 @@ VALUES
 </select>
 <!-- 회원가입된 사람의 정보 가져오기 -->
 <select id="selectMemberInfo" resultType="com.greenart.vo.MemberInfoVO">
-    select name, password, id, email, birth, gen, address, address_detail, phone, status from member_info where id=#{id}
+    select seq, name, password, id, email, birth, gen, address, address_detail, phone, status from member_info where id=#{id}
 </select>
+<!-- <select id="selectMemberByseq" resultType="com.greenart.vo.MemberInfoVO">
+    select * from member_info where seq=#{seq}
+</select>
+<update id="updateMemberInfo">
+UPDATE member_info
+    SET 
+        name=#{name},
+        password=#{password}, 
+        id=#{id}, 
+        email=#{email}, 
+        gen=#{gen}, 
+        birth=#{birth}, 
+        address=#{address}, 
+        address_detail=#{address_detail}, 
+        phone=#{phone}, 
+    WHERE seq=#{seq};
+</update> -->
+
 </mapper>

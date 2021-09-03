@@ -50,10 +50,13 @@ public class MemberInfoAPIController {
             resultMap.put("message","["+email+"] 는 사용할 수 있습니다.");
             return resultMap;
         }
+
+        //로그인-로그인 값 아이디랑 비번만!
         @PostMapping("/member/login")
         public Map<String, Object> postMemberLogin(@RequestBody LoginVO vo, HttpSession session){
             Map<String, Object> resultMap = service.memberLogin(vo);
             session.setAttribute("member",resultMap.get("member"));
             return resultMap;
         }
+        
 }

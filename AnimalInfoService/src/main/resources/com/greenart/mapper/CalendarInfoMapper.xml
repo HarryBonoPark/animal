@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.CalendarInfoMapper">
+<insert id="insertCalendarInfo">
+INSERT INTO animal.calendar_info
+(mi_seq, name, kind, title, detail, date, time_h, time_m, region, careNm)
+VALUES(#{mi_seq}, #{name}, #{kind}, #{title}, #{detail}, #{date}, #{time_h}, #{time_m}, #{region}, #{careNm});
+</insert>
+<!-- 예약 데이터 가져오기 -->
+<select id="selectCalendarById" resultType="com.greenart.vo.CalendarInfoVO">
+    select * from calendar_info where seq = #{seq}
+</select>
+<!-- 지역별 center가져오기 -->
+<select id="selectRegionList" resultType="com.greenart.vo.CalendarInfoVO">
+select * from
+        (
+            select distinct seq as center_seq, careNm, 
+                case 
+                    when orgNm like '%서%울%특%' then '서울특' 
+                    when orgNm like '%부%산%광%' then '부산광' 
+                    when orgNm like '%대%구%광%' then '대구광' 
+                    when orgNm like '%인%천%광%' then '인천광' 
+                    when orgNm like '%광%주%광%' then '광주광' 
+                    when orgNm like '%대%전%광%' then '대전광' 
+                    when orgNm like '%울%산%광%' then '울산광' 
+                    when orgNm like '%세%종%특%' then '세종특' 
+                    when orgNm like '%경%기%도%' then '경기도' 
+                    when orgNm like '%강%원%도%' then '강원도' 
+                    when orgNm like '%충%청%북%' then '충청북' 
+                    when orgNm like '%충%청%남%' then '충청남' 
+                    when orgNm like '%전%라%북%' then '전라북' 
+                    when orgNm like '%전%라%남%' then '전라남' 
+                    when orgNm like '%경%상%북%' then '경상북' 
+                    when orgNm like '%경%상%남%' then '경상남' 
+                    when orgNm like '%제%주%특%' then '제주특' 
+                    end as region
+                from center_info
+            group by careNm
+        ) a where region =#{region}
+</select>
+
+</mapper>

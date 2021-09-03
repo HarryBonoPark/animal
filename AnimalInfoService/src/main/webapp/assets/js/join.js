@@ -1,5 +1,12 @@
 $(function(){
-
+    //수정하기 - select값인 gen가져오기
+    // if(gen_val != '') {
+    //     console.log("editmode");
+    //     $("#user_gen").val(gen_val).prop("selected", true);
+    
+    // }
+    
+    //아이디랑 이메일 중복 여부 체크
     let idChk= false;
     let emailChk =false;
 
@@ -9,7 +16,6 @@ $(function(){
             alert("아이디 중복여부를 확인해주세요.");
             return;
         }
-        //alert("클릭");
         const pattern = /\s/g;
 
         let user_id = $("#user_id").val();
@@ -106,6 +112,8 @@ $(function(){
         })
     });
 
+    
+
     //아이디 중복값 체크
     $("#chk_id").click(function(){
         const pattern = /\s/g;
@@ -155,6 +163,7 @@ $(function(){
             }
         })
     })
+
     //중복 체트 했는데 또 수정할 시 다시 중복하라고 체크해주기
     $("#user_id").change(function(){
         idChk=false;
@@ -162,7 +171,17 @@ $(function(){
     $("#user_email").change(function(){
         emailChk=false;
     });
+
+    
+
 });
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search); 
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); 
+}
+
 function inputValidation(input,type){
     if(input=""|| input==null|| input==undefined){
         alert(type+"을/를 입력하세요");
@@ -170,6 +189,7 @@ function inputValidation(input,type){
     }
     return true;
 }
+
 //입력된 데이터를 숫자 형태로 형 변환
 function leadingZero(n) {
     let num = Number(n);

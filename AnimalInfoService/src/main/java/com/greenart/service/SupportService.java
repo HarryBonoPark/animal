@@ -39,6 +39,7 @@ public class SupportService {
     public void updateSupportList(SupportVO vo){
         mapper.updateSupportList(vo);
     }
+    //비밀번호 체크
     public Integer checkPassword(SupportVO vo) {
         return mapper.checkPassword(vo);
     }

@@ -76,11 +76,11 @@
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td><input type="password" id="user_pwd" value="${data.name}"></td>
+                <td><input type="password" id="user_pwd" value="${data.password}"></td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
-                <td><input type="password" id="user_pwd_confirm" value="${data.name}"></td>
+                <td><input type="password" id="user_pwd_confirm" value="${data.password}"></td>
             </tr>
             <tr>
                 <td>이메일</td>

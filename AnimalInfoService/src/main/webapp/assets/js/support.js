@@ -175,6 +175,7 @@ $(function(){
         //비밀번호를 가져오기 위한 ajax
         console.log(data);
         if(!confirm("수정하시겠습니까?")) return;
+        //수정된 사항 저장
         $.ajax({
             type:"patch",
             url:"/api/update",

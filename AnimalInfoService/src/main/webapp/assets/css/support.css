@@ -58,13 +58,13 @@
     border-radius: 5px; font-family: 'Cafe24Ssurround';
 }
 .regist_table button{
-    font-family: 'Cafe24Ssurround'; border: 0; border-radius: 3px; background-color: rgb(102, 102, 102); 
-    color: #fff; padding: 10px 20px; cursor: pointer;
+    font-family: 'Cafe24Ssurround'; border: 0; border-radius: 3px; background-color: rgb(243, 213, 82) 
+    color #fff; padding: 10px 20px; cursor: pointer;
 }
 .regist_table #regist{width: 200px; margin-top: 30px; margin: 10px;}
 .regist_table #cancel{width: 200px; margin-top: 30px;margin: 10px;}
 .regist_table {width: 540px; margin: 0 auto;}
-.regist_table button:hover{background-color: #333;}
+.regist_table button:hover{background-color: rgb(238, 230, 117);}
 .regist_table tr:last-child{text-align: center;}
 
 

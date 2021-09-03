@@ -20,6 +20,7 @@
         </c:if>
     </script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
     <script>
     window.onload = function(){
          //주소입력칸을 클릭하면
@@ -28,7 +29,7 @@
                 new daum.Postcode({
                     oncomplete: function(data) { //선택시 입력값 세팅
                         document.getElementById("user_address").value = data.address; // 주소 넣기
-                        document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                        document.querySelector("input[name=user_address_detail]").focus(); //상세입력 포커싱
                     }
                 }).open();
             });
@@ -120,5 +121,6 @@
             </tr>
         </tbody>
     </table>
+    <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>
 </html>
