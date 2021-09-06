@@ -1,6 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +15,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/header.css">
-    <!-- <script src="/assets/js/login.js"></script> -->
+    <script src="/assets/js/login.js"></script>
     
 </head>
 <body>
@@ -26,9 +31,9 @@
                     <c:if test = "${member.status==1}">회원</c:if>
                     <c:if test = "${member.status==0}">관리자</c:if></span>${member.id}님</a>
                     <span>|</span>
-                    <a href="/member/info">회원정보</a>
+                    <a href="/member/info?seq=${member.seq}" id="memberinfo">회원정보</a>
                     <span>|</span>
-                <a href="/member/logout" id="logout">로그아웃</a>
+                    <a href="/member/logout" id="logout">로그아웃</a>
             </c:if>
         </div>
         <div class="header">

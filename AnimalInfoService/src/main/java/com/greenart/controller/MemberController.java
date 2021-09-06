@@ -1,5 +1,6 @@
 package com.greenart.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import com.greenart.service.CalendarInfoService;
@@ -31,11 +32,18 @@ public class MemberController {
         session.invalidate();
         return "redirect:/";
     }
+    
+    //수정하기
+    @GetMapping("/member/info")
+    public String getMemberInfo() {
+        return "/member/info";
+    }
 
     //캘린더 부르기
     @RequestMapping("/member/calendar")
     public String Calendar() {
     return "/member/calendar";
     }
+
     
 }

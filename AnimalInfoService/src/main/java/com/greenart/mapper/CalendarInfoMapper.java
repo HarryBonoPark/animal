@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CalendarInfoMapper {
-    public void insertCalendarInfo(CalendarInfoVO vo);
-    public CalendarInfoVO selectCalendarById(Integer seq);
-    public List<CalendarInfoVO> selectRegionList(String region);
+    public void insertCalendarInfo(CalendarInfoVO vo); //예약정보 저장
+    public List<CalendarInfoVO> selectRegionList(String region); //지역별 center 리스트 가져오기
+    public List<CalendarInfoVO> selectCalendarById(String region, String careNm); //center별 예약 정보 가져오기
 }

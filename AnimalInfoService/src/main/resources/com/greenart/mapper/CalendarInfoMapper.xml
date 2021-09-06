@@ -7,10 +7,6 @@ INSERT INTO animal.calendar_info
 (mi_seq, name, kind, title, detail, date, time_h, time_m, region, careNm)
 VALUES(#{mi_seq}, #{name}, #{kind}, #{title}, #{detail}, #{date}, #{time_h}, #{time_m}, #{region}, #{careNm});
 </insert>
-<!-- 예약 데이터 가져오기 -->
-<select id="selectCalendarById" resultType="com.greenart.vo.CalendarInfoVO">
-    select * from calendar_info where seq = #{seq}
-</select>
 <!-- 지역별 center가져오기 -->
 <select id="selectRegionList" resultType="com.greenart.vo.CalendarInfoVO">
 select * from
@@ -40,4 +36,8 @@ select * from
         ) a where region =#{region}
 </select>
 
+<!-- 시도. 지역별로 가져오기 -->
+<select id="selectCalendarById" resultType="com.greenart.vo.CalendarInfoVO">
+    select * from calendar_info where region = #{region} and careNm = #{careNm}
+</select>
 </mapper>

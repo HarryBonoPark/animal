@@ -27,8 +27,6 @@
     <link href='/resources/fullcalendar-5.9.0/lib/main.css' rel='stylesheet' />
     <script src='/resources/fullcalendar-5.9.0/lib/main.js'></script>
     <script src="/assets/js/calendar.js"></script>
-
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -43,7 +41,6 @@
         }
     </script>
 </head>
-
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <div class="dashboard_area">

@@ -25,9 +25,7 @@ VALUES
 <select id="selectMemberInfo" resultType="com.greenart.vo.MemberInfoVO">
     select seq, name, password, id, email, birth, gen, address, address_detail, phone, status from member_info where id=#{id}
 </select>
-<!-- <select id="selectMemberByseq" resultType="com.greenart.vo.MemberInfoVO">
-    select * from member_info where seq=#{seq}
-</select>
+<!-- 수정하기 -->
 <update id="updateMemberInfo">
 UPDATE member_info
     SET 
@@ -35,12 +33,11 @@ UPDATE member_info
         password=#{password}, 
         id=#{id}, 
         email=#{email}, 
-        gen=#{gen}, 
-        birth=#{birth}, 
+        gen=#{gen},  
         address=#{address}, 
         address_detail=#{address_detail}, 
-        phone=#{phone}, 
+        phone=#{phone}
     WHERE seq=#{seq};
-</update> -->
+</update>
 
 </mapper>

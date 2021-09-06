@@ -1,6 +1,10 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +16,6 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         let gen_val = '${member.gen}';
-        console.log('${member}');
     </script>
     <script src="/assets/js/join.js"></script>  
 </head>
@@ -20,12 +23,11 @@
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <h1 class="title">회원 정보 수정</h1>
     <table class="join_table">
-        ${member};
         <tbody>
-            <tr>
+            <tr id="user_id_tr" data-seq='${member.seq}'>
                 <td>아이디</td>
                 <td>
-                    <input type="text" id="user_id">
+                    <input type="text" id="user_id" value="${member.id}">
                 </td>
                 <td>
                     <button id="chk_id">중복확인</button>
@@ -34,25 +36,25 @@
             <tr>
                 <td>비밀번호</td>
                 <td>
-                    <input type="password" id="user_pwd">
+                    <input type="password" id="user_pwd" value="${member.password}">
                 </td>
             </tr>
             <tr>
                 <td>비밀번호 확인</td>
                 <td>
-                    <input type="password" id="user_pwd_confirm">
+                    <input type="password" id="user_pwd_confirm" value="${member.password}">
                 </td>
             </tr>
             <tr>
                 <td>이름</td>
                 <td>
-                    <input type="text" id="user_name">
+                    <input type="text" id="user_name" value="${member.name}">
                 </td>
             </tr>
             <tr>
                 <td>이메일</td>
                 <td>
-                    <input type="text" id="user_email">
+                    <input type="text" id="user_email" value="${member.email}">
                 </td>
                 <td>
                     <button id="chk_email">중복확인</button>
@@ -72,7 +74,7 @@
             <tr>
                 <td>성별</td>
                 <td>
-                    <select id="user_gen">
+                    <select id="user_gen" value="${member.gen}">
                         <option value="0" selected>남</option>
                         <option value="1">여</option>
                         <option value="2">선택안함</option>
@@ -82,16 +84,16 @@
             <tr>
                 <td>주소</td>
                 <td>
-                    <input type="text" id="user_address">
+                    <input type="text" id="user_address" value="${member.address}">
                     <span></span>
-                    <input type="text" id="user_address_detail">
+                    <input type="text" id="user_address_detail" value="${member.address_detail}">
                 </td>
                 <td><button id="chk_addr">주소확인</button></td>
             </tr>
             <tr>
                 <td>전화번호</td>
                 <td>
-                    <input type="text" id="user_phone">
+                    <input type="text" id="user_phone" value="${member.phone}"> 
                 </td>
             </tr>
             <tr>
