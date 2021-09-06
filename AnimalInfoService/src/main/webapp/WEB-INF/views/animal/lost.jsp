@@ -22,7 +22,7 @@
 
     <div class="container">
         <h1>분실 신고</h1>
-        <span><span class="red">*</span> 는 필수 항목입니다.</span>
+        <span><span class="red">*</span> 표시는 필수 입력 항목입니다.</span>
 
         <table>
             <tr>
@@ -54,18 +54,18 @@
                 <td><input type="text" id="lostDate"></td>
             </tr>
             <tbody class="writer_info">
-                <h1>작성자 정보</h1>
+                <h1>신고자 정보</h1>
                 <tr>
                     <td>이름 <span class="red">*</span></td>
-                    <td><input type="text" id="writer_name"></td>
+                    <td><input type="text" id="writer_name" value="${member.name}"></td>
                 </tr>
                 <tr>
                     <td>이메일 <span class="red">*</span></td>
-                    <td><input type="text" id="writer_email"></td>
+                    <td><input type="text" id="writer_email" value="${member.email}"></td>
                 </tr>
                 <tr>
                     <td>연락처 <span class="red">*</span></td>
-                    <td><input type="text" id="writer_phone"></td>
+                    <td><input type="text" id="writer_phone" value="${member.phone}"></td>
                 </tr>
             </tbody>
 

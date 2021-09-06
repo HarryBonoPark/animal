@@ -13,9 +13,7 @@ $.datepicker.setDefaults({
 
 $(function() {
     $("#lostDate").datepicker();
-    $("#lostDate").change(function() {
-        console.log($(this).val());
-    })
+    $("#lostDate").datepicker("option", "maxDate", new Date());
 
     $("#save").click(function() {
 
@@ -105,6 +103,7 @@ $(function() {
             contentType:"application/json",
             success:function(r){
                 alert(r.message);
+                location.href = '/lost/list';
             },
             error:function(e){
                 console.log(e);

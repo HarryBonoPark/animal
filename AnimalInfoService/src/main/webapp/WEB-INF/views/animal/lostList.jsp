@@ -21,7 +21,7 @@
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
 
     <div class="container">
-        <h1> 분실 동물</h1>
+        <h1> 분실 동물 </h1>
         <span>여기는 동물을 분실한 경우 동물정보를 올려 분실 동물을 찾을 수 있는 공간입니다.</span>
         <span>동물을 분실한 경우 동물보호법 제12조 제1항 및 같은 법 시행규칙 제8조 제1항 및 제9조 제2항에 따라</span>
         <span>등록대상동물을 10일 이내 시장, 군수, 구청장에게 분실 신고하셔야 합니다.</span>
@@ -70,8 +70,9 @@
             <button id="lost_page_next">&gt;</button>
         </div>
     </div>
-    <button class="lost_regist" onclick="location.href='/lost'">분실 신고하기</button>
-
+    <c:if test="${member != null}">
+        <button class="lost_regist" onclick="location.href='/lost'">분실 신고하기</button>
+    </c:if>
 
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>

@@ -19,9 +19,11 @@ $(function() {
     let dt = new Date();
     dt.setMonth(dt.getMonth() -1);
     $("#startDate").datepicker("setDate", dt);
+    $("#startDate").datepicker("option", "maxDate", new Date());
 
     $("#endDate").datepicker();
     $("#endDate").datepicker("setDate", new Date());
+    $("#endDate").datepicker("option", "maxDate", new Date());
 
     $("#region_select").change(function(){
         let region = $("#region_select").find("option:selected").val();
