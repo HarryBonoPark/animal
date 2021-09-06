@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,17 +23,6 @@ public class CalendarInfoAPIController {
     @PostMapping("/calendar/add")
     public Map<String, Object> insertCalendarInfo(@RequestBody CalendarInfoVO vo){
         return service.insertCalendarInfo(vo);
-    }
-    //예약 정보 가져오기
-    @GetMapping("/calendar/list/{seq}")
-    public Map<String, Object> selectCalendarById(@PathVariable Integer seq){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        CalendarInfoVO vo = service.selectCalendarById(seq);
-        
-        resultMap.put("status",true);
-        resultMap.put("data",vo);
-
-        return resultMap;
     }
     //지역별 center가져오기
     @GetMapping("/calendar/region")
@@ -50,6 +38,18 @@ public class CalendarInfoAPIController {
         char[] c = region.toCharArray();
         region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
 
+        return resultMap;
+    }
+    
+    //center별 예약정보 가져오기
+    @GetMapping("/calendar/list")
+    public Map<String, Object> selectCalendarById(@RequestParam String region, @RequestParam String careNm){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<CalendarInfoVO> vo = service.selectCalendarById(region, careNm);
+        
+        resultMap.put("status",true);
+        resultMap.put("data",vo);
+    
         return resultMap;
     }
 }

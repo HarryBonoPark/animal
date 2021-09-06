@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberInfoService {
     @Autowired MemberInfoMapper mapper;
+    //회원가입
     public Map < String, Object > InsertMemberInfo(MemberInfoVO vo) {
         Map < String, Object > resultMap = new LinkedHashMap < String, Object > ();
         //아이디
@@ -45,6 +46,8 @@ public class MemberInfoService {
 
         return resultMap;
     }
+
+
     //아이디 중복
     public boolean isDoplicatedId(String id) {
         //0보다 크면 중복
@@ -59,7 +62,7 @@ public class MemberInfoService {
 
     //로그인 할 때 1이면 로그인 되야하지만 아니면 오류.
     public Map < String, Object > memberLogin(LoginVO vo) {
-        Map < String, Object > resultMap = new LinkedHashMap < String, Object > ();
+        Map < String, Object > resultMap = new LinkedHashMap <String, Object> ();
         String pwd = vo.getPwd();
         try {
             pwd = AESAlgorithm.Encrypt(pwd);
@@ -79,13 +82,10 @@ public class MemberInfoService {
         }
         return resultMap;
     }
-    //전체 데이터 가져오기
-    // public MemberInfoVO selectMemberByseq(Integer seq){
-    //     return mapper.selectMemberByseq(seq);
-    // }
+    
     //수정 사항 
-    // public void updateMemberInfo(MemberInfoVO vo){
-    //     mapper.updateMemberInfo(vo);
-    // }
+    public void updateMemberInfo(MemberInfoVO vo){
+        mapper.updateMemberInfo(vo);
+    }
 
 }
