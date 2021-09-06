@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalendarInfoService {
     @Autowired CalendarInfoMapper mapper;
+    //예약 정보 저장하기
     public Map<String, Object> insertCalendarInfo(CalendarInfoVO vo){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
             mapper.insertCalendarInfo(vo);
@@ -22,10 +23,13 @@ public class CalendarInfoService {
         
         return resultMap;
     }
-    public CalendarInfoVO selectCalendarById(Integer seq){
-        return mapper.selectCalendarById(seq);
-    }
+    //예약 정보 중 center 리스트 가져오기
     public List<CalendarInfoVO> selectRegionList(String region){
         return mapper.selectRegionList(region);
+    }
+
+    //지역, 센터별 예약 정보 가져오기
+    public List<CalendarInfoVO> selectCalendarById(String region, String careNm){
+        return mapper.selectCalendarById(region, careNm);
     }
 }

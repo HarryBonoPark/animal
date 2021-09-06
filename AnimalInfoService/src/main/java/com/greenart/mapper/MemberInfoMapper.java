@@ -16,4 +16,5 @@ public interface MemberInfoMapper {
     public MemberInfoVO selectMemberInfo(String id); //회원가입된 사람의 정보 가져오기
     //수정하기
     public void updateMemberInfo(MemberInfoVO vo); // 회원정보 수정
+
 }

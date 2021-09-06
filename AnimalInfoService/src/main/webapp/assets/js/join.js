@@ -3,9 +3,8 @@ $(function(){
     if(gen_val != '') {
         console.log("editmode");
         $("#user_gen").val(gen_val).prop("selected", true);
-    
-    }
-    
+    }  
+
     //아이디랑 이메일 중복 여부 체크
     let idChk= false;
     let emailChk =false;
@@ -172,6 +171,8 @@ $(function(){
         emailChk=false;
     });
 
+    
+
     //수정하기 기능
     $("#join_modify").click(function(){
         const pattern = /\s/g;
@@ -222,7 +223,8 @@ $(function(){
             alert("올바른 이메일 형식을 입력하세요 \n 예시:nnn@naver.com");
             return;
         }
-        
+            
+
         let user_birth_year = $("#user_birth_year").val();
         let user_birth_month = $("#user_birth_month").val();
         let user_birth_date = $("#user_birth_date").val();
@@ -237,7 +239,7 @@ $(function(){
         if(!inputValidation(user_address,"주소")){return;}
         if(!inputValidation(user_address_detail,"상세주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}
-        //let birth = user_birth_year+leadingZero(user_birth_month)+leadingZero(user_birth_date);
+
 
         let data={
             seq:$("#user_id_tr").attr("data-seq"),
@@ -245,7 +247,6 @@ $(function(){
             password: user_pwd,
             name: user_name,
             email: user_email,
-            //birth: birth,
             gen: user_gen,
             address: user_address,
             address_detail: user_address_detail,

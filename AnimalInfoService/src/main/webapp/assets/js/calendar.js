@@ -27,27 +27,7 @@ $(function(){
         console.log(makeDateString(calendar.getDate()));
         calendar.remove();
     })
-
-    //let seq = memberInfo.mi_seq;
-
-    // $.ajax({
-    //     type:"get",
-    //     url: "/calendar/list/"+seq,
-    //     success: function(r){
-    //         console.log(r);
-    //         // for(let i=0; i<10; i++) {
-    //         //     calendar.addEvent({
-    //         //         //title: '테스트 이벤트',
-    //         //         title: '입양',
-    //         //         start: new Date("2021-09-"+leadingZero(i+1)),
-    //         //         allDay: true
-    //         //     })
-    //         // }
-    //     },
-    // })
-
-
-
+    
 
     calendar.render();
 
@@ -73,12 +53,11 @@ $(function(){
         let region = $("#region_select").find("option:selected").val();
         getCenterRegionInfo(region);
     })
-    
+
     getCenterRegionInfo("서울특");
 
     function getCenterRegionInfo(region) {
         let url = "http://localhost:8947/calendar/region?region="+region;
-
         $.ajax({
             type:"get",
             url:url,
@@ -93,8 +72,44 @@ $(function(){
                 
             }
         })
-
     }
+
+    $("#center_select").change(function(){
+        let region = $("#region_select").find("option:selected").val();
+        let careNm = $("#center_select").find("option:selected").val();
+        getMemberByRegion(region, careNm);
+    })
+
+        getMemberByRegion('', '');
+        function getMemberByRegion(region, careNm){
+            let url = "http://localhost:8947/calendar/list?region=" +region+"&careNm="+careNm;
+            $.ajax({
+                type:"get",
+                url:url,
+                success:function(r){
+                    console.log(r);
+                    $(".fc-daygrid-day-events").html("");
+                    // 새로 만들고
+                    calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth'
+                    });
+                    for(let i=0; i<r.data.length; i++) {
+                        console.log("add Event");
+                        calendar.addEvent({
+                            id:"dataList",
+                            title: r.data[i].kind+"/"+r.data[i].name,
+                            start: r.data[i].date,
+                            allDay: true
+                        })
+                        if(calendar.getEventSourceById("dataList") != null ){
+                            calendar.getEventSourceById("dataList").remove();
+                        }
+                    }
+                    // 보여주고
+                    calendar.render();
+                }
+            })
+        }   
 
     $("#cal_btn").click(function(){
         if(memberInfo.seq==""||memberInfo.seq==null||memberInfo.seq==undefined){

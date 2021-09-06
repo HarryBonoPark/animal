@@ -53,19 +53,21 @@ public class MemberInfoAPIController {
         }
 
         //로그인-로그인 값 아이디랑 비번만!
+        //값 가져오기-회원가입한 사람 정보 가져오기
         @PostMapping("/member/login")
         public Map<String, Object> postMemberLogin(@RequestBody LoginVO vo, HttpSession session){
             Map<String, Object> resultMap = service.memberLogin(vo);
             session.setAttribute("member",resultMap.get("member"));
             return resultMap;
         }
-        
+        //회원정보 수정
         @PatchMapping("/member/update")
-        public Map<String, Object> updateMember(@RequestBody MemberInfoVO vo){
+        public Map<String, Object> updateMember(@RequestBody MemberInfoVO vo) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         service.updateMemberInfo(vo);
         resultMap.put("status",true);
         resultMap.put("message","수정되었습니다.");
         return resultMap;
         }
+        
 }

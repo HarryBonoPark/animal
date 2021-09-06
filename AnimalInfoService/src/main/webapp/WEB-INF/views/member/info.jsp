@@ -16,7 +16,6 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         let gen_val = '${member.gen}';
-
     </script>
     <script src="/assets/js/join.js"></script>  
 </head>

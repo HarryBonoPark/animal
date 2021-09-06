@@ -14,13 +14,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
             integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
     <script>
         <c:if test ="${member !=null}">
             location.href="/";
         </c:if>
     </script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    
     <script>
     window.onload = function(){
          //주소입력칸을 클릭하면
@@ -30,11 +30,12 @@
                     oncomplete: function(data) { //선택시 입력값 세팅
                         document.getElementById("user_address").value = data.address; // 주소 넣기
                         document.querySelector("input[name=user_address_detail]").focus(); //상세입력 포커싱
+                        
                     }
                 }).open();
+                self.close();
             });
         }
-
     </script>
 </head>
 <body>
