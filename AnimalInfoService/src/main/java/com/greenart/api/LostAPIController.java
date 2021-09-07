@@ -11,6 +11,7 @@ import com.greenart.vo.LostInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -58,6 +59,16 @@ public class LostAPIController {
         resultMap.put("status", true);
         resultMap.put("data", vo);
 
+        return resultMap;
+    }
+    // 분실 동물 정보 삭제 (관리자 권한에서만)
+    @DeleteMapping("/api/lost/delete")
+    public Map<String, Object> deleteLostAnimalInfo(@RequestParam Integer seq) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        service.deleteLostAnimalInfo(seq);
+
+        resultMap.put("message", "삭제되었습니다.");
         return resultMap;
     }
 }

@@ -40,4 +40,7 @@
     <select id="selectLostAnimalInfoBySeq" resultType="com.greenart.vo.LostInfoVO">
         select * from lost_animal where seq = #{seq}
     </select>
+    <delete id="deleteLostAnimalInfo">
+        delete from lost_animal where seq = #{seq}
+    </delete>
 </mapper>

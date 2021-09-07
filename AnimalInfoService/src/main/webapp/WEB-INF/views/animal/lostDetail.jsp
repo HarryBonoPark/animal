@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <title>분실 동물 상세정보</title>
     <link rel="stylesheet" href="/assets/css/lostDetail.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/lostDetail.js"></script>
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
 
     <div class="container">
         <h1>분실 동물 상세정보</h1>
+        <span>※ 게시글 수정 및 삭제는 관리자에 문의바랍니다.</span>
 
         <table class="lost_detail_table">
             <tbody class="lost_animal_info">
@@ -78,6 +81,11 @@
                     <td>${detail.writerEmail}</td>
                 </tr>
             </tbody>
+            <c:if test="${member.status == 0}">
+                <tbody class="button_tbody">
+                    <button class="delete_button" data_num="${detail.seq}">삭제하기</button>
+                </tbody>
+            </c:if>
         </table>
     </div>
 
