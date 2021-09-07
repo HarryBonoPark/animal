@@ -63,4 +63,5 @@ public class NoticeService {
     public List<NoticeVO> selectAllNotice(){
         return mapper.selectAllNotice();
     }
+
 }

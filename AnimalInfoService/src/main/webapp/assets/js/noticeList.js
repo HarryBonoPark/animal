@@ -26,8 +26,6 @@ $(function(){
     function getNoticeDate(keyword, cate_seq, offset){
         $("#notice_tbody").html("");
 
-        
-
         let url = "/api/notice/list";
         if (keyword == undefined || keyword == null) {
             keyword = "";

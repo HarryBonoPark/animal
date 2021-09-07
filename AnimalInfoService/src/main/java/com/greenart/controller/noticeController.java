@@ -59,13 +59,9 @@ public class noticeController {
 
         MemberInfoVO status = ma_service.selectAdminStatus(mi_status);
         model.addAttribute("member_info", status);
-
         model.addAttribute("clist", clist);
         model.addAttribute("notice", notice);
         model.addAttribute("nList", nList);
-        model.addAttribute("noList", n_service.selectNoticeByseq(seq));
-        // model.addAttribute("member_info", member_info);
-        
         return "/notice/nList";
     }
 
