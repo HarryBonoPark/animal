@@ -14,6 +14,7 @@ public interface NoticeMapper {
     public NoticeVO selectNoticeByseq(Integer seq);
     public String getTitle(Integer seq);
     public String getCategoryName(Integer cate_seq);
+    public String selectMemId(Integer seq);
 
     public List<NoticeVO> selectAllNotice();
 }
