@@ -60,11 +60,15 @@ public class MemberInfoAPIController {
             session.setAttribute("member",resultMap.get("member"));
             return resultMap;
         }
+        
         //회원정보 수정
         @PatchMapping("/member/update")
-        public Map<String, Object> updateMember(@RequestBody MemberInfoVO vo) {
+        public Map<String, Object> updateMember(@RequestBody MemberInfoVO vo, HttpSession session) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         service.updateMemberInfo(vo);
+
+        session.setAttribute("member", vo);
+        
         resultMap.put("status",true);
         resultMap.put("message","수정되었습니다.");
         return resultMap;

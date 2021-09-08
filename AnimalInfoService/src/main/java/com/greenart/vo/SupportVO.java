@@ -14,4 +14,6 @@ public class SupportVO {
     
     private String kind; 
     private String region; 
+    //지역별 center가져오기
+    private String careNm;
 }

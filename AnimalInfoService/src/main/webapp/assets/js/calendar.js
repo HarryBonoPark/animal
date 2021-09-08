@@ -27,10 +27,7 @@ $(function(){
         console.log(makeDateString(calendar.getDate()));
         calendar.remove();
     })
-    
-
     calendar.render();
-
 
     //날짜 달력 보이기
     $("#user_date").datepicker();
@@ -47,8 +44,7 @@ $(function(){
         $(".content_left").css("display","")
     })
 
-    //데이터 전송
-
+    //데이터 전송-지역
     $("#region_select").change(function(){
         let region = $("#region_select").find("option:selected").val();
         getCenterRegionInfo(region);
@@ -62,24 +58,22 @@ $(function(){
             type:"get",
             url:url,
             success:function(r){
-                //console.log(r);
+                //지역별 center 고르기
                 $("#center_select").html("<option>선택</option>");
                 for(let i=0; i<r.data.length; i++) {
                     let tag = '<option value="'+r.data[i].careNm+'">'+r.data[i].careNm+'</option>';
-                    $("#center_select").append(tag);
-                                
+                    $("#center_select").append(tag);             
                 }
-                
             }
         })
     }
-
+    
+    // 예약 데이터 가져오기
     $("#center_select").change(function(){
         let region = $("#region_select").find("option:selected").val();
         let careNm = $("#center_select").find("option:selected").val();
         getMemberByRegion(region, careNm);
     })
-
         getMemberByRegion('', '');
         function getMemberByRegion(region, careNm){
             let url = "http://localhost:8947/calendar/list?region=" +region+"&careNm="+careNm;
@@ -111,6 +105,7 @@ $(function(){
             })
         }   
 
+    //예약하기 기능    
     $("#cal_btn").click(function(){
         if(memberInfo.seq==""||memberInfo.seq==null||memberInfo.seq==undefined){
             alert("로그인 후 사용하실 수 있습니다.");
@@ -161,14 +156,10 @@ $(function(){
             success:function(r){
                 alert(r.message);
                 location.reload();
-                
             }
         })
-        
     });
-
 });
-
 
 function makeDateString(dt) {
     return dt.getFullYear()+"-"+leadingZero(dt.getMonth()+1)+"-"+leadingZero(dt.getDate());

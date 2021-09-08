@@ -1,4 +1,6 @@
 $(function(){
+
+    //로그인 
     $("#login_btn").click(function(){
         // alert("로그인");
         const pattern = /\s/g;

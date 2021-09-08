@@ -36,8 +36,8 @@ UPDATE member_info
         gen=#{gen},  
         address=#{address}, 
         address_detail=#{address_detail}, 
-        phone=#{phone}
+        phone=#{phone},
+        status= #{status}
     WHERE seq=#{seq};
 </update>
-
 </mapper>

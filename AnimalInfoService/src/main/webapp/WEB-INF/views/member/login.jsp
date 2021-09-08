@@ -11,7 +11,7 @@
     <title>로그인</title>
     <link rel="stylesheet" href="/assets/css/login.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="/assets/js/login.js"></script>
+    <!-- <script src="/assets/js/login.js"></script> -->
     <script>
         <c:if test ="${member !=null}">
             location.href="/";

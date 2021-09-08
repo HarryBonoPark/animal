@@ -8,8 +8,8 @@ $(function () {
         getRegionDog(region);
     })
     
+    //지역별 강아지 리스트
     getRegionDog('all');
-
     function getRegionDog(region) {
         let url = "http://localhost:8947/api/regionDog?region=" + region;
         $.ajax({

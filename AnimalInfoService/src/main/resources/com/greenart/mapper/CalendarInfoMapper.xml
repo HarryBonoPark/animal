@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.CalendarInfoMapper">
+<!-- 예약정보 저장 -->
 <insert id="insertCalendarInfo">
-INSERT INTO animal.calendar_info
+INSERT INTO calendar_info
 (mi_seq, name, kind, title, detail, date, time_h, time_m, region, careNm)
 VALUES(#{mi_seq}, #{name}, #{kind}, #{title}, #{detail}, #{date}, #{time_h}, #{time_m}, #{region}, #{careNm});
 </insert>
@@ -35,8 +36,7 @@ select * from
             group by careNm
         ) a where region =#{region}
 </select>
-
-<!-- 시도. 지역별로 가져오기 -->
+<!-- 지역, 센터별 예약 정보 가져오기 -->
 <select id="selectCalendarById" resultType="com.greenart.vo.CalendarInfoVO">
     select * from calendar_info where region = #{region} and careNm = #{careNm}
 </select>

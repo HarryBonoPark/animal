@@ -43,4 +43,19 @@ public class SupportService {
     public Integer checkPassword(SupportVO vo) {
         return mapper.checkPassword(vo);
     }
+    //지역 별 center정보 가져오기
+    public List<SupportVO> selectByRegion (String region){
+        return mapper.selectByRegion(region);
+    }
+    //키워드 검색
+    public List<SupportVO> selectKeyword(Integer offset, String keyword){
+        if(offset==null) offset=0;
+        if(keyword==null) {keyword="%%";}
+        else{keyword="%"+keyword+"%";}
+
+        List<SupportVO> list = mapper.selectKeyword(offset, keyword);
+
+        return list;
+
+    }
 }

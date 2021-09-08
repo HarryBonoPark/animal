@@ -4,7 +4,17 @@ $(function(){
         console.log("editmode");
         $("#kind_select").val(kind_val).prop("selected", true);
         $("#region_select").val(region_val).prop("selected", true);
+        
+        getCenterRegionInfo(region_val);
+        // console.log(center_val);
     }
+    //겹쳐서 들어가서 나왔다 안나왔다 하는 것.
+    //else로 넣어주자
+    else {
+        getCenterRegionInfo("all");
+    }
+
+    
     //등록 취소를 누르면 나오는 내용
     $("#cancel").click(function(){
         if(!confirm("작성중인 내용이 모두 삭제됩니다")){
@@ -12,7 +22,6 @@ $(function(){
         }
         history.back();
     })
-
 
     //등록하기 
     $("#regist").click(function(){
@@ -73,6 +82,7 @@ $(function(){
 
         let user_kind = $("#kind_select option:selected").val();
         let user_region =$("#region_select option:selected").val();
+        let user_center =$("#center_select option:selected").val();
         
         let data = {
             name: user_name,
@@ -82,7 +92,8 @@ $(function(){
             title: user_title,
             content: user_content,
             kind: user_kind,
-            region: user_region
+            region: user_region,
+            careNm: user_center
         }
     
         $.ajax({
@@ -99,6 +110,37 @@ $(function(){
             }
         })
     });
+
+    //데이터 전송-지역별 center
+    //지역 선택
+    $("#region_select").change(function(){
+        let region = $("#region_select").find("option:selected").val();
+        getCenterRegionInfo(region);
+    })
+
+    function getCenterRegionInfo(region) {
+        let url = "http://localhost:8947/support/center?region="+region;
+        $.ajax({
+            type:"get",
+            url:url,
+            success:function(r){
+                console.log(r);
+                //지역별 center 고르기
+                $("#center_select").html("<option>선택</option>");
+                for(let i=0; i<r.data.length; i++) {
+                    let tag = '<option value="'+r.data[i].careNm+'">'+r.data[i].careNm+'</option>';
+                    $("#center_select").append(tag);
+                }
+                console.log(center_val);
+                if(center_val.length != 0){
+                    $("#center_select").val(center_val).prop("selected", true);
+                }
+                else {
+                    $("#center_select option").eq(0).prop("selected", true);
+                }
+            }
+        })
+    }
 
     //수정하기 눌렀을 때 나오는 창 
     $("#firmodify").click(function(){
@@ -158,6 +200,7 @@ $(function(){
         }
         let user_kind = $("#kind_select option:selected").val();
         let user_region =$("#region_select option:selected").val();
+        let user_center =$("#center_select option:selected").val();
         
         let data = {
             //seq값을 가져와서 수정하기 완료된 data 내보내기 
@@ -169,7 +212,8 @@ $(function(){
             title: user_title,
             content: user_content,
             kind: user_kind,
-            region: user_region
+            region: user_region,
+            careNm: user_center
         }
         
         //비밀번호를 가져오기 위한 ajax
@@ -187,6 +231,7 @@ $(function(){
         })
     });
     
+
 })
 
 function getParameterByName(name) {

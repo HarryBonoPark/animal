@@ -137,6 +137,7 @@
                 </div>
             </div>
         </div>
+        <h1>예약 변경은 관리자에게 문의주세요</h1>
         <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>
 

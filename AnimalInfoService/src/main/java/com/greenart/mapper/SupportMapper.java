@@ -14,4 +14,6 @@ public interface SupportMapper {
     public SupportVO selectSupportBySeq(Integer seq); //선택된 것 보여주기
     public void updateSupportList(SupportVO vo); //수정된 사항 업데이트
     public Integer checkPassword(SupportVO vo); // 비밀번호 확인하기 위해 vo가져오기
+    public List<SupportVO> selectByRegion (String region); //지역별 center정보 가져오기
+    public List<SupportVO> selectKeyword(Integer offset, String keyword); //키워드 검색
 }

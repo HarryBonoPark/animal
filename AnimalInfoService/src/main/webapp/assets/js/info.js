@@ -1,15 +1,21 @@
 $(function(){
-
-    //아이디랑 이메일 중복 여부 체크
-    let idChk= false;
-    let emailChk =false;
     
-    //회원가입
-    $("#join").click(function(){
-        if(idChk==false){
-            alert("아이디 중복여부를 확인해주세요.");
+    //수정하기 취소버튼
+    $("#cancel").click(function(){
+        if(!confirm("수정 사항이 취소됩니다.")){
             return;
         }
+        location.href = "/";
+    })
+
+    //수정하기 - select값인 gen가져오기
+    if(gen_val != '') {
+        console.log("editmode");
+        $("#user_gen").val(gen_val).prop("selected", true);
+    } 
+
+    //수정하기 기능
+    $("#join_modify").click(function(){
         const pattern = /\s/g;
 
         let user_id = $("#user_id").val();
@@ -57,55 +63,46 @@ $(function(){
         if (!user_email.match(patternEmail)) {
             alert("올바른 이메일 형식을 입력하세요 \n 예시:nnn@naver.com");
             return;
-        }
-        if(emailChk==false){
-            alert("이메일 중복여부를 확인해주세요.");
-            return;
-        }
-        let user_birth_year = $("#user_birth_year").val();
-        let user_birth_month = $("#user_birth_month").val();
-        let user_birth_date = $("#user_birth_date").val();
+        }         
+
+        let user_status = $("#user_status").val(); 
         let user_address = $("#user_address").val();
         let user_address_detail = $("#user_address_detail").val();
         let user_phone = $("#user_phone").val();
         let user_gen = $("#user_gen option:selected").val();
-        
-        if(!inputValidation(user_birth_year,"생년월일")){return;}
-        if(!inputValidation(user_birth_month,"생년월일")){return;}
-        if(!inputValidation(user_birth_date,"생년월일")){return;}
+
         if(!inputValidation(user_address,"주소")){return;}
         if(!inputValidation(user_address_detail,"상세주소")){return;}
         if(!inputValidation(user_phone,"전화번호")){return;}
-        let birth = user_birth_year+leadingZero(user_birth_month)+leadingZero(user_birth_date);
 
         let data={
+            seq:$("#user_id_tr").attr("data-seq"),
             id: user_id,
             password: user_pwd,
             name: user_name,
             email: user_email,
-            birth: birth,
             gen: user_gen,
             address: user_address,
             address_detail: user_address_detail,
-            phone: user_phone   
+            phone: user_phone,  
+            status: user_status
         };    
+
+        console.log(data);
+
+        if(!confirm("수정하시겠습니까?")) return;
         $.ajax({
-            type:"post",
-            url:"/member/join",
+            type:"patch",
+            url:"/member/update",
             data:JSON.stringify(data),
             contentType:"application/json",
-            success:function(r) {
-                alert(r.message);
-                if(r.status) {
-                    location.href="/";
-                }
-            },
-            error:function(e) {
-                alert(e.message);
+            success:function(r){
+                location.reload();
+                location.href = '/';
             }
         })
-    });
-    
+
+    })
     //아이디 중복값 체크
     $("#chk_id").click(function(){
         const pattern = /\s/g;
@@ -163,8 +160,8 @@ $(function(){
     $("#user_email").change(function(){
         emailChk=false;
     });
-
 });
+
 
 function inputValidation(input,type){
     if(input=""|| input==null|| input==undefined){
@@ -172,10 +169,4 @@ function inputValidation(input,type){
         return false;
     }
     return true;
-}
-
-//입력된 데이터를 숫자 형태로 형 변환
-function leadingZero(n) {
-    let num = Number(n);
-    return num<10?"0"+num:""+num;
 }

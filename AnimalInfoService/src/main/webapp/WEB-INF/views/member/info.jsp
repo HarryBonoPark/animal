@@ -17,7 +17,24 @@
     <script>
         let gen_val = '${member.gen}';
     </script>
-    <script src="/assets/js/join.js"></script>  
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        window.onload = function(){
+             //주소입력칸을 클릭하면
+                //카카오 지도 발생
+                $("#chk_addr").click(function(){
+                    new daum.Postcode({
+                        oncomplete: function(data) { //선택시 입력값 세팅
+                            $("#user_address").val(data.address); // 주소 넣기
+                            $("#user_address_detail").focus(); //상세입력 포커싱
+                            
+                        }
+                    }).open();
+                    self.close();
+                });
+            }
+        </script>
+        <script src="/assets/js/info.js"></script>
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
@@ -61,21 +78,10 @@
                 </td>
             </tr>
             <tr>
-                <td>생년월일</td>
-                <td>
-                    <input type="text" id="user_birth_year" >
-                    <span>년</span>
-                    <input type="text" id="user_birth_month">
-                    <span>월</span>
-                    <input type="text" id="user_birth_date">
-                    <span>일</span>
-                </td>
-            </tr>
-            <tr>
                 <td>성별</td>
                 <td>
-                    <select id="user_gen" value="${member.gen}">
-                        <option value="0" selected>남</option>
+                    <select id="user_gen">
+                        <option value="0">남</option>
                         <option value="1">여</option>
                         <option value="2">선택안함</option>
                     </select>
@@ -97,8 +103,14 @@
                 </td>
             </tr>
             <tr>
+                <td>등 급</td>
+                <td>
+                    <input type="text" id="user_status" value="${member.status}" readonly> 
+                </td>
+            </tr>
+            <tr>
                 <td colspan="3">
-                    <button id="join_modify">수정하기</button>
+                    <button id="cancel">등록취소</button><button id="join_modify">수정하기</button>
                 </td>
             </tr>
         </tbody>

@@ -2,18 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.SupportMapper">
+<!-- 입력한 값 저장 -->
 <insert id="insertSupport">
     INSERT INTO support_info
-        (name, kind, phone, password, email, title, content, region)
+        (name, kind, phone, password, email, title, content, region, careNm)
     VALUES
-        (#{name}, #{kind}, #{phone}, #{password}, #{email}, #{title}, #{content}, #{region});
+        (#{name}, #{kind}, #{phone}, #{password}, #{email}, #{title}, #{content}, #{region}, #{careNm});
 </insert>
+<!-- 지역별 가져오기 -->
 <select id="selectSupportList" resultType="com.greenart.vo.SupportVO">
     select * from support_info 
     <if test="region !='all'"> 
         where region=#{region}
     </if>
 </select>
+<!-- 삭제기능 -->
 <delete id="deleteSupport">
     delete from support_info where seq=#{seq}
 </delete>
@@ -31,11 +34,46 @@
         email=#{email},
         title=#{title},
         content=#{content},
-        region=#{region}
+        region=#{region},
+        careNm = #{careNm}
     where seq=#{seq}
 </update>
 <!-- 해당 seq에 대한 비밀번호 가져오기 -->
 <select id="checkPassword" resultType="java.lang.Integer">
     select count(*) from support_info where seq=#{seq} and password=#{password}
+</select>
+<!-- 지역 별 center정보 가져오기 -->
+<select id="selectByRegion" resultType="com.greenart.vo.SupportVO">
+select * from
+        (
+            select distinct seq, careNm, 
+                case 
+                    when orgNm like '%서%울%특%' then '서울특' 
+                    when orgNm like '%부%산%광%' then '부산광' 
+                    when orgNm like '%대%구%광%' then '대구광' 
+                    when orgNm like '%인%천%광%' then '인천광' 
+                    when orgNm like '%광%주%광%' then '광주광' 
+                    when orgNm like '%대%전%광%' then '대전광' 
+                    when orgNm like '%울%산%광%' then '울산광' 
+                    when orgNm like '%세%종%특%' then '세종특' 
+                    when orgNm like '%경%기%도%' then '경기도' 
+                    when orgNm like '%강%원%도%' then '강원도' 
+                    when orgNm like '%충%청%북%' then '충청북' 
+                    when orgNm like '%충%청%남%' then '충청남' 
+                    when orgNm like '%전%라%북%' then '전라북' 
+                    when orgNm like '%전%라%남%' then '전라남' 
+                    when orgNm like '%경%상%북%' then '경상북' 
+                    when orgNm like '%경%상%남%' then '경상남' 
+                    when orgNm like '%제%주%특%' then '제주특' 
+                    end as region
+                from center_info
+            group by careNm
+        ) a where region =#{region}
+</select>
+<!-- 키워드 검색하기 -->
+<select id="selectKeyword" resultType="com.greenart.vo.SupportVO">
+    select * from support_info
+        where name like #{keyword}
+        order by create_dt desc limit 15 offset #{offset}
 </select>
 </mapper>

@@ -1,4 +1,12 @@
-
+.title {
+    /* tac+fz28+fw500+mb50+mt50 */
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 50px;
+    font-family: 'Cafe24Ssurround';
+    font-weight: 100;
+}
 .content_head {
     overflow: hidden; text-align: center;
     margin-bottom: 30px;
@@ -59,3 +67,6 @@
     opacity: 1;
 }
 .support_page_area .current {font-weight: 700;}
+
+.support-tbody {display: none;}
+.support-tbody.active {display: table-row-group;}

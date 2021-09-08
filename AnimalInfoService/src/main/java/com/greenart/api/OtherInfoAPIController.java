@@ -147,7 +147,7 @@ public class OtherInfoAPIController {
         if(node == null) return null;
         return node.getNodeValue();
     }
-    
+    //지역별 기타동물 가져오기
     @GetMapping("/api/regionOther")
     public Map<String, Object> getRegionOtherInfo(@RequestParam @Nullable String region){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
@@ -161,6 +161,7 @@ public class OtherInfoAPIController {
         resultMap.put("otherList", vo);
         return resultMap;
     }
+    //상세정보
     @GetMapping("/api/OtherDetailInfo/{seq}")
     public Map<String, Object> getOtherDetailById(@PathVariable Integer seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();

@@ -2,13 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.OtherInfoMapper">
+<!-- 기타동물 저장 -->
 <insert id="insertOtherInfo">
-INSERT INTO other_info
-    (age,careAddr, careNm, careTel, colorCd, desertionNo, filename, happenDt, happenPlace, kindCd, neuterYn,
-    noticeEdt, noticeNo, noticeSdt, officetel, orgNm, popfile, processState, sexCd, specialMark, weight)
-VALUES(#{age}, #{careAddr}, #{careNm}, #{careTel}, #{colorCd}, #{desertionNo}, #{filename}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn},
-    #{noticeEdt}, #{noticeNo}, #{noticeSdt}, #{officetel}, #{orgNm}, #{popfile}, #{processState}, #{sexCd}, #{specialMark}, #{weight});
+INSERT INTO other_info(
+    age,careAddr, careNm, careTel, colorCd, desertionNo, filename, happenDt, happenPlace, kindCd, neuterYn,
+    noticeEdt, noticeNo, noticeSdt, officetel, orgNm, popfile, processState, sexCd, specialMark, weight
+    )
+VALUES(
+    #{age}, #{careAddr}, #{careNm}, #{careTel}, #{colorCd}, #{desertionNo}, #{filename}, #{happenDt}, #{happenPlace}, #{kindCd}, #{neuterYn},
+    #{noticeEdt}, #{noticeNo}, #{noticeSdt}, #{officetel}, #{orgNm}, #{popfile}, #{processState}, #{sexCd}, #{specialMark}, #{weight}
+    );
 </insert>
+<!-- 지역별 기타동물 -->
 <select id="selectRegionOtherInfo" resultType="com.greenart.vo.OtherInfoVO">  
 select * from
 		(
@@ -45,6 +50,7 @@ select * from
 			</if>
 		limit 36
 </select>
+<!-- 기타동물 상세보기 -->
 <select id="selectOtherById" resultType="com.greenart.vo.OtherInfoVO">
 select *, mid(kindCd,8) as kind,
     case when sexCd = 'F' then '암컷'

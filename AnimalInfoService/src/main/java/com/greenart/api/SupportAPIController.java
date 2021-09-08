@@ -10,6 +10,7 @@ import com.greenart.vo.SupportVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -71,5 +72,28 @@ public class SupportAPIController {
         }
         return false;
     }
+    //지역별 center정보 가져오기
+    @GetMapping("/support/center")
+    public Map<String, Object> selectByRegion(@RequestParam @Nullable String region, Model model){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<SupportVO> list = service.selectByRegion(region);
+        //model로 내보내준다.
+        model.addAttribute("list",list);
 
+        resultMap.put("status", true);
+        resultMap.put("data", list);
+
+        char[] c = region.toCharArray();
+        region = "%"+c[0]+"%"+c[1]+"%"+c[2]+"%";
+
+        return resultMap;
+    }
+    //키워드 검색
+    @GetMapping("/get/Keyword")
+    public Map<String, Object> getKeyword(@RequestParam @Nullable String keyword, @RequestParam @Nullable Integer offset){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<SupportVO> list = service.selectKeyword(offset, keyword);
+        resultMap.put("data",list);
+        return resultMap;   
+    }
 }

@@ -1,4 +1,5 @@
 $(function () {
+    //지역별 기타동물 리스트
     let totalPage = 0;
 
     $(".region").click(function () {
@@ -132,13 +133,13 @@ $(function () {
                         $("#popCloseBtnCmmn").click(function(){
                             $(".other_form").css("display","none");
                         })
-
                         }
                     })
                 })
             }
         })
     }
+    
     $("#next").click(function () {
         currentPage++;
         if (currentPage > totalPage) currentPage = totalPage;

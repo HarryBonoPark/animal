@@ -16,6 +16,7 @@
         // js 파일에 넣어버리면 작동 안함.
         let kind_val = '${data.kind}';
         let region_val = '${data.region}';
+        let center_val = '${data.careNm}';
     </script>
 
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -27,13 +28,13 @@
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
+    
     <div class="main_banner_area">
         <div class="main_banner_contents">
             <h1 class="banner_title">반려동물에게 관심과 사랑을 주세요.</h1>
             <p class="banner_text">무엇이 궁금한가요?</p>
         </div>
     </div>
-
     <h1 class="title">문의하기</h1>
     <table class="regist_table">
         <tbody>
@@ -46,25 +47,33 @@
                     <option value="파양 문의">파양 문의</option>
                 </select>
                 <select id="region_select">
-                    <option value="서울특별시">서울특별시</option>
-                    <option value="부산광역시">부산광역시</option>
-                    <option value="대구광역시">대구광역시</option>
-                    <option value="인천광역시">인천광역시</option>
-                    <option value="광주광역시">광주광역시</option>
-                    <option value="대전광역시">대전광역시</option>
-                    <option value="울산광역시">울산광역시</option>
-                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="all">선택 안함</option>
+                    <option value="서울특">서울특별시</option>
+                    <option value="부산광">부산광역시</option>
+                    <option value="대구광">대구광역시</option>
+                    <option value="인천광">인천광역시</option>
+                    <option value="광주광">광주광역시</option>
+                    <option value="대전광">대전광역시</option>
+                    <option value="울산광">울산광역시</option>
+                    <option value="세종특">세종특별자치시</option>
                     <option value="경기도">경기도</option>
                     <option value="강원도">강원도</option>
-                    <option value="충청북도">충청북도</option>
-                    <option value="충청남도">충청남도</option>
-                    <option value="전라북도">전라북도</option>
-                    <option value="전라남도">전라남도</option>
-                    <option value="경상북도">경상북도</option>
-                    <option value="경상남도">경상남도</option>
-                    <option value="제주특별자치도">제주특별자치도</option>
+                    <option value="충청북">충청북도</option>
+                    <option value="충청남">충청남도</option>
+                    <option value="전라북">전라북도</option>
+                    <option value="전라남">전라남도</option>
+                    <option value="경상북">경상북도</option>
+                    <option value="경상남">경상남도</option>
+                    <option value="제주특">제주특별자치도</option>
                 </select>
             </td>
+            </tr>
+            <tr>
+                <td>분실센터</td>
+                <td>
+                    <select id="center_select">
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>이름</td>
