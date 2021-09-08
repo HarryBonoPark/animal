@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +56,7 @@
                 </tr>
                 <tr>
                     <td>분실날짜</td>
-                    <td>${detail.lostDate}</td>
+                    <td><fmt:formatDate value="${detail.lostDate}" pattern="yyyy-MM-dd" /></td>
                 </tr>
                 <tr>
                     <td>특징</td>
@@ -83,6 +84,7 @@
             </tbody>
             <c:if test="${member.status == 0}">
                 <tbody class="button_tbody">
+                    <button class="modify_button" data_num="${detail.seq}">수정하기</button>
                     <button class="delete_button" data_num="${detail.seq}">삭제하기</button>
                 </tbody>
             </c:if>

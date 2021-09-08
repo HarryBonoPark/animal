@@ -31,4 +31,12 @@ public class LostController {
 
         return "/animal/lostDetail";
     }
+
+    @GetMapping("/lost/modify")
+    public String getLostAnimalModify(@RequestParam Integer seq, Model model) {
+        LostInfoVO vo = service.selectLostAnimalInfoBySeq(seq);
+        model.addAttribute("lost", vo);
+
+        return "/animal/lostModify";
+    }
 }

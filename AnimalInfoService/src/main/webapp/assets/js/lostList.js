@@ -80,7 +80,7 @@ $(function() {
                         '</p>'+
                         '<p>'+
                             '<span>분실 날짜</span>'+
-                            '<span class="lostDate">'+r.data[i].lostDate+'</span>'+
+                            '<span class="lostDate">'+ makeDate(new Date(r.data[i].lostDate))+'</span>'+
                         '</p>'+
                         '<p>'+
                             '<span>분실 지역</span>'+
@@ -110,3 +110,10 @@ $(function() {
         $(".lost_animal").eq(currentPage-1).addClass("active");
     })
 })
+
+function makeDate(dt) {
+    return dt.getFullYear()+"-"+leadingZero(dt.getMonth() + 1)+"-"+leadingZero(dt.getDate());
+}
+function leadingZero(n) {
+    return n < 10 ? "0" + n : "" + n;
+}

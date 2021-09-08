@@ -43,4 +43,25 @@
     <delete id="deleteLostAnimalInfo">
         delete from lost_animal where seq = #{seq}
     </delete>
+    <update id="updateLostAnimalInfo">
+        update lost_animal set
+            <if test="image_uri != null">
+                image_uri = #{image_uri},
+            </if>
+            region = #{region},
+            lostDate = #{lostDate},
+            writerName = #{writerName},
+            writerEmail = #{writerEmail},
+            writerPhone = #{writerPhone},
+            animalName = #{animalName},
+            animalKind = #{animalKind},
+            animalKindMore = #{animalKindMore},
+            animalColor = #{animalColor},
+            animalSex = #{animalSex},
+            animalAge = #{animalAge},
+            lostPlace = #{lostPlace},
+            specialMark = #{specialMark},
+            registNumber = #{registNumber}
+        where seq = #{seq}
+    </update>
 </mapper>

@@ -47,4 +47,8 @@ public class LostInfoService {
     public void deleteLostAnimalInfo(Integer seq) {
         mapper.deleteLostAnimalInfo(seq);
     }
+
+    public void updateLostAnimalInfo(LostInfoVO vo) {
+        mapper.updateLostAnimalInfo(vo);
+    }
 }
