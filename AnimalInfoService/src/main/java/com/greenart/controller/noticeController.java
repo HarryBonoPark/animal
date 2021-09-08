@@ -2,9 +2,14 @@ package com.greenart.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.greenart.service.CategoryService;
+import com.greenart.service.MemberInfoService;
+import com.greenart.service.NoticeAdminService;
 import com.greenart.service.NoticeService;
 import com.greenart.vo.CategoryVO;
+import com.greenart.vo.MemberInfoVO;
 import com.greenart.vo.NoticeVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +23,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class noticeController {
     @Autowired CategoryService c_service;
     @Autowired NoticeService n_service;
+    @Autowired MemberInfoService m_service;
+    @Autowired NoticeAdminService ma_service;
 
     @GetMapping("/notice")
-    public String getNotice(@RequestParam @Nullable Integer seq, Model model){
+    public String getNotice(@RequestParam @Nullable Integer seq, @RequestParam @Nullable Integer status, HttpSession session, Model model){
         List<CategoryVO> clist = c_service.selectCategoryAll();
         NoticeVO notice = n_service.selectNoticeByseq(seq);
         List<NoticeVO> nList = n_service.selectAllNotice();
+        MemberInfoVO adminuser = (MemberInfoVO)session.getAttribute("notice");
+        if(adminuser == null){
+            return "/notice/notice";
+        }
+
 
         model.addAttribute("clist", clist);
         model.addAttribute("notice", notice);
@@ -33,18 +45,23 @@ public class noticeController {
     }
 
     @GetMapping("/notice/nList")
-    public String getNoticeList(@RequestParam @Nullable Integer seq,Model model){
+    public String getNoticeList(@RequestParam @Nullable Integer seq, HttpSession session, Model model){
         List<CategoryVO> clist = c_service.selectCategoryAll();
         // NoticeVO notice = n_service.selectNoticeByseq(seq);
         // 여기에서 공지사항 목록을 model로 내보내주세요.
         NoticeVO notice = n_service.selectNoticeByseq(seq);
         List<NoticeVO> nList = n_service.selectAllNotice();
+        MemberInfoVO member_info = (MemberInfoVO)session.getAttribute("member");
+        if(member_info == null){
+            return "/notice/nList";
+        }
+        Integer mi_status = member_info.getStatus();
 
+        MemberInfoVO status = ma_service.selectAdminStatus(mi_status);
+        model.addAttribute("member_info", status);
         model.addAttribute("clist", clist);
         model.addAttribute("notice", notice);
         model.addAttribute("nList", nList);
-        model.addAttribute("noList", n_service.selectNoticeByseq(seq));
-        
         return "/notice/nList";
     }
 

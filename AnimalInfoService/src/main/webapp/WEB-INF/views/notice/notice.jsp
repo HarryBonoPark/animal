@@ -41,6 +41,7 @@
                 <tr>
                     <td colspan="4">
                         <button id="save">등록</button>
+                        <button type="button" onclick="location.href='/notice/nList'" id="noticeList">목록</button>
                     </td>
                 </tr>
             </tbody>

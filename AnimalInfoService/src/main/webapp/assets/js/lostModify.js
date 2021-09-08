@@ -13,9 +13,25 @@ $.datepicker.setDefaults({
 
 $(function() {
     $("#lostDate").datepicker();
-    $("#lostDate").datepicker("option", "maxDate", new Date());
+    // $("#lostDate").datepicker("option", "maxDate", new Date());
 
-    $("#save").click(function() {
+    $("#cancel").click(function() {
+        if(confirm("이전 페이지로 돌아가시겠습니까? \n변경 내용은 저장되지 않습니다.")) {
+            location.href = '/lost/detail?seq='+$(this).attr("data_num");
+        }
+    })
+
+    if(region_val != '') {
+        $("#region_select").val(region_val).prop("selected", true);
+    }
+    if(kind_val != '') {
+        $("#kind_select").val(kind_val).prop("selected", true);
+    }
+    if(sex_val != '') {
+        $("#sex_select").val(sex_val).prop("selected", true);
+    }
+
+    $("#modify").click(function() {
 
         let region = $("#region_select option:selected").val();
         if(region == "" || region == null || region == undefined){
@@ -78,6 +94,7 @@ $(function() {
         }
 
         let data = {
+            seq : $(this).attr("data_num"),
             region : region,
             lostDate : lostDate,
             writerName : writer_name,
@@ -87,7 +104,7 @@ $(function() {
             animalKind : aniaml_kind,
             animalKindMore : animal_kind_more,
             animalColor : animal_color,
-            animalSex : animal_sex,
+            animalSex : animal_sex, 
             animalAge : animal_age,
             lostPlace : lost_place,
             specialMark : special_mark,
@@ -97,16 +114,13 @@ $(function() {
         console.log(data);
 
         $.ajax({
-            type:"post",
-            url:"/api/animal/lost",
+            type:"patch",
+            url:"/api/lost/update", 
             data:JSON.stringify(data),
             contentType:"application/json",
             success:function(r){
                 alert(r.message);
-                location.href = '/lost/list';
-            },
-            error:function(e){
-                console.log(e);
+                history.back();
             }
         })
     })
@@ -132,17 +146,15 @@ $(function() {
                 alert(r.message);
             }
         })
-        })
-        $("#img_delete").click(function(){
-            let uri = $("#img_preview").attr("img-uri");
-            $("#img_preview").html("");
-
-            $("#image_form > input").val("");
-            $(this).prop("disabled", true);
-            $("#image_form > input").prop("disabled", false);
-            $("#img_save").prop("disabled", false);
-
-            alert("등록된 사진이 삭제됩니다.");
     })
+    $("#img_delete").click(function(){
+        $("#img_preview").html("");
 
+        $("#image_form > input").val("");
+        $(this).prop("disabled", true);
+        $("#image_form > input").prop("disabled", false);
+        $("#img_save").prop("disabled", false);
+
+        alert("등록된 사진이 삭제됩니다.");
+    })
 })

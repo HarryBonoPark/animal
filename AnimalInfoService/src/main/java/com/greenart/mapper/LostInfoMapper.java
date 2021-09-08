@@ -16,4 +16,6 @@ public interface LostInfoMapper {
 
     public List<LostInfoVO> selectLostAnimalList(String region, Date startDate, Date endDate);
     public LostInfoVO selectLostAnimalInfoBySeq(Integer seq);
+    public void deleteLostAnimalInfo(Integer seq);
+    public void updateLostAnimalInfo(LostInfoVO vo);
 }

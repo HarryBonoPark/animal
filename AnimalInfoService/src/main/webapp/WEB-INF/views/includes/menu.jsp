@@ -39,9 +39,6 @@
         <div class="header">
             <ul class="left_menu">
                 <li>
-                    <a href="/notice/nList">공지사항</a>
-                </li>
-                <li>
                     <a href="/dog">강아지</a>
                 </li>
                 <li>
@@ -49,6 +46,9 @@
                 </li>
                 <li>
                     <a href="/other">기타동물</a>
+                </li>
+                <li>
+                    <a href="/center">보호센터</a>
                 </li>
             </ul>
             <a href="/" id="logo">
@@ -62,10 +62,10 @@
                     <a href="/lost/list">분실센터</a>
                 </li>
                 <li>
-                    <a href="/center">보호센터</a>
+                    <a href="/notice/nList">공지사항</a>
                 </li>
-                    <li>
-                    <a href="/support/list">문의</a>
+                <li>
+                    <a href="/support/list">문의하기</a>
                 </li>
             </ul>
         </div>

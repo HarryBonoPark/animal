@@ -43,4 +43,12 @@ public class LostInfoService {
     public LostInfoVO selectLostAnimalInfoBySeq(Integer seq) {
         return mapper.selectLostAnimalInfoBySeq(seq);
     }
+
+    public void deleteLostAnimalInfo(Integer seq) {
+        mapper.deleteLostAnimalInfo(seq);
+    }
+
+    public void updateLostAnimalInfo(LostInfoVO vo) {
+        mapper.updateLostAnimalInfo(vo);
+    }
 }

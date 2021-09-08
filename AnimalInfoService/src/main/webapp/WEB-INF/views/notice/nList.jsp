@@ -44,8 +44,8 @@
                     </select>
                     <input type="text" id="search_keyword" placeholder="공지사항 검색">
                     <button id="search">검색</button>
-                    <c:if test="${user.status == 0}">
-                        <button type="button" id="admin" onclick="location.href='/notice'">글쓰기</button>
+                    <c:if test="${member_info.status == 0}">
+                        <a href="/notice">글쓰기</a>
                     </c:if>
                 </div>
             </div>
