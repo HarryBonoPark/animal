@@ -27,15 +27,10 @@ public class noticeController {
     @Autowired NoticeAdminService ma_service;
 
     @GetMapping("/notice")
-    public String getNotice(@RequestParam @Nullable Integer seq, @RequestParam @Nullable Integer status, HttpSession session, Model model){
+    public String getNotice(@RequestParam @Nullable Integer seq, @RequestParam @Nullable Integer status, Model model){
         List<CategoryVO> clist = c_service.selectCategoryAll();
         NoticeVO notice = n_service.selectNoticeByseq(seq);
         List<NoticeVO> nList = n_service.selectAllNotice();
-        MemberInfoVO adminuser = (MemberInfoVO)session.getAttribute("notice");
-        if(adminuser == null){
-            return "/notice/notice";
-        }
-
 
         model.addAttribute("clist", clist);
         model.addAttribute("notice", notice);
@@ -47,6 +42,7 @@ public class noticeController {
     @GetMapping("/notice/nList")
     public String getNoticeList(@RequestParam @Nullable Integer seq, HttpSession session, Model model){
         List<CategoryVO> clist = c_service.selectCategoryAll();
+        model.addAttribute("clist", clist);
         // NoticeVO notice = n_service.selectNoticeByseq(seq);
         // 여기에서 공지사항 목록을 model로 내보내주세요.
         NoticeVO notice = n_service.selectNoticeByseq(seq);
@@ -59,7 +55,6 @@ public class noticeController {
 
         MemberInfoVO status = ma_service.selectAdminStatus(mi_status);
         model.addAttribute("member_info", status);
-        model.addAttribute("clist", clist);
         model.addAttribute("notice", notice);
         model.addAttribute("nList", nList);
         return "/notice/nList";

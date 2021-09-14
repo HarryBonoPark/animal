@@ -1,0 +1,29 @@
+.container {
+    padding:100px 0;
+    width:1100px; margin:0 auto;
+    font-family: "Noto Sans KR", sans-serif;
+}
+.container h1 {
+    font-size: 32px; 
+    font-family: 'Cafe24Ssurround';
+    color: #434343;
+    margin-bottom: 40px; text-align: center;
+}
+#notice_table {padding: 10px; font-family: 'Cafe24Ssurround';}
+#ca_seq {margin-bottom: 10px; vertical-align: middle; margin-left: 20px; }
+#title {margin-bottom: 10px; vertical-align: middle; padding: 0px 390px; margin-left: 20px; }
+#content {margin-bottom: 10px; vertical-align: middle; padding: 100px 400px; margin-left: 20px; }
+#save {text-align: center; font-family: 'Cafe24Ssurround';
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(88, 88, 88);
+    color: #fff; 
+    padding:10px 20px;
+    cursor:pointer; margin-left: 40%;}
+#noticeList {text-align: center; font-family: 'Cafe24Ssurround';
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(88, 88, 88);
+    color: #fff; 
+    padding:10px 20px;
+    cursor:pointer;}

@@ -12,4 +12,10 @@
 .tit_page {padding: 20px 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); box-sizing: border-box;}
 .tit_page th {font-weight: 700; }
 .content {padding: 20px 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); box-sizing: border-box; height: 500px;}
-#back {float: right; padding: 5px 10px;}
+#back {float: right; font-family: 'Cafe24Ssurround';
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(88, 88, 88);
+    color: #fff; 
+    padding:10px 20px;
+    cursor:pointer;}
