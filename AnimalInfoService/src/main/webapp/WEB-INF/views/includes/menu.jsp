@@ -65,7 +65,7 @@
                     <a href="/notice/nList">공지사항</a>
                 </li>
                 <li>
-                    <a href="/support/list">문의하기</a>
+                    <a href="/support/list">문의</a>
                 </li>
             </ul>
         </div>

@@ -33,7 +33,7 @@ $(function(){
     $("#user_date").datepicker();
     $("#user_date").datepicker("setDate", new Date());
     $("#user_date").datepicker("option","maxDate", '2021-12-31');
-    $("#user_date").datepicker("option","minDate", '2021-03-11');
+    $("#user_date").datepicker("option","minDate", new Date());
 
     //버튼 클릭시 입력 창 나온다    
     $(".btn").click(function(){

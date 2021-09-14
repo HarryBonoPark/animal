@@ -57,48 +57,26 @@ public class OtherInfoAPIController {
             Element elem = (Element) n;
             OtherInfoVO vo = new OtherInfoVO();
             String age = getTagValue("age", elem); 
-            //System.out.println(age);
             String careAddr = getTagValue("careAddr", elem); 
-            //System.out.println(careAddr);
             String careNm = getTagValue("careNm", elem); 
-            //System.out.println(careNm);
             String careTel = getTagValue("careTel", elem); 
-            //System.out.println(careTel);
             String colorCd = getTagValue("colorCd", elem); 
-            //System.out.println(colorCd);
             String desertionNo = getTagValue("desertionNo", elem); 
-            //System.out.println(desertionNo);
-            String filename = getTagValue("filename", elem);
-            //System.out.println(filename); 
+            String filename = getTagValue("filename", elem); 
             String happenDt = getTagValue("happenDt", elem); 
-            //System.out.println(happenDt);
             String happenPlace = getTagValue("happenPlace", elem); 
-            //System.out.println(happenPlace);
             String kindCd = getTagValue("kindCd", elem); 
-            //System.out.println(kindCd);
             String neuterYn = getTagValue("neuterYn", elem); 
-            //System.out.println(neuterYn);
             String noticeSdt = getTagValue("noticeSdt", elem); 
-            //System.out.println(noticeSdt);
             String noticeEdt = getTagValue("noticeEdt", elem);
-            //System.out.println(noticeEdt); 
             String noticeNo = getTagValue("noticeNo", elem); 
-            //System.out.println(noticeNo);
             String officetel = getTagValue("officetel", elem); 
-            //System.out.println(officetel);
             String orgNm = getTagValue("orgNm", elem);
-            //System.out.println(orgNm); 
-            String popfile = getTagValue("popfile", elem);
-            //System.out.println(popfile); 
+            String popfile = getTagValue("popfile", elem); 
             String processState = getTagValue("processState", elem);
-            //System.out.println(processState); 
             String sexCd = getTagValue("sexCd", elem);
-            //System.out.println(sexCd); 
             String specialMark = getTagValue("specialMark", elem);
-            //System.out.println(specialMark); 
             String weight = getTagValue("weight", elem);
-            //System.out.println(weight); 
-            //System.out.println("================");
 
             Date hDt = new Date();
             SimpleDateFormat hFormatter = new SimpleDateFormat("yyyyMMdd");
@@ -111,7 +89,6 @@ public class OtherInfoAPIController {
             Date sDt = new Date();
             SimpleDateFormat sFormatter = new SimpleDateFormat("yyyyMMdd");
             sDt = sFormatter.parse(noticeSdt);
-
             vo.setAge(age);
             vo.setCareAddr(careAddr);
             vo.setCareNm(careNm);
@@ -133,8 +110,6 @@ public class OtherInfoAPIController {
             vo.setSexCd(sexCd);
             vo.setSpecialMark(specialMark);
             vo.setWeight(weight);
-
-            //System.out.println(vo);
 
             service.insertOtherInfo(vo);
         }

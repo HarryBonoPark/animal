@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
                 crossorigin="anonymous" />
-        <link rel="stylesheet" href="/assets/css/supportList.css">
         <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="/assets/js/supportList.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
@@ -23,8 +22,8 @@
 
 <body>
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
-        <h1 class="title">문의하기</h1>
         <div class="container">
+                <h1 class="title">문의하기</h1>
                 <ul class="content_head">
                         <li class="region selected">
                                 <span class="plain_name" data-region="all">전국</span>

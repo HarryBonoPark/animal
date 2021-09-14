@@ -103,7 +103,7 @@ $(function(){
             contentType:"application/json",
             success:function(r){
                 alert(r.message);
-                history.back();
+                location.href = '/support/list';
             },
             error:function(e){
                 console.log(e);

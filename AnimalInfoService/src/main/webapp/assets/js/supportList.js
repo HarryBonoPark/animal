@@ -9,7 +9,7 @@ $(function () {
         $(this).addClass("selected");
         let region = $(this).find(".plain_name").attr("data-region");
         getSupportList(region);
-        loadKeyword(keyword, 0);
+
     })
     function getSupportList(region) {
         let url = "http://localhost:8947/api/support?region=" + region;
@@ -26,6 +26,9 @@ $(function () {
                 for (let i = 0; i < totalPage; i++) {
                     let tag = '<tbody class="support-tbody"></tbody>';
                     $("#support_table").append(tag);
+                }
+                if(r.data.length== 0) {
+                    $(".support-tbody").append('<div class="nodata"><img src="/assets/images/logo.svg"><h1>등록된 게시글이 없습니다.</h1></div>')
                 }
                 for (let i = 0; i < r.data.length; i++) {
                     let page = Math.floor(i / 10);

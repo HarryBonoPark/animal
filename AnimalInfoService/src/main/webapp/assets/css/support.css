@@ -1,61 +1,16 @@
-.main_banner_area {
-    background-image: url("/assets/images/banner_small.jpg");
-    background-position: center;
-    height:500px;
-}
-.main_banner_contents {
-    width: 1100px; margin:0 auto;
-    position: relative;
-    height: 100%;
-}
-.banner_title {
-    font-size: 24px;
-    padding:15px 20px; padding-bottom: 11px;
-    background-color: #fff; display: inline-block;
-    border-radius: 10px;
-    font-family: 'Cafe24Ssurround';
-    margin-top: 80px;
-    margin-bottom: 20px;
-    color: #ffcc66;;
-}
-.banner_text {
-    font-family: 'Cafe24Ssurround';
-    font-size: 48px; color: #fff;
-}
-.banner_warn {
-    font-size: 20px; color: #fff;
-    font-family: 'Cafe24Ssurround';
-    margin-top: 10px;
-}
-.main_banner_contents .banner_contents {
-    position: absolute; right: 0px; top: 380px;
-    font-family: 'Cafe24Ssurround'; color: #fcfcfc;
-}
-.main_banner_contents .banner_contents .ani_title {
-    font-size: 36px; text-align: right; margin-bottom: 10px;
-}
-.main_banner_contents .banner_contents .content_mid {
-    margin-top: 50px;
-}
-.main_banner_contents .banner_contents .ani_number {
-    font-size: 52px; text-align: right;
-}
-
-.title{
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    padding:10px;
-    border-bottom: 1px solid rgb(182, 182, 182);
-    font-family: 'Cafe24Ssurround';
-}
-
 .regist_table td{padding: 10px;}
+
+.title {
+    margin-top: 80px;
+    font-size: 32px; 
+    font-family: 'Cafe24Ssurround';
+    color: #434343;
+    margin-bottom: 40px; text-align: center;
+}
+
 .regist_table input{
     width: 400px; padding: 10px; outline: none; border: 1px solid #ddd;background-color: #f7f7f7;
-    border-radius: 5px; font-family: 'Cafe24Ssurround';
+    border-radius: 5px; 
 }
 .regist_table button{
     font-family: 'Cafe24Ssurround'; border: 0; border-radius: 3px; background-color: rgb(243, 213, 82) 

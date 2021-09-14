@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +29,7 @@
     <script src="/assets/js/calendar.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
         });
     </script>
     <script>
@@ -41,6 +41,7 @@
         }
     </script>
 </head>
+
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
     <div class="dashboard_area">
@@ -51,94 +52,96 @@
                 <table class="content_table">
                     <tbody>
                         <tr>
-                        <td>문 의</td>
-                        <td><select id="kind_select">
-                            <option value="all">전체</option>
-                            <option value="입양 문의">입양 문의</option>
-                            <option value="보호센터 문의">보호센터 문의</option>
-                            <option value="파양 문의">파양 문의</option>
-                        </select>
-                        <select id="region_select">
-                            <option value="서울특">서울특별시</option>
-                            <option value="부산광">부산광역시</option>
-                            <option value="대구광">대구광역시</option>
-                            <option value="인천광">인천광역시</option>
-                            <option value="광주광">광주광역시</option>
-                            <option value="대전광">대전광역시</option>
-                            <option value="울산광">울산광역시</option>
-                            <option value="세종특">세종특별자치시</option>
-                            <option value="경기도">경기도</option>
-                            <option value="강원도">강원도</option>
-                            <option value="충청북">충청북도</option>
-                            <option value="충청남">충청남도</option>
-                            <option value="전라북">전라북도</option>
-                            <option value="전라남">전라남도</option>
-                            <option value="경상북">경상북도</option>
-                            <option value="경상남">경상남도</option>
-                            <option value="제주특">제주특별자치도</option>
-                        </select>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>분실센터</td>
-                        <td>
-                            <select id="center_select">
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>이름</td>
-                        <td>
-                            <input type="text" id="user_name">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>제목</td>
-                        <td>
-                            <input type="text" id="user_title">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>상세 내용</td>
-                        <td>
-                            <input type="text" id="user_detail">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>날짜</td>
-                        <td>
-                            <input type="text" id="user_date">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>시간</td>
-                        <td colspan="2">
-                            <input type="text" id="user_datetime_h">
-                            <input type="text" id="user_datetime_m">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button id="cal_btn">예약하기</button>
-                            <button id="close_btn">닫기</button>
-                        </td>
-                    </tr>
+                            <td>문 의</td>
+                            <td><select id="kind_select">
+                                    <option value="all">전체</option>
+                                    <option value="입양 문의">입양 문의</option>
+                                    <option value="보호센터 문의">보호센터 문의</option>
+                                    <option value="파양 문의">파양 문의</option>
+                                </select>
+                                <select id="region_select">
+                                    <option value="서울특">서울특별시</option>
+                                    <option value="부산광">부산광역시</option>
+                                    <option value="대구광">대구광역시</option>
+                                    <option value="인천광">인천광역시</option>
+                                    <option value="광주광">광주광역시</option>
+                                    <option value="대전광">대전광역시</option>
+                                    <option value="울산광">울산광역시</option>
+                                    <option value="세종특">세종특별자치시</option>
+                                    <option value="경기도">경기도</option>
+                                    <option value="강원도">강원도</option>
+                                    <option value="충청북">충청북도</option>
+                                    <option value="충청남">충청남도</option>
+                                    <option value="전라북">전라북도</option>
+                                    <option value="전라남">전라남도</option>
+                                    <option value="경상북">경상북도</option>
+                                    <option value="경상남">경상남도</option>
+                                    <option value="제주특">제주특별자치도</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>분실센터</td>
+                            <td>
+                                <select id="center_select">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이름</td>
+                            <td>
+                                <input type="text" id="user_name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td>
+                                <input type="text" id="user_title">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>상세 내용</td>
+                            <td>
+                                <input type="text" id="user_detail">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>날짜</td>
+                            <td>
+                                <input type="text" id="user_date">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>시간</td>
+                            <td colspan="2">
+                                <input type="text" id="user_datetime_h">
+                                <input type="text" id="user_datetime_m">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="cal_btn">예약하기</button>
+                                <button id="close_btn">닫기</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </div> 
-                <tr>
-                    <td>
-                        <button class="btn">예약하기</button>
-                    </td>
-                </tr>
-                <div class="content_right">
-                    <div id='calendar'>
-                    </div>
+            </div>
+            <tr>
+                <td>
+                    <button class="btn">예약하기</button>
+                </td>
+            </tr>
+            <div class="content_right">
+                <div id='calendar'>
                 </div>
             </div>
         </div>
+    </div>
+    <tr class="modify">
         <h1>예약 변경은 관리자에게 문의주세요</h1>
-        <%@include file="/WEB-INF/views/includes/footer.jsp"%>
+    </tr>
+    <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>
 
 </html>

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/assets/css/support.css">
-
     <script>
         // Model 을 통해 전달받은 데이터를 자바스크립트 변수에 저장
         // js 파일에 넣어버리면 작동 안함.
@@ -18,23 +17,16 @@
         let region_val = '${data.region}';
         let center_val = '${data.careNm}';
     </script>
-
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/support.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
         integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
+    
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/menu.jsp"%>
-    
-    <div class="main_banner_area">
-        <div class="main_banner_contents">
-            <h1 class="banner_title">반려동물에게 관심과 사랑을 주세요.</h1>
-            <p class="banner_text">무엇이 궁금한가요?</p>
-        </div>
-    </div>
     <h1 class="title">문의하기</h1>
     <table class="regist_table">
         <tbody>

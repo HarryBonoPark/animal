@@ -23,28 +23,24 @@
 .join_table #user_birth_date {
     width: 50px;
 }
-/* .join_table #user_address, 
-.join_table #user_address_detail{
-    width: 125px;
-}  */
 
 .join_table button {
     font-family: 'Cafe24Ssurround';
     border: 0;
     border-radius: 3px;
-    background-color: rgb(88, 88, 88);
-    color: #fff; 
+    background-color: rgb(243, 213, 82) 
+    color #fff;
     padding:10px 20px;
     cursor:pointer;
     
 }
 .join_table #join {
-    width: 200px; margin-top: 30px; margin-left: 50%px;
+    width: 200px;  margin-left: 50%px;
 }
 .join_table >td{width: 540px;}
 
 .join_table button:hover {
-    background-color: #333;
+    background-color: rgb(238, 230, 117);
 }
 .join_table {margin:0 auto;}
 .join_table tr:last-child {text-align: center;}

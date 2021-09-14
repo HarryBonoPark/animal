@@ -1,11 +1,13 @@
+.container {
+    padding:80px 0;
+    width: 1100px; margin:0 auto;
+}
 .title {
-    /* tac+fz28+fw500+mb50+mt50 */
-    text-align: center;
-    font-size: 28px;
-    font-weight: 500;
-    margin-top: 50px;
+    font-size: 32px; 
     font-family: 'Cafe24Ssurround';
-    font-weight: 100;
+    color: #434343;
+    text-align: center;
+    margin-bottom: 40px; 
 }
 .content_head {
     overflow: hidden; text-align: center;
@@ -70,3 +72,11 @@
 
 .support-tbody {display: none;}
 .support-tbody.active {display: table-row-group;}
+
+.nodata {
+    padding:50px 0; 
+}
+.nodata img {
+    width: 500px; opacity: 0.8; margin-bottom: 30px; margin-left: 50%;
+}
+.nodata h1 {color: #999; margin-left: 72%;}

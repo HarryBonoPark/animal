@@ -91,10 +91,16 @@
                 <td>주소</td>
                 <td>
                     <input type="text" id="user_address" value="${member.address}">
-                    <span></span>
+                </td>
+                <td>    
+                    <button id="chk_addr">주소확인</button>
+                </td>
+            </tr>
+            <tr>
+                <td>상세주소</td>
+                <td>
                     <input type="text" id="user_address_detail" value="${member.address_detail}">
                 </td>
-                <td><button id="chk_addr">주소확인</button></td>
             </tr>
             <tr>
                 <td>전화번호</td>
