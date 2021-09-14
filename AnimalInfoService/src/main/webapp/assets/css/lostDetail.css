@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .container {
     padding:100px 0;
     width:1100px; margin:0 auto;
@@ -8,4 +10,47 @@
     font-family: 'Cafe24Ssurround';
     color: #434343;
     margin-bottom: 40px; text-align: center;
+}
+.animal_img {
+    width: 50%;
+    text-align: center; margin-left: 25%;
+    margin-bottom: 20px;
+}
+
+.explain {
+    margin: 20px;
+    color: gray;
+    text-align: center;
+}
+
+.animal_table, .writer_table {
+    margin-left: 40%;
+}
+
+.button_area {
+    margin-top: 30px;
+    text-align: center;
+
+}
+
+.writer_info {margin-top: 40px;}
+
+.animal_table td, .writer_table td {padding: 5px;}
+
+.modify_button, .delete_button {
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 10px;
+    width: 120px;
+}
+
+.modify_button:hover, .delete_button:hover {
+    background-color: #F6F6F6;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 10px;
+    width: 120px;
 }

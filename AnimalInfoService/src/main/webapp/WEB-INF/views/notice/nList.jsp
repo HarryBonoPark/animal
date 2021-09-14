@@ -35,14 +35,14 @@
             </div>
             <div class="notice_list list">
                 <div class="search_area">
-                    <span>카테고리</span>
+                    <!-- <span>카테고리</span> -->
                     <select id="cate_search">
                         <option>전체</option>
                         <c:forEach items="${clist}" var="cate">
                             <option value="${cate.cate_seq}">${cate.cate_name}</option>
                         </c:forEach>
                     </select>
-                    <input type="text" id="search_keyword" placeholder="공지사항 검색">
+                    <input type="text" id="search_keyword" placeholder="어떤 내용을 찾으시나요?">
                     <button id="search">검색</button>
                     <c:if test="${member_info.status == 0}">
                         <a href="/notice">글쓰기</a>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .container {
     padding:100px 0;
     width:1100px; margin:0 auto;
@@ -12,4 +14,96 @@
 img {width: 300px;}
 .lost_box {border: 1px solid #434343; padding: 10px;}
 .lost_animal {display: none;}
-.lost_animal.active {display: table-row-group;}
+.lost_animal.active {display: block;}
+
+.top_explain {
+    text-align: center; 
+    color: gray;
+    font-size: 13px;
+}
+
+.search_area {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 10px; margin-bottom: 10px;
+    padding: 20px;
+    /* text-align: center; */
+}
+
+.search_left h1 {
+    margin-bottom: 10px;
+}
+
+.search_right {
+    margin-left: 25%;
+}
+
+.search_right p {
+    padding: 5px;
+}
+
+.lost_area {
+    margin-top: 10px;
+}
+
+.lost_cnt {
+    font-weight: 900; color: #ffbe3d;
+}
+
+.lost_box {
+    width:calc((100% - 60px) / 2);
+    display: inline-block; box-sizing: border-box;
+    margin-bottom: 20px;
+    vertical-align: top; height: 220px;
+    /* box-shadow:0 0 5px rgba(0,0,0,0.2); */
+    margin-right: 20px;
+    font-size: 14px;
+    font-family: "Noto Sans KR";
+    padding:15px; position: relative; overflow: hidden;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.lost_box:nth-child(4n) {
+    margin-right: 0;
+}
+
+.lost_box p {
+    padding: 4px;
+}
+
+.lost_box a {
+    padding: 4px;
+}
+
+.lost_page_area {
+    text-align: center; margin-top: 30px;
+    font-family: 'Roboto';
+}
+.lost_page_area > * {margin: 10px; vertical-align: middle;}
+.lost_page_area > button {
+    background-color: transparent;
+    border: 0; padding: 0; cursor:pointer;
+    color: #666; font-size: 24px; opacity: 0.8;
+}
+.lost_page_area > button:hover {
+    opacity: 1;
+}
+.lost_page_area .current {font-weight: 700;}
+
+.lost_regist {
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50%;
+    height: 50px;
+    font-weight: 600;
+    background-color: #fff;
+    color: #666;
+    text-align: center;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 25%;
+    width: 50%;
+}

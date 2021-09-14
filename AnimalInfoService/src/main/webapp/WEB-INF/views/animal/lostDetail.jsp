@@ -15,12 +15,14 @@
 
     <div class="container">
         <h1>분실 동물 상세정보</h1>
-        <span>※ 게시글 수정 및 삭제는 관리자에 문의바랍니다.</span>
+        <div class="explain">
+            <span>※ 게시글 수정 및 삭제는 관리자에 문의바랍니다.</span>
+        </div>
 
-        <table class="lost_detail_table">
-            <tbody class="lost_animal_info">
+        <table class="animal_table">
+            <tbody>
                 <tr>
-                    <img src="/image/${detail.image_uri}">
+                    <img src="/image/${detail.image_uri}" class="animal_img">
                 </tr>
                 <tr>
                     <td>이름</td>
@@ -67,26 +69,28 @@
                     <td>${detail.registNumber}</td>
                 </tr>
             </tbody>
-            <tbody class="writer_info">
-                <h1>여기로 연락주세요 !</h1>
-                <tr>
-                    <td>신고자</td>
-                    <td>${detail.writerName}</td>
-                </tr>
-                <tr>
-                    <td>연락처</td>
-                    <td>${detail.writerPhone}</td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td>${detail.writerEmail}</td>
-                </tr>
-            </tbody>
+            <table class="writer_table">
+                <tbody>
+                    <h1 class="writer_info">여기로 연락주세요 !</h1>
+                    <tr>
+                        <td>신고자</td>
+                        <td>${detail.writerName}</td>
+                    </tr>
+                    <tr>
+                        <td>연락처</td>
+                        <td>${detail.writerPhone}</td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td>${detail.writerEmail}</td>
+                    </tr>
+                </tbody>
+            </table>
             <c:if test="${member.status == 0}">
-                <tbody class="button_tbody">
+                <div class="button_area">
                     <button class="modify_button" data_num="${detail.seq}">수정하기</button>
                     <button class="delete_button" data_num="${detail.seq}">삭제하기</button>
-                </tbody>
+                </div>
             </c:if>
         </table>
     </div>

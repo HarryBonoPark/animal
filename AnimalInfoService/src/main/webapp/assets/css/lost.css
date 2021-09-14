@@ -8,8 +8,86 @@
     font-family: 'Cafe24Ssurround';
     color: #434343;
     margin-bottom: 40px; text-align: center;
+    margin-top: 40px;
 }
 .red {color: red;}
-span {color: gray;}
+span {color: gray; font-size: 12px; text-align: center; margin-left: 50%;}
+
+.title_explain {
+    text-align: center;
+    margin-left: 40%;
+}
 
 #img_preview img {width: 200px;}
+
+.writer_table td, .animal_table td, .title_table td {
+    padding: 5px;
+}
+.writer_table input, .writer_table select, .animal_table input, .animal_table select, .title_table input, .title_table select {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.animal_table button {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    border-radius: 3px;
+    background-color: #ffbe3d;
+    color: #fff; padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.writer_table, .animal_table, .title_table {width: 540px; margin-left: 27%; margin-top: 20px;}
+.writer_table select, .animal_table select, .title_table select {width: 323px;}
+
+#save {
+    width: 200px;
+    margin-left: 100px;
+    height: 50px;
+    width: 300px;
+    font-weight: 600;
+    background-color: #ffbe3d;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
+#image_form input {
+    width: 170px;
+    margin-top: 10px;
+}
+#image_form button:hover {
+    background-color: #ff9900;
+    color: #fff; font-weight: 500;
+}
+
+.img_explain { font-size: 14px; padding: 3px;}
+
+#cancel, #modify {
+    margin-top: 70px;
+    margin: 20px;
+    background-color: #fff;
+    border: 1px solid gray;
+    color: black;
+    border-radius: 3px;
+    padding: 15px;
+    width: 200px;
+    height: 50px;
+}
+
+#cancel:hover, #modify:hover {
+    margin-top: 70px;
+    margin: 20px;
+    background-color: #F6F6F6;
+    border: 1px solid gray;
+    color: black;
+    border-radius: 3px;
+    padding: 15px;
+    width: 200px;
+    height: 50px;
+}

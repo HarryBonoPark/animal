@@ -22,38 +22,42 @@
 
     <div class="container">
         <h1> 분실 동물 </h1>
-        <span>여기는 동물을 분실한 경우 동물정보를 올려 분실 동물을 찾을 수 있는 공간입니다.</span>
-        <span>동물을 분실한 경우 동물보호법 제12조 제1항 및 같은 법 시행규칙 제8조 제1항 및 제9조 제2항에 따라</span>
-        <span>등록대상동물을 10일 이내 시장, 군수, 구청장에게 분실 신고하셔야 합니다.</span>
-        <span>로그인 후, 분실 신고를 등록할 수 있습니다.</span>
+        <span class="top_explain">※ 여기는 동물을 분실한 경우 동물정보를 올려 분실 동물을 찾을 수 있는 공간입니다.<br></span>
+        <span class="top_explain">※ 동물을 분실한 경우 동물보호법 제12조 제1항 및 같은 법 시행규칙 제8조 제1항 및 제9조 제2항에 따라<br></span>
+        <span class="top_explain">등록대상동물을 10일 이내 시장, 군수, 구청장에게 분실 신고하셔야 합니다.<br></span>
+        <span class="top_explain">※ 로그인 후, 분실 신고를 등록할 수 있습니다.</span>
 
-        <div>
-            <h1>search</h1>
-            <p>날짜</p>
-            <input type="text" id="startDate"><span> ~ </span>
-            <input type="text" id="endDate">
-            <span>날짜는 분실 날짜 기준입니다.</span>
-            <p>지역</p>
-            <select id="region_select">
-                <option value="all">전국</option>
-                <option value="서울특별시">서울특별시</option>
-                <option value="부산광역시">부산광역시</option>
-                <option value="대구광역시">대구광역시</option>
-                <option value="인천광역시">인천광역시</option>
-                <option value="광주광역시">광주광역시</option>
-                <option value="대전광역시">대전광역시</option>
-                <option value="울산광역시">울산광역시</option>
-                <option value="세종특별자치시">세종특별자치시</option>
-                <option value="경기도">경기도</option>
-                <option value="강원도">강원도</option>
-                <option value="충청북도">충청북도</option>
-                <option value="충청남도">충청남도</option>
-                <option value="전라북도">전라북도</option>
-                <option value="전라남도">전라남도</option>
-                <option value="경상북도">경상북도</option>
-                <option value="경상남도">경상남도</option>
-                <option value="제주특별자치도">제주특별자치도</option>
-            </select>
+        <div class="search_area">
+            <div class="search_left">
+                <h1>search</h1>
+            </div>
+            <div class="search_right">
+                <p>날짜</p>
+                <input type="text" id="startDate"><span> ~ </span>
+                <input type="text" id="endDate">
+                <span>날짜는 분실 날짜 기준입니다.</span>
+                <p>지역</p>
+                <select id="region_select">
+                    <option value="all">전국</option>
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                </select>
+            </div>
         </div>
 
         <div>
@@ -69,10 +73,14 @@
             <span class="current_page">1</span> / <span class="total_page">10</span>
             <button id="lost_page_next">&gt;</button>
         </div>
+
+        <div>
+            <c:if test="${member != null}">
+                <button class="lost_regist" onclick="location.href='/lost'">분실 신고하기</button>
+            </c:if>
+        </div>
     </div>
-    <c:if test="${member != null}">
-        <button class="lost_regist" onclick="location.href='/lost'">분실 신고하기</button>
-    </c:if>
+    
 
     <%@include file="/WEB-INF/views/includes/footer.jsp"%>
 </body>

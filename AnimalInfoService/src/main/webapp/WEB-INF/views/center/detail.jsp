@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +27,15 @@
                     <td>${detail.divisionNm}</td>
                 </tr>
                 <tr>
-                    <td>동물 보호센터 지정 일자</td>
-                    <td>${detail.dsignationDate}</td>
-                </tr>
-                <tr>
                     <td>구조대상 동물</td>
                     <td>${detail.saveTrgtAnimal}</td>
                 </tr>
                 <tr>
                     <td>주소</td>
                     <td><span>(도로명)</span> ${detail.careAddr}</td>
+                </tr>
+                <tr>
+                    <td></td>
                     <td><span>(지번)</span> ${detail.jibunAddr}</td>
                 </tr>
                 <tr>
@@ -84,7 +84,8 @@
                 </tr>
                 <tr>
                     <td>마지막 업데이트</td>
-                    <td>${detail.dataStdDt}</td>
+                    <!-- <td>${detail.dataStdDt}</td> -->
+                    <td><fmt:formatDate value="${detail.dataStdDt}" pattern="yyyy-MM-dd" /></td>
                 </tr>
             </tbody>
         </table>

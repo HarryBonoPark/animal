@@ -34,7 +34,7 @@ $(function() {
                         '<td>'+r.data[i].careNm+'</td>'+
                         '<td>'+r.data[i].careTel+'</td>'+
                         '<td>'+r.data[i].careAddr+'</td>'+
-                        '<td><a href="/center/detail?seq='+r.data[i].seq+'" class="center_detail_a">detail</a></td>'+
+                        '<td><a href="/center/detail?seq='+r.data[i].seq+'" class="center_detail_a">상세보기</a></td>'+
                     '</tr>'
                     $(".center_tbody").eq(page).append(tag);
                 }
