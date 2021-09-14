@@ -10,7 +10,7 @@ footer {height:100px; padding:30px;
     position: relative;
 }
 .footer_wrap a {
-    font-size: 20px; font-family: 'Cafe24Ssurround';
+    font-size: 20px; font-family: "Noto Sans KR";
     color: #333; text-decoration: none;
 }
 .footer_wrap a:hover {

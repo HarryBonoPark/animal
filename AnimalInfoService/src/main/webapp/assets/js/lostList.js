@@ -53,7 +53,7 @@ $(function() {
                 currentPage = 1;
                 $(".total_page").html(Math.ceil(data_length / 6));
 
-                $(".lost_animal").html("");
+                $(".lost_area").html("");
                 let page = Math.ceil(r.data.length/6);
                 for(let i=0; i<page; i++) {
                     $(".lost_area").append('<div class="lost_animal"></div>');
