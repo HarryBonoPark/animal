@@ -48,5 +48,16 @@
 }
 .notice_page_area .current {font-weight: 700;}
 
-.notice_tbody {display: none;}
+.notice_tbody {display: none; }
 .notice_tbody.active {display: table-row-group;}
+
+.search_area {text-align: right; padding: 15px;}
+#search_keyword {text-align: center; margin-right: 5px; padding: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); box-sizing: border-box; }
+#cate_search {text-align: center; margin-right: 5px;}
+#search {display: inline-block; outline: none; cursor: pointer; text-align: center; text-decoration: none; font-family: 'Cafe24Ssurround';
+    border: 0;
+    border-radius: 3px;
+    background-color: rgb(88, 88, 88);
+    color: #fff; 
+    padding:10px 20px;
+    cursor:pointer;}
