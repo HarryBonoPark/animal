@@ -45,17 +45,17 @@ public class noticeController {
         model.addAttribute("clist", clist);
         // NoticeVO notice = n_service.selectNoticeByseq(seq);
         // 여기에서 공지사항 목록을 model로 내보내주세요.
-        NoticeVO notice = n_service.selectNoticeByseq(seq);
-        List<NoticeVO> nList = n_service.selectAllNotice();
         MemberInfoVO member_info = (MemberInfoVO)session.getAttribute("member");
         if(member_info == null){
             return "/notice/nList";
         }
         Integer mi_status = member_info.getStatus();
-
+        
         MemberInfoVO status = ma_service.selectAdminStatus(mi_status);
         model.addAttribute("member_info", status);
+        NoticeVO notice = n_service.selectNoticeByseq(seq);
         model.addAttribute("notice", notice);
+        List<NoticeVO> nList = n_service.selectAllNotice();
         model.addAttribute("nList", nList);
         return "/notice/nList";
     }
