@@ -113,8 +113,8 @@
                         </tr>
                         <tr>
                             <td>시간</td>
-                            <td colspan="2">
-                                <input type="text" id="user_datetime_h">
+                            <td colspan="3">
+                                <input type="text" id="user_datetime_h"><span> :</span>
                                 <input type="text" id="user_datetime_m">
                             </td>
                         </tr>

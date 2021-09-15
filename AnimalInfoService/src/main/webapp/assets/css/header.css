@@ -26,7 +26,7 @@ header {padding:10px; border-bottom: 1px solid #eee;}
 .header ul li a:hover {
     color:#F8AD5F;
 }
-.header_menu{ margin-left: 1400px;
+.header_menu{ margin-left: 1300px;
     font-size: 15px; font-weight: 700; margin-right: 100px; margin-top: 20px; font-family: 'Cafe24Ssurround';}
 .header_menu a{text-decoration:none; color: #333; margin: 10px; position: relative; top: -1px; font-family: 'Cafe24Ssurround';  }
 .header_menu .status {
