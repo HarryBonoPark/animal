@@ -22,7 +22,7 @@
     <select id="selectAllNotice" resultType="com.greenart.vo.NoticeVO">
         select * from notice_info
     </select>
-    <select id="selectMemId" resultType="java.lang.String">
+    <select id="selectMemId" resultType="com.greenart.vo.MemberInfoVO">
         select id from member_info where seq=#{seq}
     </select>
 </mapper>
